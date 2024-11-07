@@ -1,25 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>trabajador</title>
+    <title>Trabajador</title>
 </head>
 <body>
-    <form class="fm">
-        <label>Nombre</label>
-        <input type="text" placeholder="ingresa tu nombre" />
+    <form id="trabajador" >
+
+        <h2>Trabajador</h2>
+
+        <label for="nombre">Nombre</label>
+        <input id="nombre" type="text" placeholder="ingresa tu nombre" />
 
         <br>
 
-        <label>Fecha de nacimiento</label>
-        <input type="date" placeholder="fecha de nacimiento"/>
+        <label for="fecha_nacimiento" >Fecha de nacimiento</label>
+        <input id="fecha_nacimiento" type="date" placeholder="fecha de nacimiento"/>
+
         <br>
 
-        <label>Puesto de trabajo</label>
-
-        <select>
+        <label for="puesto_trabajo" >Puesto de trabajo</label>
+        <select id="puesto_trabajo" >
             <option>Capitan</option>
             <option>Oficial de carga</option>
             <option>Contramaestre</option>
@@ -29,13 +32,23 @@
 
         <br>
 
-        <label>Telefono</label>
-        <input type="tel" placeholder="numero de telefono"/>
-         
+        <label for="telefono" >Telefono</label>
+        <input id="telefono" type="tel" placeholder="numero de telefono"/>
+        
         <br>
 
-        <label>Correo Eletronico</label>
-        <input type="email" placeholder="correo electronico"/>
+        <label for="correo_electronico" >Correo Eletronico</label>
+        <input id="correo_electronico" type="email" placeholder="correo electronico"/>
+
+        <br>
+
+        <label for="direccion" >Dirección</label>
+        <input id="direccion" type="text" placeholder="dirección"/>
+
+        <br>
+
+        <input form="trabajador" type="submit" />
+
     </form>
 </body>
 </html>
