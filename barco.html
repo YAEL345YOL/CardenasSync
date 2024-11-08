@@ -1,28 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barco</title>
+    <title>Agregar barco</title>
 </head>
 <body>
-    <form id="barco">
+    <form>
+        <h2>Agregar barco</h2>
 
-        <h2>Barco</h2>
-
-        <label for="IMO">IMO</label>
-        <input id="IMO" type="text" placeholder="identificador IMO"/>
-
+        <!-- Nombre del Barco -->
+        <label for="nombre_barco">Nombre del barco</label>
+        <input id="nombre_barco" name="nombre_barco" type="text" placeholder="Nombre del barco"/>
         <br>
 
-        <label for="capacidad_carga">Capacidad de carga</label>
-        <input id="capacidad_carga" type="number" placeholder="capacidad en TEU"/>
-
+        <!-- Tipo de Barco -->
+        <label for="tipo_barco">Tipo de barco</label>
+        <select id="tipo_barco" name="tipo_barco">
+            <option>Portacontenedores</option>
+            <option>Granelero</option>
+            <option>Petrolero</option>
+            <option>Gasero</option>
+            <option>Quimiquero</option>
+        </select>
         <br>
 
-        <input id="barco" type="submit" />
+        <!-- Capacidad de carga -->
+        <label for="capacidad_carga_barco">Capacidad de carga</label>
+        <input id="capacidad_carga_barco" name="capacidad_carga_barco" type="number" placeholder="Capacidad en TEU"/>
+        <br>
 
+        <!-- Longitud -->
+        <label for="longitud_barco">Longitud</label>
+        <input id="longitud_barco" name="longitud_barco" type="number" placeholder="Longitud del barco en m"/>
+        <br>
+
+        <!-- Anchura -->
+        <label for="anchura_barco">Anchura</label>
+        <input id="anchura_barco" name="anchura_barco" type="number" placeholder="Anchura del barco en m"/>
+        <br>
+
+        <!-- Fecha de construcción -->
+        <label for="fecha_construccion_barco">Fecha de construcción</label>
+        <input id="fecha_construccion_barco" name="fecha_construccion_barco" type="date"/>
+        <br>
+
+        <!-- Boton de enviar -->
+        <input type="submit" />
     </form>
 </body>
 </html>
