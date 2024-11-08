@@ -4,51 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trabajador</title>
+    <title>Agregar trabajador</title>
 </head>
 <body>
-    <form id="trabajador" >
+    <form>
+        <h2>Agregar trabajador</h2>
 
-        <h2>Trabajador</h2>
-
-        <label for="nombre">Nombre</label>
-        <input id="nombre" type="text" placeholder="ingresa tu nombre" />
-
+        <!-- Nombre -->
+        <label for="nombre_trabajador">Nombre</label>
+        <input id="nombre_trabajador" name="nombre_trabajador" type="text" placeholder="Nombre del trabajador" />
         <br>
 
-        <label for="fecha_nacimiento" >Fecha de nacimiento</label>
-        <input id="fecha_nacimiento" type="date" placeholder="fecha de nacimiento"/>
-
-        <br>
-
-        <label for="puesto_trabajo" >Puesto de trabajo</label>
-        <select id="puesto_trabajo" >
+        <!-- Puesto de trabajo -->
+        <label for="puesto_trabajo_trabajador" >Puesto de trabajo</label>
+        <select id="puesto_trabajo_trabajador" name="puesto_trabajo_trabajador">
             <option>Capitan</option>
             <option>Oficial de carga</option>
             <option>Contramaestre</option>
             <option>Inspector de carga</option>
             <option>Supervisor de logistica</option>
         </select>
-
         <br>
 
-        <label for="telefono" >Telefono</label>
-        <input id="telefono" type="tel" placeholder="numero de telefono"/>
-        
+        <!-- Fecha de nacimiento -->
+        <label for="fecha_nacimiento_trabajador" >Fecha de nacimiento</label>
+        <input id="fecha_nacimiento_trabajador" name="fecha_nacimiento_trabajador" type="date" placeholder="Fecha de nacimiento"/>
         <br>
 
-        <label for="correo_electronico" >Correo Eletronico</label>
-        <input id="correo_electronico" type="email" placeholder="correo electronico"/>
-
+        <!-- Telefono -->
+        <label for="telefono_trabajador" >Teléfono</label>
+        <input id="telefono_trabajador" name="telefono_trabajador" type="tel" placeholder="Numero de teléfono"/>
         <br>
 
-        <label for="direccion" >Dirección</label>
-        <input id="direccion" type="text" placeholder="dirección"/>
-
+        <!-- Correo eletronico -->
+        <label for="correo_electronico_trabajador" >Correo Eletronico</label>
+        <input id="correo_electronico_trabajador" name="correo_electronico_trabajador" type="email" placeholder="Correo electronico"/>
         <br>
 
-        <input form="trabajador" type="submit" />
+        <!-- Direccion -->
+        <label for="direccion_trabajador" >Dirección</label>
+        <input id="direccion_trabajador" name="direccion_trabajador" type="text" placeholder="Dirección"/>
+        <br>
 
+        <!-- Boton de enviar -->
+        <input type="submit"/>
     </form>
 </body>
 </html>
