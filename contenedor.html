@@ -11,23 +11,8 @@
         <h2>Agregar contenedor</h2>
 
         <!-- Id barco -->
-        <label for="id_barco_contenedor">ID barco</label>
-        <input id="id_barco_contenedor" name="id_barco_contenedor" type="number" placeholder="ID del barco"/>
-        <br>
-
-        <!-- Tipo de contenedor -->
-        <label for="tipo_contenedor">Tipo de contenedor</label>
-        <select id="tipo_contenedor" name="tipo_contenedor">
-            <option value="seco_contenedor">Seco</option>
-            <option value="refrigerado_contenedor">Refrigerado</option>
-            <option value="tanque_contenedor">Tanque</option>
-            <option value="plataforma_contenedor">Plataforma</option>
-        </select>
-        <br>
-
-        <!-- Capacidad -->
-        <label for="capacidad_contenedor">Capacidad contenedor</label>
-        <input id="capacidad_contenedor" name="capacidad_contenedor" type="number" placeholder="Capacidad en kg"/>
+        <label for="id_viaje_contenedor">ID viaje</label>
+        <input id="id_viaje_contenedor" name="id_viaje_contenedor" type="number" placeholder="ID del viaje"/>
         <br>
 
         <!-- Fecha ingreso -->
@@ -35,14 +20,53 @@
         <input id="fecha_ingreso_contenedor" name="fecha_ingreso_contenedor" type="date" placeholder="Fecha ingreso"/>
         <br>
 
-        <!-- Alto  -->
-        <label for="alto_contenedor">Alto</label>
-        <input id="alto_contenedor" name="alto_contenedor" type="number" placeholder="Alto en ft"/>
+        <!-- Tipo de contenedor -->
+        <label for="tipo_contenedor">Tipo de contenedor</label>
+        <select id="tipo_contenedor" name="tipo_contenedor">
+            <option>Seco</option>
+            <option>Refrigerado</option>
+            <option>Techo Abierto</option>
+            <option>Plataforma</option>
+            <option>Lado abierto</option>
+            <option>Gran altura</option>
+            <option>Tanque</option>
+            <option>Ventilación</option>
+            <option>Carga a granel</option>
+            <option>Aislante</option>
+            <option>Carga no paletizada</option>
+        </select>
         <br>
 
-        <!-- Ancho  -->
+        <!-- tamaño estandarizado -->
+        <label for="tamano_contenedor">Tamaño</label>
+        <select name="tamano_contenedor" id="tamano_contenedor">
+            <option id="10_ft_contenedor">10 pies (10')</option>
+            <option id="20_ft_contenedor">20 pies (20')</option>
+            <option id="40_ft_contenedor">40 pies (40')</option>
+            <option id="40_ft_high_cube_contenedor">40 pies (40 HC')</option>
+            <option id="45_ft_contenedor">45 pies (45')</option>
+            <option id="53_ft_contenedor">53 pies (53')</option>
+        </select>
+        <br>
+
+        <!-- Longitud -->
+        <label for="longitud_contenedor">Longitud</label>
+        <input id="longitud_contenedor" name="longitud_contenedor" type="number" placeholder="Longitud (m)"/>
+        <br>
+
+        <!-- Ancho -->
         <label for="ancho_contenedor">Ancho</label>
-        <input id="ancho_contenedor" name="ancho_contenedor" type="number" placeholder="Ancho en ft"/>
+        <input id="ancho_contenedor" name="ancho_contenedor" type="number" placeholder="Ancho (m)"/>
+        <br>
+
+        <!-- Alto -->
+        <label for="alto_contenedor">Alto</label>
+        <input id="alto_contenedor" name="alto_contenedor" type="number" placeholder="Alto (m)"/>
+        <br>
+
+        <!-- Capacidad -->
+        <label for="capacidad_contenedor">Capacidad</label>
+        <input id="capacidad_contenedor" name="capacidad_contenedor" type="number" placeholder="Capacidad (kg)"/>
         <br>
 
         <!-- Boton de enviar -->
