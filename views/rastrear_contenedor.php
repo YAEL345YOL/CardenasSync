@@ -12,7 +12,7 @@
 
         <!-- Rastrear articulo por id -->
         <label for="id_articulo_rastrear_contenedor">ID contenedor</label>
-        <select name="id_articulo_rastrear_contenedor" id="id_articulo_rastrear_contenedor">
+        <select name="id_articulo_rastrear_contenedor" id="id_articulo_rastrear_contenedor" required>
             <!-- Consulta para obtener los contenedores  -->
         </select>
         <br>

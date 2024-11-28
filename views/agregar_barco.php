@@ -17,11 +17,11 @@
         <!-- Tipo de Barco -->
         <label for="tipo_barco">Tipo de barco</label>
         <select id="tipo_barco" name="tipo_barco">
-            <option>Portacontenedores</option>
-            <option>Granelero</option>
-            <option>Petrolero</option>
-            <option>Gasero</option>
-            <option>Quimiquero</option>
+            <option value="Portacontenedores">Portacontenedores</option>
+            <option value="Granelero">Granelero</option>
+            <option value="Petrolero">Petrolero</option>
+            <option value="Gasero">Gasero</option>
+            <option value="Quimiquero">Quimiquero</option>
         </select>
         <br>
 

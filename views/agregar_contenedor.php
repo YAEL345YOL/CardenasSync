@@ -20,7 +20,7 @@ $resultado = mysqli_query($con,$sql);
 
         <!-- Id viaje -->
         <label for="id_viaje_contenedor">ID viaje</label>
-        <select id="id_viaje_contenedor" name="id_viaje_contenedor">
+        <select id="id_viaje_contenedor" name="id_viaje_contenedor" required>
             <?php
                 while($row = $resultado->fetch_assoc()){
                     echo "<option value='{$row['id_viaje']}'>{$row['id_viaje']}</option>";

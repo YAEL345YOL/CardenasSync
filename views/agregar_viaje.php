@@ -17,12 +17,12 @@ $resultado2 = mysqli_query($con,$sql2);
     <title>Agregar viaje</title>
 </head>
 <body>
-    <form>
+    <form action="../php/agregar_viaje.php" method="POST">
         <h2>Agregar viaje</h2>
 
         <!-- Id_barco -->
         <label for="id_barco_viaje">ID barco</label>
-        <select name="id_barco_viaje" id="id_barco_viaje">
+        <select name="id_barco_viaje" id="id_barco_viaje" required>
             <?php
                 while($row = $resultado1->fetch_assoc()){
                     echo "<option value='{$row['id_barco']}'>{$row['id_barco']}</option>";
@@ -33,7 +33,7 @@ $resultado2 = mysqli_query($con,$sql2);
 
         <!-- Muelle llegada -->
         <label for="id_muelle_viaje">ID muelle</label>        
-        <select name="id_muelle_viaje" id="id_muelle_viaje">
+        <select name="id_muelle_viaje" id="id_muelle_viaje" required>
             <?php
                 while($row = $resultado2->fetch_assoc()){
                     echo "<option value='{$row['id_muelle']}'>{$row['id_muelle']}</option>";
@@ -59,7 +59,7 @@ $resultado2 = mysqli_query($con,$sql2);
 
         <!-- tiempo estimado -->
         <label for="tiempo_estimado_viaje">Tiempo estimado</label>        
-        <input id="tiempo_estimado_viaje" name="tiempo_estimado_viaje" type="number" placeholder="Tiempo estimado (hrs)">
+            <input id="tiempo_estimado_viaje" name="tiempo_estimado_viaje" type="number" placeholder="Tiempo estimado (hrs)">
         <br>
 
         <!-- Boton de enviar -->
