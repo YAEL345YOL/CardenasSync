@@ -1,7 +1,7 @@
 <?php
-include "coneccion.php";
+include "connection.php";
 
-$con = coneccion();
+$con = connection();
 $id_viaje = $_POST["id_viaje_contenedor"] ;
 $tipo = $_POST["tipo_contenedor"];
 $tamano = $_POST["tamano_contenedor"];

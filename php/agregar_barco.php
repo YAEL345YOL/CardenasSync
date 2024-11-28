@@ -1,7 +1,7 @@
 <?php
-include "coneccion.php";
+include "connection.php";
 
-$con = coneccion();
+$con = connection();
 $nombre = $_POST["nombre_barco"];
 $tipo = $_POST["tipo_barco"];
 $nacionalidad = $_POST["nacionalidad_barco"];

@@ -1,7 +1,7 @@
 <?php
-include "../php/coneccion.php";
+include "../php/connection.php";
 
-$con = coneccion();
+$con = connection();
 $sql = "SELECT * FROM viaje";
 
 $resultado = mysqli_query($con,$sql);

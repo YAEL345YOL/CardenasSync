@@ -1,7 +1,7 @@
 <?php
-include "coneccion.php";
+include "connection.php";
 
-$con = coneccion();
+$con = connection();
 $nombre = $_POST["nombre_trabajador"];
 $apellido = $_POST["apellido_trabajador"];
 $puesto_trabajo = $_POST["puesto_trabajo_trabajador"];
