@@ -7,7 +7,7 @@
     <title>Agregar Contenedor</title>
 </head>
 <body>
-    <form>
+    <form action="p_agregar_contenedor.php" method="POST">
         <h2>Agregar contenedor</h2>
 
         <!-- Id viaje -->
@@ -20,29 +20,29 @@
         <!-- Tipo de contenedor -->
         <label for="tipo_contenedor">Tipo de contenedor</label>
         <select id="tipo_contenedor" name="tipo_contenedor">
-            <option>Seco</option>
-            <option>Refrigerado</option>
-            <option>Techo Abierto</option>
-            <option>Plataforma</option>
-            <option>Lado abierto</option>
-            <option>Gran altura</option>
-            <option>Tanque</option>
-            <option>Ventilación</option>
-            <option>Carga a granel</option>
-            <option>Aislante</option>
-            <option>Carga no paletizada</option>
+            <option value="Seco">Seco</option>
+            <option value="Refrigerado">Refrigerado</option>
+            <option value="Techo Abierto">Techo Abierto</option>
+            <option value="Plataforma">Plataforma</option>
+            <option value="Lado abierto">Lado abierto</option>
+            <option value="Gran altura">Gran altura</option>
+            <option value="Tanque">Tanque</option>
+            <option value="Ventilacion">Ventilación</option>
+            <option value="Carga a granel">Carga a granel</option>
+            <option value="Aislante">Aislante</option>
+            <option value="Carga no paletizada">Carga no paletizada</option>
         </select>
         <br>
 
         <!-- tamaño estandarizado -->
         <label for="tamano_contenedor">Tamaño</label>
         <select name="tamano_contenedor" id="tamano_contenedor">
-            <option id="10_ft_contenedor">10 pies (10')</option>
-            <option id="20_ft_contenedor">20 pies (20')</option>
-            <option id="40_ft_contenedor">40 pies (40')</option>
-            <option id="40_ft_high_cube_contenedor">40 pies (40 HC')</option>
-            <option id="45_ft_contenedor">45 pies (45')</option>
-            <option id="53_ft_contenedor">53 pies (53')</option>
+            <option value="10ft">10 pies (10')</option>
+            <option value="20ft">20 pies (20')</option>
+            <option value="40ft">40 pies (40')</option>
+            <option value="40ft HC">40 pies (40 HC')</option>
+            <option value="45ft">45 pies (45')</option>
+            <option value="53ft">53 pies (53')</option>
         </select>
         <br>
 
@@ -52,7 +52,7 @@
         <br>
 
         <!-- Boton de enviar -->
-        <input type="submit"/>
+        <input type="submit">
     </form>
 </body>
 </html>
