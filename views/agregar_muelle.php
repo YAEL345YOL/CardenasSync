@@ -6,7 +6,7 @@
     <title>Agregar muelle</title>
 </head>
 <body>
-    <form>
+    <form action="../php/agregar_muelle.php" method="POST">
         <h2>Agregar muelle</h2>
 
         <!-- Nombre -->
