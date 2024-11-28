@@ -1,3 +1,11 @@
+<?php
+include "p_coneccion.php";
+
+$con = coneccion();
+$sql = "SELECT * FROM viaje";
+
+$resultado = mysqli_query($con,$sql);
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,7 +21,11 @@
         <!-- Id viaje -->
         <label for="id_viaje_contenedor">ID viaje</label>
         <select id="id_viaje_contenedor" name="id_viaje_contenedor">
-            <!-- Opciones de viajes -->
+            <?php
+                while($row = $resultado->fetch_assoc()){
+                    echo "<option value='{$row['id_viaje']}'>{$row['id_viaje']}</option>";
+                }
+            ?>
         </select>
         <br>
 
