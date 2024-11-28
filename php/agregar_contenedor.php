@@ -1,5 +1,5 @@
 <?php
-include "p_coneccion.php";
+include "coneccion.php";
 
 $con = coneccion();
 $id_viaje = $_POST["id_viaje_contenedor"] ;

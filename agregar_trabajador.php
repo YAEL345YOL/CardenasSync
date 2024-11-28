@@ -7,7 +7,7 @@
     <title>Agregar trabajador</title>
 </head>
 <body>
-    <form action="p_agregar_trabajador.php" method="POST">
+    <form action="php/agregar_trabajador.php" method="POST">
         <h2>Agregar trabajador</h2>
 
         <!-- Nombre(s) -->

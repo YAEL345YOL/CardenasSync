@@ -1,5 +1,5 @@
 <?php
-include "p_coneccion.php";
+include "coneccion.php";
 
 $con = coneccion();
 $nombre = $_POST["nombre_barco"];
