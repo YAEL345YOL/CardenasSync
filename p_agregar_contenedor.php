@@ -7,6 +7,6 @@ $tipo = $_POST["tipo_contenedor"];
 $tamano = $_POST["tamano_contenedor"];
 $capacidad = $_POST["capacidad_contenedor"];
 
-$sql = "INSERT INTO viaje VALUES (NULL,'$tipo','$tamano','$capacidad','$id_viaje')";
+$sql = "INSERT INTO contenedor VALUES (NULL,'$tipo','$tamano','$capacidad','$id_viaje')";
 mysqli_query($con,$sql);
 ?>
