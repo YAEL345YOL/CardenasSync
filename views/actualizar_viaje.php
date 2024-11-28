@@ -1,3 +1,12 @@
+<?php
+include "../php/connection.php";
+
+$con = connection();
+$sql = "SELECT * FROM viaje";
+
+$resultado = mysqli_query($con,$sql);
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,20 +22,24 @@
         <!-- ID viaje -->
         <label for="id_viaje_actualizar_viaje">ID viaje</label>
         <select name="id_viaje_actualizar_viaje" id="id_viaje_actualizar_viaje">
-            <!-- Opciones para viajes -->
+            <?php
+                while($row = $resultado->fetch_assoc()){
+                    echo "<option value='{$row['id_viaje']}'>{$row['id_viaje']}</option>";
+                }
+            ?>
         </select>
         <br>
 
         <!-- Estado -->
          <label for="estado_actualizar_viaje">Estado</label>
         <select name="estado_actualizar_viaje" id="estado_actualizar_viaje">
-            <option>En Proceso</option>
-            <option>En Espera</option>
-            <option>Completado</option>
-            <option>Cancelado</option>
-            <option>Retrasado</option>
-            <option>En Ruta</option>
-            <option>Llegado</option>
+            <option value="En proceso">En Proceso</option>
+            <option value="En espera">En Espera</option>
+            <option value="Completado">Completado</option>
+            <option value="Cancelado">Cancelado</option>
+            <option value="Retrasado">Retrasado</option>
+            <option value="En ruta">En Ruta</option>
+            <option value="Finalizado">Finalizado</option>
         </select>
         <br>
 
@@ -47,7 +60,7 @@
         <br>
 
         <!-- Boton de enviar -->
-        <input type="submit"/>
+        <input type="submit">
     </form>
 </body>
 </html>

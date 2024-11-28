@@ -1,3 +1,13 @@
+<?php
+include "../php/connection.php";
+
+$con = connection();
+$sql1 = "SELECT * FROM barco";
+$sql2 = "SELECT * FROM muelle";
+
+$resultado1 = mysqli_query($con,$sql1);
+$resultado2 = mysqli_query($con,$sql2);
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,14 +23,22 @@
         <!-- Id_barco -->
         <label for="id_barco_viaje">ID barco</label>
         <select name="id_barco_viaje" id="id_barco_viaje">
-            <!-- Opciones de barco -->
+            <?php
+                while($row = $resultado1->fetch_assoc()){
+                    echo "<option value='{$row['id_barco']}'>{$row['id_barco']}</option>";
+                }
+            ?>
         </select>
         <br>
 
         <!-- Muelle llegada -->
         <label for="id_muelle_viaje">ID muelle</label>        
         <select name="id_muelle_viaje" id="id_muelle_viaje">
-            <!-- Opciones de viaje -->
+            <?php
+                while($row = $resultado2->fetch_assoc()){
+                    echo "<option value='{$row['id_muelle']}'>{$row['id_muelle']}</option>";
+                }
+            ?>
         </select>
         <br>
 
