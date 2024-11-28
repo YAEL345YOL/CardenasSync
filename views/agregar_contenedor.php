@@ -1,5 +1,5 @@
 <?php
-include "php/coneccion.php";
+include "../php/coneccion.php";
 
 $con = coneccion();
 $sql = "SELECT * FROM viaje";
@@ -15,7 +15,7 @@ $resultado = mysqli_query($con,$sql);
     <title>Agregar Contenedor</title>
 </head>
 <body>
-    <form action="php/agregar_contenedor.php" method="POST">
+    <form action="../php/agregar_contenedor.php" method="POST">
         <h2>Agregar contenedor</h2>
 
         <!-- Id viaje -->

@@ -7,7 +7,7 @@
     <title>Agregar barco</title>
 </head>
 <body>
-    <form action="php/agregar_barco.php" method="POST">
+    <form action="../php/agregar_barco.php" method="POST">
         <h2>Agregar barco</h2>
         <!-- Nombre del Barco -->
         <label for="nombre_barco">Nombre del barco</label>
