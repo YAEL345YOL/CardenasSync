@@ -10,13 +10,13 @@
     <header>
         <nav>
             <ul>
-                <li><i class="fa-solid fa-box"></i></li>
-                <li></li>
+                <li><a href="login_cliente.php"><script src="https://kit.fontawesome.com/b9a8dc5754.js" crossorigin="anonymous"></script></a></li>
+                <li><a href="login_trabajador.php"></a></li>
             </ul>
         </nav>
     </header>
     <main>
-        
+
     </main>
     <footer>
 
