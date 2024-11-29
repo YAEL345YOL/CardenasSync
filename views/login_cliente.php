@@ -10,12 +10,12 @@
     <form action="../php/login_cliente.php" method="POST">
         <h2>Iniciar sesion</h2>
 
-        <label for="correo_cliente_login_cliente">Correo eletronico</label>
-        <input id="correo_cliente_login_cliente" name="correo_cliente_login_cliente" type="email" placeholder="Ingrese su correo" required>
+        <label for="correo_login_cliente">Correo eletronico</label>
+        <input id="correo_login_cliente" name="correo_login_cliente" type="email" placeholder="Ingrese su correo" required>
         <br>
 
-        <label for="contrasena_cliente_login_cliente">Contraseña</label>
-        <input id="contrasena_cliente_login_cliente" name="contrasena_cliente_login_cliente" type="password" placeholder="Crear su contraseña" required>
+        <label for="contrasena_login_cliente">Contraseña</label>
+        <input id="contrasena_login_cliente" name="contrasena_login_cliente" type="password" placeholder="Crear su contraseña" required>
         <br>
 
         <input type="submit">

@@ -42,8 +42,8 @@
         <br>
 
         <!-- Correo eletronico -->
-        <label for="correo_electronico_agregar_trabajador" >Correo Eletrónico</label>
-        <input id="correo_electronico_agregar_trabajador" name="correo_electronico_agregar_trabajador" type="email" placeholder="Correo electrónico" required>
+        <label for="correo_agregar_trabajador" >Correo Eletrónico</label>
+        <input id="correo_agregar_trabajador" name="correo_agregar_trabajador" type="email" placeholder="Correo electrónico" required>
         <br>
 
         <!-- Boton de enviar -->

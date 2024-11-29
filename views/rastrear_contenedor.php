@@ -19,8 +19,8 @@ $resultado = mysqli_query($con,$sql);
         <h2>Rastrear contenedor</h2>
 
         <!-- Rastrear articulo por id -->
-        <label for="id_articulo_rastrear_contenedor">ID contenedor</label>
-        <select name="id_articulo_rastrear_contenedor" id="id_articulo_rastrear_contenedor" required>
+        <label for="id_rastrear_contenedor">ID contenedor</label>
+        <select name="id_rastrear_contenedor" id="id_rastrear_contenedor" required>
             <?php
                 while($row = $resultado->fetch_assoc()){
                     echo "<option value='{$row['id_contenedor']}'>{$row['id_contenedor']}</option>";

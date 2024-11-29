@@ -19,8 +19,8 @@ $resultado = mysqli_query($con,$sql);
         <h2>Actualizar viaje</h2>
 
         <!-- ID viaje -->
-        <label for="id_viaje_actualizar_viaje">ID viaje</label>
-        <select name="id_viaje_actualizar_viaje" id="id_viaje_actualizar_viaje" required>
+        <label for="id_actualizar_viaje">ID viaje</label>
+        <select name="id_actualizar_viaje" id="id_actualizar_viaje" required>
             <?php
                 while($row = $resultado->fetch_assoc()){
                     echo "<option value='{$row['id_viaje']}'>{$row['id_viaje']}</option>";
@@ -40,13 +40,13 @@ $resultado = mysqli_query($con,$sql);
         <br>
 
         <!-- Fecha llegada -->
-        <label for="fecha_llegada_actualizar_viaje">Fecha llegada</label>        
-        <input id="fecha_llegada_actualizar_viaje" name="fecha_llegada_actualizar_viaje" type="date">
+        <label for="fecha_fin_actualizar_viaje">Fecha llegada</label>        
+        <input id="fecha_fin_actualizar_viaje" name="fecha_fin_actualizar_viaje" type="date">
         <br>
 
         <!-- Hora llegada -->
-        <label for="hora_llegada_actualizar_viaje">Hora llegada</label>        
-        <input id="hora_llegada_actualizar_viaje" name="hora_llegada_actualizar_viaje" type="time">
+        <label for="hora_fin_actualizar_viaje">Hora llegada</label>        
+        <input id="hora_fin_actualizar_viaje" name="hora_fin_actualizar_viaje" type="time">
         <br>
 
         <!-- Actualizaciones -->
