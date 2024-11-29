@@ -31,7 +31,7 @@ $resultado = mysqli_query($con,$sql);
 
         <!-- Tipo de contenedor -->
         <label for="tipo_contenedor">Tipo de contenedor</label>
-        <select id="tipo_contenedor" name="tipo_contenedor">
+        <select id="tipo_contenedor" name="tipo_contenedor" required>
             <option value="Seco">Seco</option>
             <option value="Refrigerado">Refrigerado</option>
             <option value="Techo Abierto">Techo Abierto</option>
@@ -48,7 +48,7 @@ $resultado = mysqli_query($con,$sql);
 
         <!-- tamaño estandarizado -->
         <label for="tamano_contenedor">Tamaño</label>
-        <select name="tamano_contenedor" id="tamano_contenedor">
+        <select name="tamano_contenedor" id="tamano_contenedor" required>
             <option value="10ft">10 pies (10')</option>
             <option value="20ft">20 pies (20')</option>
             <option value="40ft">40 pies (40')</option>
@@ -60,7 +60,7 @@ $resultado = mysqli_query($con,$sql);
 
         <!-- Capacidad -->
         <label for="capacidad_contenedor">Capacidad</label>
-        <input id="capacidad_contenedor" name="capacidad_contenedor" type="number" placeholder="Capacidad (kg)">
+        <input id="capacidad_contenedor" name="capacidad_contenedor" type="number" placeholder="Capacidad (kg)" required>
         <br>
 
         <!-- Boton de enviar -->

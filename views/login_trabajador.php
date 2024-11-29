@@ -11,11 +11,11 @@
         <h2>Iniciar sesion trabajador</h2>
 
         <label for="id_trabajador_login">ID trabajador</label>
-        <input id="id_trabajador_login" name="id_trabajador_login" type="email" placeholder="Ingrese su id">
+        <input id="id_trabajador_login" name="id_trabajador_login" type="email" placeholder="Ingrese su id" required>
         <br>
 
         <label for="contrasena_trabajador_login">Contraseña</label>
-        <input id="contrasena_trabajador_login" name="contrasena_trabajador_login" type="password" placeholder="Ingrese su contraseña">
+        <input id="contrasena_trabajador_login" name="contrasena_trabajador_login" type="password" placeholder="Ingrese su contraseña" required>
         <br>
 
         <input type="submit">

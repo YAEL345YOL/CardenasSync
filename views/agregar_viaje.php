@@ -44,17 +44,17 @@ $resultado2 = mysqli_query($con,$sql2);
 
         <!-- Fecha inicio -->
         <label for="fecha_inicio_viaje">Fecha inicio</label>        
-        <input id="fecha_inicio_viaje" name="fecha_inicio_viaje" type="date">
+        <input id="fecha_inicio_viaje" name="fecha_inicio_viaje" type="date" required>
         <br>
 
         <!-- Hora inicio -->
         <label for="hora_inicio_viaje">Hora inicio</label>        
-        <input id="hora_inicio_viaje" name="hora_inicio_viaje" type="time">
+        <input id="hora_inicio_viaje" name="hora_inicio_viaje" type="time" required>
         <br>
 
         <!-- Origen -->
         <label for="origen_viaje">Origen</label>        
-        <input id="origen_viaje" name="origen_viaje" type="text" placeholder="Origen del viaje">
+        <input id="origen_viaje" name="origen_viaje" type="text" placeholder="Origen del viaje" required>
         <br>
 
         <!-- tiempo estimado -->

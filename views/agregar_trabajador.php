@@ -12,17 +12,17 @@
 
         <!-- Nombre(s) -->
         <label for="nombre_trabajador">Nombre</label>
-        <input id="nombre_trabajador" name="nombre_trabajador" type="text" placeholder="Nombre(s) del trabajador">
+        <input id="nombre_trabajador" name="nombre_trabajador" type="text" placeholder="Nombre(s) del trabajador" required>
         <br>
 
         <!-- Apellido(s) -->
         <label for="apellido_trabajador">Apellido</label>
-        <input id="apellido_trabajador" name="apellido_trabajador" type="text" placeholder="Apellidos del trabajador">
+        <input id="apellido_trabajador" name="apellido_trabajador" type="text" placeholder="Apellidos del trabajador" required>
         <br>
 
         <!-- Puesto de trabajo -->
         <label for="puesto_trabajo_trabajador">Puesto de trabajo</label>
-        <select id="puesto_trabajo_trabajador" name="puesto_trabajo_trabajador">
+        <select id="puesto_trabajo_trabajador" name="puesto_trabajo_trabajador" required>
             <option value="Capitan">Capitan</option>
             <option value="Oficial de carga">Oficial de carga</option>
             <option value="Contramaestre">Contramaestre</option>
@@ -33,17 +33,17 @@
 
         <!-- Fecha de nacimiento -->
         <label for="fecha_nacimiento_trabajador" >Fecha de nacimiento</label>
-        <input id="fecha_nacimiento_trabajador" name="fecha_nacimiento_trabajador" type="date">
+        <input id="fecha_nacimiento_trabajador" name="fecha_nacimiento_trabajador" type="date" required>
         <br>
 
         <!-- Telefono -->
         <label for="telefono_trabajador" >Teléfono</label>
-        <input id="telefono_trabajador" name="telefono_trabajador" type="tel" placeholder="Numero de teléfono">
+        <input id="telefono_trabajador" name="telefono_trabajador" type="tel" placeholder="Numero de teléfono" required>
         <br>
 
         <!-- Correo eletronico -->
         <label for="correo_electronico_trabajador" >Correo Eletrónico</label>
-        <input id="correo_electronico_trabajador" name="correo_electronico_trabajador" type="email" placeholder="Correo electrónico">
+        <input id="correo_electronico_trabajador" name="correo_electronico_trabajador" type="email" placeholder="Correo electrónico" required>
         <br>
 
         <!-- Boton de enviar -->
