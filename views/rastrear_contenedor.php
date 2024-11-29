@@ -1,3 +1,10 @@
+<?php
+include "../php/rastrear_contenedor.php";
+$con = connection();
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
