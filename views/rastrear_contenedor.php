@@ -14,7 +14,7 @@ $con = connection();
     <title>Rastrear contenedor</title>
 </head>
 <body>
-    <form>
+    <form action="../php/rastrear_contenedor.php" method="POST">
         <h2>Rastrear contenedor</h2>
 
         <!-- Rastrear articulo por id -->

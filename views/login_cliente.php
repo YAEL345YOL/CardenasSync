@@ -7,7 +7,7 @@
     <title>Iniciar sesion cliente</title>
 </head>
 <body>
-    <form>
+    <form action="../php/login_cliente.php" method="POST">
         <h2>Registrarse</h2>
 
         <label for="nombre_cliente">Nombre</label>

@@ -7,7 +7,7 @@
     <title>Iniciar sesion trabajador</title>
 </head>
 <body>
-    <form>
+    <form action="../php/login_trabajador.php" method="POST">
         <h2>Iniciar sesion trabajador</h2>
 
         <label for="id_trabajador_login">ID trabajador</label>

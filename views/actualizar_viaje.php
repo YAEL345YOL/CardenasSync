@@ -16,7 +16,7 @@ $resultado = mysqli_query($con,$sql);
     <title>Actualizar viaje</title>
 </head>
 <body>
-    <form>
+    <form action="../php/actualizar_viaje.php" method="POST">
         <h2>Actualizar viaje</h2>
 
         <!-- ID viaje -->
