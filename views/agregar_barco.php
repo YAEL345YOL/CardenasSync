@@ -9,6 +9,7 @@
 <body>
     <form action="../php/agregar_barco.php" method="POST">
         <h2>Agregar barco</h2>
+        
         <!-- Nombre del Barco -->
         <label for="nombre_barco">Nombre del barco</label>
         <input id="nombre_barco" name="nombre_barco" type="text" placeholder="Nombre del barco" required>

@@ -6,7 +6,6 @@ $sql = "SELECT * FROM viaje";
 
 $resultado = mysqli_query($con,$sql);
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,15 +30,12 @@ $resultado = mysqli_query($con,$sql);
         <br>
 
         <!-- Estado -->
-         <label for="estado_actualizar_viaje">Estado</label>
+        <label for="estado_actualizar_viaje">Estado</label>
         <select name="estado_actualizar_viaje" id="estado_actualizar_viaje">
-            <option value="En proceso">En Proceso</option>
             <option value="En espera">En Espera</option>
-            <option value="Completado">Completado</option>
-            <option value="Cancelado">Cancelado</option>
-            <option value="Retrasado">Retrasado</option>
-            <option value="En ruta">En Ruta</option>
+            <option value="En proceso">En Proceso</option>
             <option value="Finalizado">Finalizado</option>
+            <option value="Cancelado">Cancelado</option>
         </select>
         <br>
 
@@ -56,7 +52,7 @@ $resultado = mysqli_query($con,$sql);
         <!-- Actualizaciones -->
         <label for="actualizaciones_actualizar_viaje">Actualizaciones</label>
         <br>
-        <textarea id="actualizaciones_actualizar_viaje" name="actualizaciones_actualizar_viaje" placeholder="Actualizaciones del viaje (comentarios)"></textarea>
+        <textarea id="actualizaciones_actualizar_viaje" name="actualizaciones_actualizar_viaje" placeholder="Actualizaciones del viaje"></textarea>
         <br>
 
         <!-- Boton de enviar -->

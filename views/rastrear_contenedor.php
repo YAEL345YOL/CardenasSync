@@ -3,6 +3,7 @@ include "../php/rastrear_contenedor.php";
 
 $con = connection();
 $sql = "SELECT * FROM contenedor";
+
 $resultado = mysqli_query($con,$sql);
 ?>
 <!DOCTYPE html>
