@@ -8,7 +8,7 @@
 </head>
 <body>
     <form action="../php/login_cliente.php" method="POST">
-        <h2>Registrarse</h2>
+        <h2>Iniciar sesion</h2>
 
         <label for="nombre_cliente">Nombre</label>
         <input id="nombre_cliente" name="nombre_cliente" type="text" placeholder="Ingrese su nombre" required>

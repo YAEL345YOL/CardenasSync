@@ -12,7 +12,7 @@ $resultado = mysqli_query($con,$sql);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar Contenedor</title>
+    <title>Agregar contenedor</title>
 </head>
 <body>
     <form action="../php/agregar_contenedor.php" method="POST">

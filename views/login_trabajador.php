@@ -8,7 +8,7 @@
 </head>
 <body>
     <form action="../php/login_trabajador.php" method="POST">
-        <h2>Iniciar sesion trabajador</h2>
+        <h2>Iniciar sesion</h2>
 
         <label for="id_trabajador_login">ID trabajador</label>
         <input id="id_trabajador_login" name="id_trabajador_login" type="email" placeholder="Ingrese su id" required>
