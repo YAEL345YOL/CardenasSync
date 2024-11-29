@@ -10,4 +10,5 @@ $capacidad = $_POST["capacidad_agregar_contenedor"];
 $sql = "INSERT INTO contenedor VALUES (NULL,'$tipo','$tamano','$capacidad','$id_viaje')";
 
 mysqli_query($con,$sql);
+// * Terminado
 ?>

@@ -16,4 +16,5 @@ if($resultado->num_rows>0){
 else{
     header("Location: login_trabajador.php");
 }
+// * Sin terminar
 ?>

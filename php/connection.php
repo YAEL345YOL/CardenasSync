@@ -9,5 +9,6 @@ function connection(){
     mysqli_select_db($con,$db);
     
     return $con;
+    // * Terminado
 }
 ?>

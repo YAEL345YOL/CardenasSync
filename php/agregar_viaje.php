@@ -12,4 +12,5 @@ $id_muelle = $_POST["id_muelle_agregar_viaje"];
 $sql = "INSERT INTO viaje (id_viaje,fecha_inicio_viaje,hora_inicio_viaje,origen_viaje, tiempo_estimado_viaje, id_barco,id_muelle) VALUES (NULL,'$fecha_inicio','$hora_inicio','$origen','$tiempo_estimado','$id_barco','$id_muelle');";
 
 mysqli_query($con,$sql);
+// * Terminado
 ?>

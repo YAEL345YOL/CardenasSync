@@ -13,4 +13,5 @@ $contrasena = "changeme";
 $sql = "INSERT INTO trabajador VALUES (NULL,'$nombre','$apellido','$puesto_trabajo','$fecha_nacimiento','$telefono','$correo','$contrasena');";
 
 mysqli_query($con,$sql);
+// * Terminado
 ?>
