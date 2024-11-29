@@ -8,7 +8,7 @@ $puesto_trabajo = $_POST["puesto_agregar_trabajador"];
 $fecha_nacimiento = $_POST["fecha_nacimiento_agregar_trabajador"];
 $telefono = $_POST["telefono_agregar_trabajador"];
 $correo = $_POST["correo_agregar_trabajador"];
-$contrasena= "changeme";
+$contrasena = "changeme";
 
 $sql = "INSERT INTO trabajador VALUES (NULL,'$nombre','$apellido','$puesto_trabajo','$fecha_nacimiento','$telefono','$correo','$contrasena');";
 
