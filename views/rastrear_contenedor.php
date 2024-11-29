@@ -1,9 +1,9 @@
 <?php
 include "../php/rastrear_contenedor.php";
+
 $con = connection();
-
-
-
+$sql = "SELECT * FROM contenedor";
+$resultado = mysqli_query($con,$sql);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -20,7 +20,11 @@ $con = connection();
         <!-- Rastrear articulo por id -->
         <label for="id_articulo_rastrear_contenedor">ID contenedor</label>
         <select name="id_articulo_rastrear_contenedor" id="id_articulo_rastrear_contenedor" required>
-            <!-- Consulta para obtener los contenedores  -->
+            <?php
+                while($row = $resultado->fetch_assoc()){
+                    echo "<option value='{$row['id_contenedor']}'>{$row['id_contenedor']}</option>";
+                }
+            ?>
         </select>
         <br>
 
