@@ -21,8 +21,8 @@ $resultado2 = mysqli_query($con,$sql2);
         <h2>Agregar viaje</h2>
 
         <!-- Id_barco -->
-        <label for="id_barco_viaje">ID barco</label>
-        <select name="id_barco_viaje" id="id_barco_viaje" required>
+        <label for="id_barco_agregar_viaje">ID barco</label>
+        <select name="id_barco_agregar_viaje" id="id_barco_agregar_viaje" required>
             <?php
                 while($row = $resultado1->fetch_assoc()){
                     echo "<option value='{$row['id_barco']}'>{$row['id_barco']}</option>";
@@ -32,8 +32,8 @@ $resultado2 = mysqli_query($con,$sql2);
         <br>
 
         <!-- Muelle llegada -->
-        <label for="id_muelle_viaje">ID muelle</label>        
-        <select name="id_muelle_viaje" id="id_muelle_viaje" required>
+        <label for="id_muelle_agregar_viaje">ID muelle</label>        
+        <select name="id_muelle_agregar_viaje" id="id_muelle_agregar_viaje" required>
             <?php
                 while($row = $resultado2->fetch_assoc()){
                     echo "<option value='{$row['id_muelle']}'>{$row['id_muelle']}</option>";
@@ -43,23 +43,23 @@ $resultado2 = mysqli_query($con,$sql2);
         <br>
 
         <!-- Fecha inicio -->
-        <label for="fecha_inicio_viaje">Fecha inicio</label>        
-        <input id="fecha_inicio_viaje" name="fecha_inicio_viaje" type="date" required>
+        <label for="fecha_inicio_agregar_viaje">Fecha inicio</label>        
+        <input id="fecha_inicio_agregar_viaje" name="fecha_inicio_agregar_viaje" type="date" required>
         <br>
 
         <!-- Hora inicio -->
-        <label for="hora_inicio_viaje">Hora inicio</label>        
-        <input id="hora_inicio_viaje" name="hora_inicio_viaje" type="time" required>
+        <label for="hora_inicio_agregar_viaje">Hora inicio</label>        
+        <input id="hora_inicio_agregar_viaje" name="hora_inicio_agregar_viaje" type="time" required>
         <br>
 
         <!-- Origen -->
-        <label for="origen_viaje">Origen</label>        
-        <input id="origen_viaje" name="origen_viaje" type="text" placeholder="Origen del viaje" required>
+        <label for="origen_agregar_viaje">Origen</label>        
+        <input id="origen_agregar_viaje" name="origen_agregar_viaje" type="text" placeholder="Origen del viaje" required>
         <br>
 
         <!-- tiempo estimado -->
-        <label for="tiempo_estimado_viaje">Tiempo estimado</label>        
-            <input id="tiempo_estimado_viaje" name="tiempo_estimado_viaje" type="number" placeholder="Tiempo estimado (hrs)">
+        <label for="tiempo_estimado_agregar_viaje">Tiempo estimado</label>        
+            <input id="tiempo_estimado_agregar_viaje" name="tiempo_estimado_agregar_viaje" type="number" placeholder="Tiempo estimado (hrs)">
         <br>
 
         <!-- Boton de enviar -->

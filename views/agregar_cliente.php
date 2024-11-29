@@ -10,24 +10,24 @@
     <form action="../php/agregar_cliente.php" method="POST">
         <h2>Registrarse</h2>
 
-        <label for="nombre_cliente">Nombre</label>
-        <input id="nombre_cliente" name="nombre_cliente" type="text" placeholder="Ingrese su nombre" required>
+        <label for="nombre_agregar_cliente">Nombre</label>
+        <input id="nombre_agregar_cliente" name="nombre_agregar_cliente" type="text" placeholder="Ingrese su nombre" required>
         <br>
 
-        <label for="apellido_cliente">Apellido</label>
-        <input id="apellido_cliente" name="apellido_cliente" type="text" placeholder="Ingrese su apellido" required>
+        <label for="apellido_agregar_cliente">Apellido</label>
+        <input id="apellido_agregar_cliente" name="apellido_agregar_cliente" type="text" placeholder="Ingrese su apellido" required>
         <br>
 
-        <label for="fecha_nacimiento_cliente">Fecha nacimiento</label>
-        <input id="fecha_nacimiento_cliente" name="fecha_nacimiento_cliente" type="date" required>
+        <label for="fecha_nacimiento_agregar_cliente">Fecha nacimiento</label>
+        <input id="fecha_nacimiento_agregar_cliente" name="fecha_nacimiento_agregar_cliente" type="date" required>
         <br>
 
-        <label for="correo_cliente">Correo eletronico</label>
-        <input id="correo_cliente" name="correo_cliente" type="email" placeholder="Ingrese su correo" required>
+        <label for="correo_agregar_cliente">Correo eletronico</label>
+        <input id="correo_agregar_cliente" name="correo_agregar_cliente" type="email" placeholder="Ingrese su correo" required>
         <br>
 
-        <label for="contrasena_cliente">Contraseña</label>
-        <input id="contrasena_cliente" name="contrasena_cliente" type="password" placeholder="Crear su contraseña" required>
+        <label for="contrasena_agregar_cliente">Contraseña</label>
+        <input id="contrasena_agregar_cliente" name="contrasena_agregar_cliente" type="password" placeholder="Crear su contraseña" required>
         <br>
 
         <input type="submit">

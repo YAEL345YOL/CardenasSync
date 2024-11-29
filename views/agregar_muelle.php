@@ -10,13 +10,13 @@
         <h2>Agregar muelle</h2>
 
         <!-- Nombre -->
-        <label for="nombre_muelle">Nombre</label>
-        <input id="nombre_muelle" name="nombre_muelle" type="text" placeholder="Nombre del muelle" required>
+        <label for="nombre_agregar_muelle">Nombre</label>
+        <input id="nombre_agregar_muelle" name="nombre_agregar_muelle" type="text" placeholder="Nombre del muelle" required>
         <br>
 
         <!-- Ubicacion -->
-        <label for="ubicacion_muelle">Ubicación</label>
-        <input id="ubicacion_muelle" name="ubicacion_muelle" type="text" placeholder="Ubicación del muelle" required>
+        <label for="ubicacion_agregar_muelle">Ubicación</label>
+        <input id="ubicacion_agregar_muelle" name="ubicacion_agregar_muelle" type="text" placeholder="Ubicación del muelle" required>
         <br>
 
         <!-- Boton de enviar -->

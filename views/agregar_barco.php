@@ -11,13 +11,13 @@
         <h2>Agregar barco</h2>
         
         <!-- Nombre del Barco -->
-        <label for="nombre_barco">Nombre del barco</label>
-        <input id="nombre_barco" name="nombre_barco" type="text" placeholder="Nombre del barco" required>
+        <label for="nombre_agregar_barco">Nombre del barco</label>
+        <input id="nombre_agregar_barco" name="nombre_agregar_barco" type="text" placeholder="Nombre del barco" required>
         <br>
 
         <!-- Tipo de Barco -->
-        <label for="tipo_barco">Tipo de barco</label>
-        <select id="tipo_barco" name="tipo_barco" required>
+        <label for="tipo_agregar_barco">Tipo de barco</label>
+        <select id="tipo_agregar_barco" name="tipo_agregar_barco" required>
             <option value="Portacontenedores">Portacontenedores</option>
             <option value="Granelero">Granelero</option>
             <option value="Petrolero">Petrolero</option>
@@ -27,8 +27,8 @@
         <br>
 
         <!-- Nacionalidad -->
-        <label for="nacionalidad_barco">Nacionalidad</label>
-        <input id="nacionalidad_barco" name="nacionalidad_barco" type="text" placeholder="Nacionalidad del barco" required>
+        <label for="nacionalidad_agregar_barco">Nacionalidad</label>
+        <input id="nacionalidad_agregar_barco" name="nacionalidad_agregar_barco" type="text" placeholder="Nacionalidad del barco" required>
         <br>
 
         <!-- Boton de enviar -->
