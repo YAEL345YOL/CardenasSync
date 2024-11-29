@@ -1,5 +1,5 @@
 <?php
-include "../php/rastrear_contenedor.php";
+include "../php/connection.php";
 
 $con = connection();
 $sql = "SELECT * FROM contenedor";

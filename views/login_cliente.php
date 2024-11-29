@@ -10,18 +10,6 @@
     <form action="../php/login_cliente.php" method="POST">
         <h2>Iniciar sesion</h2>
 
-        <label for="nombre_cliente">Nombre</label>
-        <input id="nombre_cliente" name="nombre_cliente" type="text" placeholder="Ingrese su nombre" required>
-        <br>
-
-        <label for="apellido_cliente">Apellido</label>
-        <input id="apellido_cliente" name="apellido_cliente" type="text" placeholder="Ingrese su apellido" required>
-        <br>
-
-        <label for="fecha_nacimiento_cliente">Fecha nacimiento</label>
-        <input id="fecha_nacimiento_cliente" name="fecha_nacimiento_cliente" type="date" required>
-        <br>
-
         <label for="correo_cliente">Correo eletronico</label>
         <input id="correo_cliente" name="correo_cliente" type="email" placeholder="Ingrese su correo" required>
         <br>
