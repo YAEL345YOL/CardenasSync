@@ -11,7 +11,7 @@
         <h2>Iniciar sesion</h2>
 
         <label for="id_login_trabajador">ID trabajador</label>
-        <input id="id_login_trabajador" name="id_login_trabajador" type="email" placeholder="Ingrese su id" required>
+        <input id="id_login_trabajador" name="id_login_trabajador" type="number" placeholder="Ingrese su id" required>
         <br>
 
         <label for="contrasena_login_trabajador">Contraseña</label>

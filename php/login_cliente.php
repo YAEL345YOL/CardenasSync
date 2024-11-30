@@ -9,8 +9,9 @@ $sql = "SELECT * FROM cliente WHERE correo_cliente = '$correo' AND contrasena_cl
 
 $resultado = mysqli_query($con,$sql);
 
-if($resultado->num_rows>0){
-    header("Location: ../views/cliente.php?id=$resultado->id_usuario");
+if(mysqli_num_rows($resultado)>0){
+    $fila = mysqli_fetch_assoc($resultado);
+    header("Location: ../views/cliente.php?id={$fila['id_cliente']}");
 }
 // * Sin terminar
 ?>
