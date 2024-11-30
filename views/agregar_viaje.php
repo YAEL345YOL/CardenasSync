@@ -24,8 +24,8 @@ $resultado2 = mysqli_query($con,$sql2);
         <label for="id_barco_agregar_viaje">ID barco</label>
         <select name="id_barco_agregar_viaje" id="id_barco_agregar_viaje" required>
             <?php
-                while($row = $resultado1->fetch_assoc()){
-                    echo "<option value='{$row['id_barco']}'>{$row['id_barco']}</option>";
+                while($fila = mysqli_fetch_assoc($resultado)){
+                    echo "<option value='{$fila['id_barco']}'>{$fila['id_barco']}</option>";
                 }
             ?>
         </select>
@@ -35,8 +35,8 @@ $resultado2 = mysqli_query($con,$sql2);
         <label for="id_muelle_agregar_viaje">ID muelle</label>        
         <select name="id_muelle_agregar_viaje" id="id_muelle_agregar_viaje" required>
             <?php
-                while($row = $resultado2->fetch_assoc()){
-                    echo "<option value='{$row['id_muelle']}'>{$row['id_muelle']}</option>";
+                while($fila = mysqli_fetch_assoc($resultado)){
+                    echo "<option value='{$fila['id_barco']}'>{$fila['id_barco']}</option>";
                 }
             ?>
         </select>

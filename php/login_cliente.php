@@ -10,10 +10,7 @@ $sql = "SELECT * FROM cliente WHERE correo_cliente = '$correo' AND contrasena_cl
 $resultado = mysqli_query($con,$sql);
 
 if($resultado->num_rows>0){
-    header("Location: ../views/cliente.php");
-}
-else{
-    header("Location: login_cliente.php");
+    header("Location: ../views/cliente.php?id=$resultado->id_usuario");
 }
 // * Sin terminar
 ?>

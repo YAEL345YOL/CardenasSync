@@ -22,8 +22,8 @@ $resultado = mysqli_query($con,$sql);
         <label for="id_rastrear_contenedor">ID contenedor</label>
         <select name="id_rastrear_contenedor" id="id_rastrear_contenedor" required>
             <?php
-                while($row = $resultado->fetch_assoc()){
-                    echo "<option value='{$row['id_contenedor']}'>{$row['id_contenedor']}</option>";
+                while($fila = mysqli_fetch_assoc($resultado)){
+                    echo "<option value='{$fila['id_contenedor']}'>{$fila['id_contenedor']}</option>";
                 }
             ?>
         </select>

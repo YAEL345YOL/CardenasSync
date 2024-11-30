@@ -22,8 +22,8 @@ $resultado = mysqli_query($con,$sql);
         <label for="id_actualizar_viaje">ID viaje</label>
         <select name="id_actualizar_viaje" id="id_actualizar_viaje" required>
             <?php
-                while($row = $resultado->fetch_assoc()){
-                    echo "<option value='{$row['id_viaje']}'>{$row['id_viaje']}</option>";
+                while($fila = mysqli_fetch_assoc($resultado)){
+                    echo "<option value='{$fila['id_viaje']}'>{$fila['id_viaje']}</option>";
                 }
             ?>
         </select>
