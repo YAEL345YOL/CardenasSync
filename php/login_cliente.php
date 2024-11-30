@@ -19,5 +19,5 @@ if(mysqli_num_rows($resultado)>0){
 else{
     header("Location: ../views/login_cliente.php?error=1");
 }
-// * Sin terminar
+// * Terminado
 ?>
