@@ -9,8 +9,8 @@
     <header>
         <nav>
             <ul>
-                <li><a href="login_cliente.php">Login cliente</a></li>
-                <li><a href="login_trabajador.php">Login trabajador</a></li>
+                <li><a href="login_cliente.php">Cliente</a></li>
+                <li><a href="login_trabajador.php">Trabajador</a></li>
             </ul>
         </nav>
     </header>

@@ -11,5 +11,7 @@ $contrasena = "changeme";
 $sql = "INSERT INTO cliente VALUES (NULL,'$nombre','$apellido','$fecha_nacimiento','$correo','$contrasena')";
 
 mysqli_query($con,$sql);
+
+header("Location: ../views/inicio.php");
 // * Terminado
 ?>
