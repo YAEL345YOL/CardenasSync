@@ -7,6 +7,11 @@
     <title>Iniciar sesion trabajador</title>
 </head>
 <body>
+    <?php 
+        if(isset($_GET["error"])){
+            echo "<p>Error, datos incorrectos</p>";
+        }
+    ?>
     <form action="../php/login_trabajador.php" method="POST">
         <h2>Iniciar sesion</h2>
 

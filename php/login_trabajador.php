@@ -11,7 +11,13 @@ $resultado = mysqli_query($con,$sql);
 
 if(mysqli_num_rows($resultado)>0){
     $fila = mysqli_fetch_assoc($resultado);
-    header("Location: ../views/trabajador.php?id={$fila['id_trabajador']}");
+    session_start();
+    $_SESSION["tipo"] = "trabajador";
+    $_SESSION["id"] = $fila["id_trabajador"];
+    header("Location: ../views/inicio.php");
+}
+else{
+    header("Location: ../views/login_trabajador.php?error=1");
 }
 // * Sin terminar
 ?>
