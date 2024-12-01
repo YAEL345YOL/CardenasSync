@@ -1,1 +1,4 @@
-// * Sin terminar
+<?php
+include "connection.php";
+$con = connection();
+?>
