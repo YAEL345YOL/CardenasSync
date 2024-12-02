@@ -1,5 +1,5 @@
 <?php
-include "connection.php";
+include "../connection.php";
 
 $con = connection();
 $id_viaje = $_POST["id_viaje_agregar_contenedor"] ;
@@ -10,5 +10,6 @@ $capacidad = $_POST["capacidad_agregar_contenedor"];
 $sql = "INSERT INTO contenedor VALUES (NULL,'$tipo','$tamano','$capacidad','$id_viaje')";
 
 mysqli_query($con,$sql);
-// * Terminado
+
+header("Location: ../../views/contenedor.php");
 ?>

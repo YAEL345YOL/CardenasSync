@@ -11,16 +11,21 @@
 <body>
     <header>
         <nav>
-            <?php if(!isset($_SESSION["tipo"])): ?>
+            <?php if($_SESSION["tipo"]=="cliente"): ?>
+                <a href="contenedor.php">mis contenedores</a>
+            <?php elseif($_SESSION["tipo"]=="trabajador"): ?>
+                <a href="contenedor.php">contenedores</a>
+                <a href="barco.php">barcos</a>
+                <a href="viaje.php">viajes</a>
+                <a href="trabajador.php"></a>
+            <?php else: ?>
             <ul>
                 <li><a href="login_cliente.php">Cliente</a></li>
                 <li><a href="login_trabajador.php">Trabajador</a></li>
             </ul>
-            <?php else: ?>
-                <?php if($_SESSION["tipo"]=="cliente"): ?>
-                <?php endif; ?>
-                <?php if($_SESSION["tipo"]=="cliente"): ?>
-                <?php endif; ?>
+            <?php endif; ?>
+
+            <?php if(isset($_SESSION["tipo"])): ?>
             <a href="../php/cerrar_sesion.php">Cerrar sesion</a>
             <?php endif; ?>
         </nav>

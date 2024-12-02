@@ -1,5 +1,5 @@
 <?php
-include "connection.php";
+include "../connection.php";
 
 $con = connection();
 $id = $_POST["id_login_trabajador"];
@@ -14,10 +14,10 @@ if(mysqli_num_rows($resultado)>0){
     session_start();
     $_SESSION["tipo"] = "trabajador";
     $_SESSION["id"] = $fila["id_trabajador"];
-    header("Location: ../views/inicio.php");
+    header("Location: ../../views/inicio.php");
 }
 else{
-    header("Location: ../views/login_trabajador.php?error=1");
+    header("Location: ../../views/login_trabajador.php?error=1");
 }
 // * Terminado
 ?>

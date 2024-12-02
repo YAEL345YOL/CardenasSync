@@ -1,10 +1,10 @@
 <?php
-include "../php/connection.php";
+    include "../php/connection.php";
 
-$con = connection();
-$sql = "SELECT * FROM contenedor";
+    $con = connection();
+    $sql = "SELECT * FROM contenedor";
 
-$resultado = mysqli_query($con,$sql);
+    $resultado = mysqli_query($con,$sql);
 ?>
 <!DOCTYPE html>
 <html lang="es">

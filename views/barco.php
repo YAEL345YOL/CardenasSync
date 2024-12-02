@@ -1,3 +1,11 @@
+<?php
+    include "../php/connection.php";
+    
+    $con = connection();
+    $sql1 = "SELECT * FROM barco";
+
+    $resultado1 = mysqli_query($con,$sql1);
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -34,5 +42,27 @@
         <!-- Boton de enviar -->
         <input type="submit">
     </form>
+    <table>
+        <thead>
+            <th>id</th>
+            <th>nombre</th>
+            <th>tipo</th>
+            <th>nacionalidad</th>
+        </thead>
+        <tbody>
+            <?php
+                while($fila = mysqli_fetch_assoc($resultado1)){
+                    echo "
+                    <tr>
+                        <td>{$fila["id_barco"]}</td>
+                        <td>{$fila["nombre_barco"]}</td>
+                        <td>{$fila["tipo_barco"]}</td>
+                        <td>{$fila["nacionalidad_barco"]}</td>
+                    </tr>
+                    ";
+                }
+            ?>
+        </tbody>
+    </table>
 </body>
 </html>

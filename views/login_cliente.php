@@ -12,7 +12,7 @@
             echo "<p>Error, datos incorrectos</p>";
         }
     ?>
-    <form action="../php/login_cliente.php" method="POST">
+    <form action="../php/cliente/login_cliente.php" method="POST">
         <h2>Iniciar sesion</h2>
 
         <label for="correo_login_cliente">Correo eletronico</label>

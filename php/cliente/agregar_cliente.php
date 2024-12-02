@@ -1,5 +1,5 @@
 <?php
-include "connection.php";
+include "../connection.php";
 
 $con = connection();
 $nombre = $_POST["nombre_agregar_cliente"];
@@ -12,6 +12,6 @@ $sql = "INSERT INTO cliente VALUES (NULL,'$nombre','$apellido','$fecha_nacimient
 
 mysqli_query($con,$sql);
 
-header("Location: ../views/inicio.php");
+header("Location: ../../views/inicio.php");
 // * Terminado
 ?>
