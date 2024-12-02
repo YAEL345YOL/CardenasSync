@@ -10,9 +10,9 @@
     $sql2 = "SELECT * FROM muelle";
     $sql3 = "SELECT * FROM viaje";
 
-    $resultado1 = mysqli_query($con,$sql1);
-    $resultado2 = mysqli_query($con,$sql2);
-    $resultado3 = mysqli_query($con,$sql3);
+    $barco = mysqli_query($con,$sql1);
+    $muelle = mysqli_query($con,$sql2);
+    $viaje = mysqli_query($con,$sql3);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -30,7 +30,7 @@
         <label for="id_barco_agregar_viaje">ID barco</label>
         <select name="id_barco_agregar_viaje" id="id_barco_agregar_viaje" required>
             <?php
-                while($fila = mysqli_fetch_assoc($resultado1)){
+                while($fila = mysqli_fetch_assoc($barco)){
                     echo "<option value='{$fila['id_barco']}'>{$fila['id_barco']}</option>";
                 }
             ?>
@@ -41,7 +41,7 @@
         <label for="id_muelle_agregar_viaje">ID muelle</label>        
         <select name="id_muelle_agregar_viaje" id="id_muelle_agregar_viaje" required>
             <?php
-                while($fila = mysqli_fetch_assoc($resultado2)){
+                while($fila = mysqli_fetch_assoc($muelle)){
                     echo "<option value='{$fila['id_muelle']}'>{$fila['id_muelle']}</option>";
                 }
             ?>
@@ -71,15 +71,27 @@
         <!-- Boton de enviar -->
         <input type="submit">
     </form>
-    <form action="../php/editar_viaje.php" method="POST">
+    <form action="../php/viaje/editar_viaje.php" method="POST">
         <h2>Editar viaje</h2>
 
         <!-- ID viaje -->
         <label for="id_editar_viaje">ID viaje</label>
         <select name="id_editar_viaje" id="id_editar_viaje" required>
             <?php
-                while($fila = mysqli_fetch_assoc($resultado3)){
+                while($fila = mysqli_fetch_assoc($viaje)){
                     echo "<option value='{$fila['id_viaje']}'>{$fila['id_viaje']}</option>";
+                }
+            ?>
+        </select>
+        <br>
+
+        <!-- Muelle llegada -->
+        <label for="id_muelle_editar_viaje">ID muelle</label>        
+        <select name="id_muelle_editar_viaje" id="id_muelle_editar_viaje" required>
+            <?php
+                mysqli_data_seek($muelle,0);
+                while($fila = mysqli_fetch_assoc($muelle)){
+                    echo "<option value='{$fila['id_muelle']}'>{$fila['id_muelle']}</option>";
                 }
             ?>
         </select>
@@ -130,8 +142,8 @@
         </thead>
         <tbody>
             <?php
-                mysqli_data_seek($resultado3, 0);
-                while($fila = mysqli_fetch_assoc($resultado3)){
+                mysqli_data_seek($viaje, 0);
+                while($fila = mysqli_fetch_assoc($viaje)){
                     echo "
                     <tr>
                         <td>{$fila["id_viaje"]}</td>

@@ -12,7 +12,7 @@ function connection(){
 }
 function verify_worker(){
     session_start();
-    if(!$_SESSION["trabajador"]){
+    if($_SESSION["tipo"]!="trabajador"){
         header("Location: inicio.php");
     }
 }
