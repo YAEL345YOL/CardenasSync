@@ -1,5 +1,9 @@
 <?php
     include "../php/connection.php";
+
+    verify_worker();
+
+    session_start();
     
     $con = connection();
     $sql1 = "SELECT * FROM muelle";

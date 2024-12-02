@@ -19,5 +19,4 @@ if(mysqli_num_rows($resultado)>0){
 else{
     header("Location: ../../views/login_trabajador.php?error=1");
 }
-// * Terminado
 ?>

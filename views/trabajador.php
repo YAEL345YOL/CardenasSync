@@ -1,3 +1,10 @@
+<?php
+    include "../php/connection.php";
+
+    verify_worker();
+
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

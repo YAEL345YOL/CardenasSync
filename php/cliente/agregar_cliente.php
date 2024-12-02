@@ -13,5 +13,4 @@ $sql = "INSERT INTO cliente VALUES (NULL,'$nombre','$apellido','$fecha_nacimient
 mysqli_query($con,$sql);
 
 header("Location: ../../views/inicio.php");
-// * Terminado
 ?>

@@ -1,6 +1,10 @@
 <?php
     include "../php/connection.php";
 
+    verify_worker();
+
+    session_start();
+
     $con = connection();
     $sql = "SELECT * FROM contenedor";
 

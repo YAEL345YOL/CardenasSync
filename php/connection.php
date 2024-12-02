@@ -9,6 +9,11 @@ function connection(){
     mysqli_select_db($con,$db);
     
     return $con;
-    // * Terminado
+}
+function verify_worker(){
+    session_start();
+    if(!$_SESSION["trabajador"]){
+        header("Location: inicio.php");
+    }
 }
 ?>

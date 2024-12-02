@@ -1,12 +1,9 @@
-<?php
+<?php 
     include "../php/connection.php";
 
+    session_start();
+    
     $con = connection();
-    $sql1 = "SELECT * FROM viaje";
-    $sql2 = "SELECT * FROM contenedor";
-
-    $resultado1 = mysqli_query($con,$sql1);
-    $resultado2 = mysqli_query($con,$sql2);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -17,6 +14,16 @@
     <title>contenedores</title>
 </head>
 <body>
+    <?php if($_SESSION["tipo"]=="trabajador"): ?>
+    <?php
+
+    $sql1 = "SELECT * FROM viaje";
+    $sql2 = "SELECT * FROM contenedor";
+
+    $viaje = mysqli_query($con,$sql1);
+    $contenedor = mysqli_query($con,$sql2);
+    
+    ?>
     <form action="../php/contenedor/agregar_contenedor.php" method="POST">
         <h2>Agregar contenedor</h2>
 
@@ -24,7 +31,7 @@
         <label for="id_viaje_agregar_contenedor">ID viaje</label>
         <select id="id_viaje_agregar_contenedor" name="id_viaje_agregar_contenedor" required>
             <?php
-                while($fila = mysqli_fetch_assoc($resultado1)){
+                while($fila = mysqli_fetch_assoc($viaje)){
                     echo "<option value='{$fila['id_viaje']}'>{$fila['id_viaje']}</option>";
                 }
             ?>
@@ -75,7 +82,7 @@
         <label for="id_editar_contenedor">ID contenedor</label>
         <select id="id_editar_contenedor" name="id_editar_contenedor" required>
             <?php
-                while($fila = mysqli_fetch_assoc($resultado2)){
+                while($fila = mysqli_fetch_assoc($contenedor)){
                     echo "<option value='{$fila['id_contenedor']}'>{$fila['id_contenedor']}</option>";
                 }
             ?>
@@ -86,8 +93,8 @@
         <label for="id_viaje_editar_contenedor">ID viaje</label>
         <select id="id_viaje_editar_contenedor" name="id_viaje_editar_contenedor" required>
             <?php
-                mysqli_data_seek($resultado1, 0);
-                while($fila = mysqli_fetch_assoc($resultado1)){
+                mysqli_data_seek($viaje, 0);
+                while($fila = mysqli_fetch_assoc($viaje)){
                     echo "<option value='{$fila['id_viaje']}'>{$fila['id_viaje']}</option>";
                 }
             ?>
@@ -138,8 +145,8 @@
         <label for="id_eliminar_contenedor">ID contenedor</label>
         <select id="id_eliminar_contenedor" name="id_eliminar_contenedor" required>
             <?php
-                mysqli_data_seek($resultado2, 0);
-                while($fila = mysqli_fetch_assoc($resultado2)){
+                mysqli_data_seek($contenedor, 0);
+                while($fila = mysqli_fetch_assoc($contenedor)){
                     echo "<option value='{$fila['id_contenedor']}'>{$fila['id_contenedor']}</option>";
                 }
             ?>
@@ -149,6 +156,17 @@
         <!-- Boton de enviar -->
         <input type="submit">
     </form>
+    <?php endif; ?>
+    <?php if($_SESSION["tipo"]=="cliente"): ?>
+    <h2>Mis contenedores</h2>
+    <?php 
+
+    $sql1 = "SELECT * FROM contenedor JOIN contenedor_cliente WHERE contenedor.id_contenedor = contenedor_cliente.id_contenedor AND contenedor_cliente.id_cliente = '{$_SESSION["id"]}'";
+
+    $contenedor = mysqli_query($con,$sql1);
+
+    ?>
+    <?php endif; ?>
     <table>
         <thead>
             <th>id</th>
@@ -159,8 +177,8 @@
         </thead>
         <tbody>
             <?php
-                mysqli_data_seek($resultado2, 0);
-                while($fila = mysqli_fetch_assoc($resultado2)){
+                mysqli_data_seek($contenedor, 0);
+                while($fila = mysqli_fetch_assoc($contenedor)){
                     echo "
                     <tr>
                         <td>{$fila["id_contenedor"]}</td>

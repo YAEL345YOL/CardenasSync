@@ -9,5 +9,4 @@ $nacionalidad = $_POST["nacionalidad_agregar_barco"];
 $sql = "INSERT INTO barco VALUES(NULL,'$nombre','$tipo','$nacionalidad')";
 
 mysqli_query($con, $sql);
-// * Terminado
 ?>

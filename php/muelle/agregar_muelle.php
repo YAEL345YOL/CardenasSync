@@ -8,5 +8,4 @@ $ubicacion = $_POST["ubicacion_agregar_muelle"];
 $sql = "INSERT INTO muelle VALUES (NULL,'$nombre','$ubicacion')";
 
 mysqli_query($con,$sql);
-// * Terminado
 ?>

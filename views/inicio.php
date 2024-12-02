@@ -1,4 +1,6 @@
 <?php
+    include "../php/connection.php";
+
     session_start();
 ?>
 <!DOCTYPE html>
