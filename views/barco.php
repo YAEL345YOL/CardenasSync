@@ -54,9 +54,9 @@ $barco = mysqli_query($con, $sql1);
         <label for="id_editar_barco">ID barco</label>
         <select name="id_editar_barco" id="id_editar_barco" required>
             <?php
-            while ($fila = mysqli_fetch_assoc($barco)) {
-                echo "<option value='{$fila['id_barco']}'>{$fila['id_barco']}</option>";
-            }
+                while ($fila = mysqli_fetch_assoc($barco)) {
+                    echo "<option value='{$fila['id_barco']}'>{$fila['id_barco']}</option>";
+                }
             ?>
         </select>
         <br>
@@ -94,17 +94,17 @@ $barco = mysqli_query($con, $sql1);
         </thead>
         <tbody>
             <?php
-            mysqli_data_seek($barco, 0);
-            while ($fila = mysqli_fetch_assoc($barco)) {
-                echo "
-                <tr>
-                    <td>{$fila["id_barco"]}</td>
-                    <td>{$fila["nombre_barco"]}</td>
-                    <td>{$fila["tipo_barco"]}</td>
-                    <td>{$fila["nacionalidad_barco"]}</td>
-                </tr>
-                ";
-            }
+                mysqli_data_seek($barco, 0);
+                while ($fila = mysqli_fetch_assoc($barco)) {
+                    echo "
+                    <tr>
+                        <td>{$fila["id_barco"]}</td>
+                        <td>{$fila["nombre_barco"]}</td>
+                        <td>{$fila["tipo_barco"]}</td>
+                        <td>{$fila["nacionalidad_barco"]}</td>
+                    </tr>
+                    ";
+                }
             ?>
         </tbody>
     </table>

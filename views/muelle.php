@@ -8,7 +8,7 @@ session_start();
 $con = connection();
 $sql1 = "SELECT * FROM muelle";
 
-$resultado1 = mysqli_query($con,$sql1);
+$muelle = mysqli_query($con,$sql1);
 ?>
 <!DOCTYPE html>
 <html lang="es">

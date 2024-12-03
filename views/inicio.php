@@ -27,7 +27,6 @@ session_start();
                 <li><a href="login_trabajador.php">Trabajador</a></li>
             </ul>
             <?php endif; ?>
-
             <?php if(isset($_SESSION["tipo"])): ?>
             <a href="../php/cerrar_sesion.php">Cerrar sesion</a>
             <?php endif; ?>

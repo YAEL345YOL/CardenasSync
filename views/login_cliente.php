@@ -8,9 +8,9 @@
 </head>
 <body>
     <?php 
-    if(isset($_GET["error"])){
-        echo "<p>Error, datos incorrectos</p>";
-    }
+        if(isset($_GET["error"])){
+            echo "<p>Error, datos incorrectos</p>";
+        }
     ?>
     <form action="../php/cliente/login_cliente.php" method="POST">
         <h2>Iniciar sesion</h2>

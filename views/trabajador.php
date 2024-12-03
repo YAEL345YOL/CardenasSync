@@ -68,9 +68,9 @@ $trabajador = mysqli_query($con,$sql1);
         <label for="id_editar_trabajador">ID trabajador</label>
         <select id="id_editar_trabajador" name="id_editar_trabajador" required>
             <?php
-            while($fila = mysqli_fetch_assoc($trabajador)){
-                echo "<option value='{$fila['id_trabajador']}'>{$fila['id_trabajador']}</option>";
-            }
+                while($fila = mysqli_fetch_assoc($trabajador)){
+                    echo "<option value='{$fila['id_trabajador']}'>{$fila['id_trabajador']}</option>";
+                }
             ?>
         </select>
         <br>
@@ -130,19 +130,19 @@ $trabajador = mysqli_query($con,$sql1);
         </thead>
         <tbody>
         <?php
-        mysqli_data_seek($trabajador, 0);
-        while($fila = mysqli_fetch_assoc($trabajador)){
-            echo "
-            <tr>
-                <td>{$fila["id_trabajador"]}</td>
-                <td>{$fila["nombre_trabajador"]}</td>
-                <td>{$fila["apellido_trabajador"]}</td>
-                <td>{$fila["fecha_de_nacimiento_trabajador"]}</td>
-                <td>{$fila["correo_trabajador"]}</td>
-                <td>{$fila["contrasena_trabajador"]}</td>
-            </tr>
-            ";
-        }
+            mysqli_data_seek($trabajador, 0);
+            while($fila = mysqli_fetch_assoc($trabajador)){
+                echo "
+                <tr>
+                    <td>{$fila["id_trabajador"]}</td>
+                    <td>{$fila["nombre_trabajador"]}</td>
+                    <td>{$fila["apellido_trabajador"]}</td>
+                    <td>{$fila["fecha_de_nacimiento_trabajador"]}</td>
+                    <td>{$fila["correo_trabajador"]}</td>
+                    <td>{$fila["contrasena_trabajador"]}</td>
+                </tr>
+                ";
+            }
         ?>
         </tbody>
     </table>
