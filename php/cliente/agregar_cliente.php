@@ -20,5 +20,5 @@ $sql = "INSERT INTO cliente
 
 mysqli_query($con,$sql);
 
-header("Location: ../../views/inicio.php");
+header("Location: ../../views/index.php");
 ?>

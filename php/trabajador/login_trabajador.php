@@ -16,7 +16,7 @@ if(mysqli_num_rows($resultado)>0){
     session_start();
     $_SESSION["tipo"] = "trabajador";
     $_SESSION["id"] = $fila["id_trabajador"];
-    header("Location: ../../views/inicio.php");
+    header("Location: ../../views/index.php");
 }
 else{
     header("Location: ../../views/login_trabajador.php?error=1");

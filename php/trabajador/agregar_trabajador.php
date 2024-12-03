@@ -23,4 +23,6 @@ $sql = "INSERT INTO trabajador
         );";
 
 mysqli_query($con,$sql);
+
+header("Location: ../../views/trabajador.php");
 ?>

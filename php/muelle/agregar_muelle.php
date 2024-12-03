@@ -13,4 +13,6 @@ $sql = "INSERT INTO muelle
         )";
 
 mysqli_query($con,$sql);
+
+header("Location: ../../views/muelle.php");
 ?>

@@ -22,4 +22,6 @@ $sql = "UPDATE trabajador SET
         WHERE id_trabajador = '$id'";
 
 mysqli_query($con,$sql);
+
+header("Location: ../../views/trabajador.php");
 ?>
