@@ -1,7 +1,7 @@
 <?php
-    include "../php/connection.php";
+include "../php/connection.php";
 
-    session_start();
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -14,12 +14,13 @@
     <header>
         <nav>
             <?php if($_SESSION["tipo"]=="cliente"): ?>
-                <a href="contenedor.php">mis contenedores</a>
+            <a href="contenedor.php">mis contenedores</a>
             <?php elseif($_SESSION["tipo"]=="trabajador"): ?>
-                <a href="contenedor.php">contenedores</a>
-                <a href="barco.php">barcos</a>
-                <a href="viaje.php">viajes</a>
-                <a href="trabajador.php"></a>
+            <a href="contenedor.php">contenedores</a>
+            <a href="barco.php">barcos</a>
+            <a href="viaje.php">viajes</a>
+            <a href="trabajador.php">trabajador</a>
+            <a href="muelle.php">muelle</a>
             <?php else: ?>
             <ul>
                 <li><a href="login_cliente.php">Cliente</a></li>

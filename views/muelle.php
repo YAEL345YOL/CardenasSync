@@ -1,21 +1,21 @@
 <?php
-    include "../php/connection.php";
+include "../php/connection.php";
 
-    verify_worker();
+verify_worker();
 
-    session_start();
+session_start();
     
-    $con = connection();
-    $sql1 = "SELECT * FROM muelle";
+$con = connection();
+$sql1 = "SELECT * FROM muelle";
 
-    $resultado1 = mysqli_query($con,$sql1);
+$resultado1 = mysqli_query($con,$sql1);
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar muelle</title>
+    <title>muelle</title>
 </head>
 <body>
     <form action="../php/agregar_muelle.php" method="POST">
