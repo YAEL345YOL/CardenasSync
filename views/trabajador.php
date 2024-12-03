@@ -137,7 +137,7 @@ $trabajador = mysqli_query($con,$sql1);
                     <td>{$fila["id_trabajador"]}</td>
                     <td>{$fila["nombre_trabajador"]}</td>
                     <td>{$fila["apellido_trabajador"]}</td>
-                    <td>{$fila["fecha_de_nacimiento_trabajador"]}</td>
+                    <td>{$fila["fecha_nacimiento_trabajador"]}</td>
                     <td>{$fila["correo_trabajador"]}</td>
                     <td>{$fila["contrasena_trabajador"]}</td>
                 </tr>

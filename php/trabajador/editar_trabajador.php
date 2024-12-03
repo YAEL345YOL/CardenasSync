@@ -2,26 +2,29 @@
 include "../connection.php";
 $con = connection();
 
-$id = $_POST["id_editar_trabajador"];
-$nombre = $_POST["nombre_editar_trabajador"];
-$apellido = $_POST["apellido_editar_trabajador"];
-$puesto = $_POST["puesto_editar_trabajador"];
-$fecha_nacimiento = $_POST["fecha_nacimiento_editar_trabajador"];
-$telefono = $_POST["telefono_editar_trabajador"];
-$correo = $_POST["correo_editar_trabajador"];
-$contrasena = $_POST["contrasena_editar_trabajador"];
+$id = $_POST["id_editar_trabajador"] ?? null;
+$nombre = $_POST["nombre_editar_trabajador"] ?? null;
+$apellido = $_POST["apellido_editar_trabajador"] ?? null;
+$puesto = $_POST["puesto_editar_trabajador"] ?? null;
+$fecha_nacimiento = $_POST["fecha_nacimiento_editar_trabajador"] ?? null;
+$telefono = $_POST["telefono_editar_trabajador"] ?? null;
+$correo = $_POST["correo_editar_trabajador"] ?? null;
+$contrasena = $_POST["contrasena_editar_trabajador"] ?? null;
 
 $sql = "UPDATE trabajador SET 
-        nombre_trabajador='$nombre',
-        apellido_trabajador='$apellido',
-        puesto_trabajador='$puesto',
-        fecha_nacimiento_trabajador='$fecha_nacimiento',
-        telefono_trabajador='$telefono',
-        correo_trabajador='$correo',
-        contrasena_trabajador='$contrasena'
-        WHERE id_trabajador = '$id'";
+        nombre_trabajador=?,
+        apellido_trabajador=?,
+        puesto_trabajador=?,
+        fecha_nacimiento_trabajador=?,
+        telefono_trabajador=?,
+        correo_trabajador=?,
+        contrasena_trabajador=?
+        WHERE id_trabajador = ?";
 
-mysqli_query($con,$sql);
+$consulta = $con->prepare($sql);
+$consulta->bind_param("ssssssss", $nombre, $apellido, $puesto_trabajo, $fecha_nacimiento, $telefono, $correo, $contrasena,$id);
+$consulta->execute();
+$consulta->close();
 
 header("Location: ../../views/trabajador.php");
 ?>

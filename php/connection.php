@@ -4,9 +4,9 @@ function connection(){
     $user = "root";
     $password = "";
     $db = "cardenassync";
-    $con = mysqli_connect($server,$user,$password);
+    $con = new mysqli($server,$user,$password);
     
-    mysqli_select_db($con,$db);
+    $con->select_db($db);
     
     return $con;
 }

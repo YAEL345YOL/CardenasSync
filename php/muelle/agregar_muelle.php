@@ -2,17 +2,15 @@
 include "../connection.php";
 $con = connection();
 
-$nombre = $_POST["nombre_agregar_muelle"];
-$ubicacion = $_POST["ubicacion_agregar_muelle"];
+$nombre = $_POST["nombre_agregar_muelle"] ?? null;
+$ubicacion = $_POST["ubicacion_agregar_muelle"] ?? null;
 
-$sql = "INSERT INTO muelle 
-        VALUES (
-        NULL,
-        '$nombre',
-        '$ubicacion'
-        )";
+$sql = "INSERT INTO muelle VALUES (NULL,?,?)";
 
-mysqli_query($con,$sql);
+$consulta = $con->prepare($sql);
+$consulta->bind_param("ss",$nombre,$ubicacion);
+$consulta->execute();
+$consulta->close();
 
 header("Location: ../../views/muelle.php");
 ?>
