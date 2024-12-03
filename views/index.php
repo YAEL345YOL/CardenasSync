@@ -28,7 +28,7 @@ session_start();
             </ul>
             <?php endif; ?>
             <?php if(isset($_SESSION["tipo"])): ?>
-            <a href="../php/cerrar_sesion.php">Cerrar sesion</a>
+            <a href="../php/cerrar_sesion.php">cerrar sesion</a>
             <?php endif; ?>
         </nav>
     </header>
