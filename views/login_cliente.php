@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
     <title>Iniciar sesion cliente</title>
 </head>
 <body>
     <?php 
         if(isset($_GET["error"])){
-            echo "<p>Error, datos incorrectos</p>";
+            echo "<div class='notification notification__error'><p>Error, datos incorrectos</</div>";
         }
     ?>
     <form action="../php/cliente/login_cliente.php" method="POST">
