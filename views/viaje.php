@@ -1,18 +1,24 @@
 <?php
 include "../php/connection.php";
 
-verify_worker();
-
 session_start();
 
 $con = connection();
-$sql1 = "SELECT * FROM barco";
-$sql2 = "SELECT * FROM muelle";
-$sql3 = "SELECT * FROM viaje".(isset($_GET["id"]) ? " WHERE id_viaje = {$_GET["id"]}":"");
 
-$barco = $con->query($sql1);
-$muelle = $con->query($sql2);
-$viaje = $con->query($sql3);
+if($_SESSION["tipo"]=="trabajador"){
+    $sql1 = "SELECT * FROM barco";
+    $sql2 = "SELECT * FROM muelle";
+    $sql3 = "SELECT * FROM viaje".(isset($_GET["id"]) ? " WHERE id_viaje = {$_GET["id"]}":"");
+
+    $viaje = $con->query($sql3);
+    $barco = $con->query($sql1);
+    $muelle = $con->query($sql2);
+}
+else if($_SESSION["tipo"]=="cliente"){
+    $sql1 = "SELECT * FROM contenedor JOIN contenedor_cliente ON contenedor.id_contenedor = contenedor_cliente.id_contenedor JOIN viaje ON contenedor.id_viaje = viaje.id_viaje".(isset($_GET["id"]) ? " WHERE viaje.id_viaje = {$_GET["id"]}":"");
+
+    $viaje = $con->query($sql1);
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -23,6 +29,7 @@ $viaje = $con->query($sql3);
     <title>viaje</title>
 </head>
 <body>
+    <?php if($_SESSION["tipo"]=="trabajador"): ?>
     <form action="../php/viaje/agregar_viaje.php" method="POST">
         <h2>Agregar viaje</h2>
 
@@ -161,6 +168,7 @@ $viaje = $con->query($sql3);
         <!-- Boton de enviar -->
         <input type="submit">
     </form>
+    <?php endif; ?>
     <form action="../php/viaje/buscar_viaje.php" method="POST">
 
         <!-- Buscar contenedor -->
@@ -197,11 +205,16 @@ $viaje = $con->query($sql3);
                     <td>{$fila["origen_viaje"]}</td>
                     <td>{$fila["actualizacion_viaje"]}</td>
                     <td>{$fila["estado_viaje"]}</td>
-                    <td>{$fila["tiempo_estimado_viaje"]}</td>
+                    <td>{$fila["tiempo_estimado_viaje"]}</td>".($_SESSION["tipo"]=="trabajador" ?
+                    "
+                    <td><a href='barco.php?id={$fila["id_barco"]}'>{$fila["id_barco"]}</a></td>
+                    <td><a href='muelle.php?id={$fila["id_muelle"]}'>{$fila["id_muelle"]}</a></td>
+                </tr>
+                    " : "
                     <td>{$fila["id_barco"]}</td>
                     <td>{$fila["id_muelle"]}</td>
                 </tr>
-                ";
+                    ");
             }
         ?>
         </tbody>

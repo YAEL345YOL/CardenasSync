@@ -187,7 +187,7 @@ else if($_SESSION["tipo"]=="cliente"){
                         <td>{$fila["tipo_contenedor"]}</td>
                         <td>{$fila["tamano_contenedor"]}</td>
                         <td>{$fila["capacidad_contenedor"]}</td>
-                        <td>{$fila["id_viaje"]}</td>
+                        <td><a href='viaje.php?id={$fila["id_viaje"]}'>{$fila["id_viaje"]}</a></td>
                     </tr>
                     ";
                 }
