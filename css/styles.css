@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+.notification {
+    width: 100px;
+    height: 100px;
+}
+
 .notification__error {
     background-color: red;
     color: white;
