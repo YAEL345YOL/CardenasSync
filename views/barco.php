@@ -6,7 +6,8 @@ verify_worker();
 session_start();
 
 $con = connection();
-$sql1 = "SELECT * FROM barco";
+
+$sql1 = "SELECT * FROM barco".(isset($_GET["id"]) ? " WHERE id_barco = '{$_GET["id"]}'" : "");
 
 $barco = $con->query($sql1);
 ?>
@@ -18,7 +19,6 @@ $barco = $con->query($sql1);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>barco</title>
 </head>
-
 <body>
     <form action="../php/barco/agregar_barco.php" method="POST">
         <h2>Agregar barco</h2>
@@ -115,6 +115,31 @@ $barco = $con->query($sql1);
         <br>
 
         <!-- Boton de enviar -->
+        <input type="submit">
+    </form>
+    <form action="../php/barco/eliminar_barco.php" method="POST">
+        <h2>Eliminar barco</h2>
+
+        <!-- Id_barco -->
+        <label for="id_eliminar_barco">ID barco</label>
+        <select name="id_eliminar_barco" id="id_eliminar_barco" required>
+            <?php
+                $barco->data_seek(0);
+                while ($fila = $barco->fetch_assoc()) {
+                    echo "<option value='{$fila['id_barco']}'>{$fila['id_barco']}</option>";
+                }
+            ?>
+        </select>
+        <br>
+
+        <!-- Boton de enviar -->
+        <input type="submit">
+    </form>
+    <form action="../php/barco/buscar_barco.php" method="POST">
+        <!-- Buscar contenedor -->
+        <input id="id_buscar_barco" name="id_buscar_barco" type="number" placeholder="Ingrese id barco">
+
+        <!-- Boton enviar -->
         <input type="submit">
     </form>
     <table>

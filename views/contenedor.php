@@ -4,6 +4,19 @@ include "../php/connection.php";
 session_start();
     
 $con = connection();
+
+if($_SESSION["tipo"]=="trabajador"){
+    $sql1 = "SELECT * FROM contenedor".(isset($_GET["id"]) ? " WHERE id_contenedor = '{$_GET["id"]}'" : "");
+    $sql2 = "SELECT * FROM viaje";
+
+    $contenedor = $con->query($sql1);
+    $viaje = $con->query($sql2);
+}
+else if($_SESSION["tipo"]=="cliente"){
+    $sql1 = "SELECT * FROM contenedor JOIN contenedor_cliente WHERE contenedor.id_contenedor = contenedor_cliente.id_contenedor AND contenedor_cliente.id_cliente = {$_SESSION["id"]}".(isset($_GET["id"]) ? " AND contenedor.id_contenedor = {$_GET["id"]}" : "");
+
+    $contenedor = $con->query($sql1);
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -15,15 +28,6 @@ $con = connection();
 </head>
 <body>
     <?php if($_SESSION["tipo"]=="trabajador"): ?>
-        <?php
-
-        $sql1 = "SELECT * FROM viaje";
-        $sql2 = "SELECT * FROM contenedor";
-
-        $viaje = $con->query($sql1);
-        $contenedor = $con->query($sql2);
-        
-        ?>
         <form action="../php/contenedor/agregar_contenedor.php" method="POST">
             <h2>Agregar contenedor</h2>
         
@@ -138,15 +142,33 @@ $con = connection();
             <!-- Boton de enviar -->
             <input type="submit">
         </form>
-    <?php endif; ?>
-    <?php if($_SESSION["tipo"]=="cliente"): ?>
-        <h2>Mis contenedores</h2>
-        <?php 
-            $sql1 = "SELECT * FROM contenedor JOIN contenedor_cliente WHERE contenedor.id_contenedor = contenedor_cliente.id_contenedor AND contenedor_cliente.id_cliente = '{$_SESSION["id"]}'";
+        <form action="../php/contenedor/eliminar_contenedor.php" method="POST">
+            <h2>Eliminar contenedor</h2>
 
-            $contenedor = $con->query($sql1);
-        ?>
+            <!-- Id contenedor -->
+            <label for="id_eliminar_contenedor">ID contenedor</label>
+            <select id="id_eliminar_contenedor" name="id_eliminar_contenedor" required>
+                <?php
+                    $contenedor->data_seek(0);
+                    while($fila = $contenedor->fetch_assoc()){
+                        echo "<option value='{$fila['id_contenedor']}'>{$fila['id_contenedor']}</option>";
+                    }
+                ?>
+            </select>
+            <br>
+
+            <!-- Boton de enviar -->
+            <input type="submit">
+        </form>
     <?php endif; ?>
+    <form action="../php/contenedor/buscar_contenedor.php" method="POST">
+
+        <!-- Buscar contenedor -->
+        <input id="id_buscar_contenedor" name="id_buscar_contenedor" type="number" placeholder="Ingrese id contenedor">
+
+        <!-- Boton enviar -->
+        <input type="submit">
+    </form>
     <table>
         <thead>
             <th>id</th>

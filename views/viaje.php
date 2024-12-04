@@ -8,7 +8,7 @@ session_start();
 $con = connection();
 $sql1 = "SELECT * FROM barco";
 $sql2 = "SELECT * FROM muelle";
-$sql3 = "SELECT * FROM viaje";
+$sql3 = "SELECT * FROM viaje".(isset($_GET["id"]) ? " WHERE id_viaje = {$_GET["id"]}":"");
 
 $barco = $con->query($sql1);
 $muelle = $con->query($sql2);
@@ -141,6 +141,32 @@ $viaje = $con->query($sql3);
         <br>
 
         <!-- Boton de enviar -->
+        <input type="submit">
+    </form>
+    <form action="../php/viaje/eliminar_viaje.php" method="POST">
+        <h2>Eliminar viaje</h2>
+
+        <!-- ID viaje -->
+        <label for="id_eliminar_viaje">ID viaje</label>
+        <select name="id_eliminar_viaje" id="id_eliminar_viaje" required>
+            <?php
+                $viaje->data_seek(0);
+                while($fila = $viaje->fetch_assoc()){
+                    echo "<option value='{$fila['id_viaje']}'>{$fila['id_viaje']}</option>";
+                }
+            ?>
+        </select>
+        <br>
+
+        <!-- Boton de enviar -->
+        <input type="submit">
+    </form>
+    <form action="../php/viaje/buscar_viaje.php" method="POST">
+
+        <!-- Buscar contenedor -->
+        <input id="id_buscar_viaje" name="id_buscar_viaje" type="number" placeholder="Ingrese id viaje">
+
+        <!-- Boton enviar -->
         <input type="submit">
     </form>
     <table>

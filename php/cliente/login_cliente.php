@@ -12,10 +12,10 @@ $sql = "SELECT * FROM cliente
 $consulta = $con->prepare($sql);
 $consulta->bind_param("ss",$correo,$contrasena);
 $consulta->execute();
-$consulta->close();
+$resultado = $consulta->get_result();
 
-if(mysqli_num_rows($resultado)>0){
-    $fila = mysqli_fetch_assoc($resultado);
+if($resultado->num_rows>0){
+    $fila = $resultado->fetch_assoc();
     session_start();
     $_SESSION["tipo"] = "cliente";
     $_SESSION["id"] = $fila["id_cliente"];

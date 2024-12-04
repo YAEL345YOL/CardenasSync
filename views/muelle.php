@@ -6,7 +6,7 @@ verify_worker();
 session_start();
     
 $con = connection();
-$sql1 = "SELECT * FROM muelle";
+$sql1 = "SELECT * FROM muelle".(isset($_GET["id"]) ? " WHERE id_muelle = {$_GET["id"]}":"");
 
 $muelle = $con->query($sql1);
 ?>
@@ -18,7 +18,7 @@ $muelle = $con->query($sql1);
     <title>muelle</title>
 </head>
 <body>
-    <form action="../php/agregar_muelle.php" method="POST">
+    <form action="../php/muelle/agregar_muelle.php" method="POST">
         <h2>Agregar muelle</h2>
 
         <!-- Nombre -->
@@ -34,7 +34,7 @@ $muelle = $con->query($sql1);
         <!-- Boton de enviar -->
         <input type="submit">
     </form>
-    <form action="../php/editar_muelle.php" method="POST">
+    <form action="../php/muelle/editar_muelle.php" method="POST">
         <h2>Editar muelle</h2>
 
         <!-- Muelle  -->
@@ -62,6 +62,31 @@ $muelle = $con->query($sql1);
         <!-- Boton de enviar -->
         <input type="submit">
     </form>
+    <form action="../php/muelle/eliminar_muelle.php" method="POST">
+        <h2>Eliminar muelle</h2>
+
+        <!-- Id contenedor -->
+        <label for="id_eliminar_muelle">ID muelle</label>
+        <select id="id_eliminar_muelle" name="id_eliminar_muelle" required>
+            <?php
+                $muelle->data_seek(0);
+                while($fila = $muelle->fetch_assoc()){
+                    echo "<option value='{$fila['id_muelle']}'>{$fila['id_muelle']}</option>";
+                }
+            ?>
+        </select>
+        <br>
+
+        <!-- Boton de enviar -->
+        <input type="submit">
+    </form>
+    <form action="../php/muelle/buscar_muelle.php" method="POST">
+
+        <input id="id_buscar_muelle" name="id_buscar_muelle" type="text" placeholder="Ingrese ID muelle">
+
+        <!-- Boton de enviar -->
+        <input type="submit">
+    </form>
     <table>
         <thead>
             <th>id</th>
@@ -71,7 +96,7 @@ $muelle = $con->query($sql1);
         <tbody>
         <?php
             $muelle->data_seek(0);
-            while($fila = $muelle->fetch_assoc($muelle)){
+            while($fila = $muelle->fetch_assoc()){
                 echo "
                 <tr>
                     <td>{$fila["id_muelle"]}</td>

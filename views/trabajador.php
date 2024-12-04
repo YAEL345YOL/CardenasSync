@@ -6,7 +6,7 @@ verify_worker();
 session_start();
 
 $con = connection();
-$sql1 = "SELECT * FROM trabajador";
+$sql1 = "SELECT * FROM trabajador".(isset($_GET["id"]) ? " WHERE id_trabajador={$_GET["id"]}":"");
 
 $trabajador = $con->query($sql1);
 ?>
@@ -115,6 +115,32 @@ $trabajador = $con->query($sql1);
         <label for="contrasena_editar_trabajador">Contraseña</label>
         <input id="contrasena_editar_trabajador" name="contrasena_editar_trabajador" type="password" placeholder="contraseña" required>
         <br>
+
+        <!-- Boton de enviar -->
+        <input type="submit">
+    </form>
+    <form action="../php/trabajador/eliminar_trabajador.php" method="POST">
+        <h2>Eliminar trabajador</h2>
+
+        <!-- id trabajador -->
+        <label for="id_eliminar_trabajador">ID trabajador</label>
+        <select id="id_eliminar_trabajador" name="id_eliminar_trabajador">
+            <?php
+                $trabajador->data_seek(0);
+                while($fila = $trabajador->fetch_assoc()){
+                    echo "<option value='{$fila['id_trabajador']}'>{$fila['id_trabajador']}</option>";
+                }
+            ?>
+        </select>
+        <br>
+
+        <!-- Boton de enviar -->
+        <input type="submit">
+    </form>
+    <form action="../php/trabajador/buscar_trabajador.php" method="POST">
+
+        <!-- id trabajador -->
+        <input id="id_buscar_trabajador" name="id_buscar_trabajador" type="number" placeholder="Ingrese ID trabajador">
 
         <!-- Boton de enviar -->
         <input type="submit">
