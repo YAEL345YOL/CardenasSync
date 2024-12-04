@@ -25,8 +25,8 @@ session_start();
                 <a href="contenedor_cliente.php">contenedor_cliente</a>
             <?php else: ?>
                 <ul>
-                    <li><a href="login_cliente.php">Cliente</a></li>
-                    <li><a href="login_trabajador.php">Trabajador</a></li>
+                    <li><a href="login_cliente.php">cliente</a></li>
+                    <li><a href="login_trabajador.php">trabajador</a></li>
                 </ul>
             <?php endif; ?>
             <?php if(isset($_SESSION["tipo"])): ?>

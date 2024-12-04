@@ -5,7 +5,7 @@ $con = connection();
 verify_worker();
 
 $sql1 = "SELECT * FROM contenedor";
-$sql2 = "SELECT * FROM cliente";
+$sql2 = "SELECT * FROM cliente".(isset($_GET["id"]) ? " WHERE id_cliente = {$_GET["id"]}":"");
 
 $contenedor = $con->query($sql1);
 $cliente = $con->query($sql2)
@@ -53,7 +53,11 @@ $cliente = $con->query($sql2)
         
     </form>
     <form action="../php/contenedor_cliente/buscar_contenedor_cliente.php" method="POST">
+        <!-- Buscar contenedor -->
+        <input id="id_cliente_buscar_contenedor_cliente" name="id_cliente_buscar_contenedor_cliente" type="number" placeholder="Ingrese id del cliente">
 
+        <!-- Boton enviar -->
+        <input type="submit">
     </form>
     <?php
     $cliente->data_seek(0);
@@ -83,7 +87,7 @@ $cliente = $con->query($sql2)
                                 <td><a href='viaje.php?id={$fila["id_viaje"]}'>{$fila["id_viaje"]}</a></td>
                             </tr>";
                     }
-              echo "</tbody>
+            echo "</tbody>
                 </table>
             </div>";
         }
