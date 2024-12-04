@@ -21,16 +21,6 @@ $cliente = $con->query($sql2)
     <form action="../php/contenedor_cliente/agregar_contenedor_cliente.php" method="POST">
         <h2>Agregar contenedor_cliente</h2>
 
-        <!-- id contenedor -->
-        <label for="id_contenedor_agregar_contenedor_cliente">ID contenedor</label>
-        <select name="id_contenedor_agregar_contenedor_cliente" id="id_contenedor_agregar_contenedor_cliente" required>
-            <?php
-                while($fila = $contenedor->fetch_assoc()){
-                    echo "<option value='{$fila['id_contenedor']}'>{$fila['id_contenedor']}</option>";
-                }
-            ?>
-        </select>
-        <br>
 
         <!-- id cliente -->
         <label for="id_cliente_agregar_contenedor_cliente">ID cliente</label>
@@ -43,14 +33,49 @@ $cliente = $con->query($sql2)
         </select>
         <br>
 
+        <!-- id contenedor -->
+        <label for="id_contenedor_agregar_contenedor_cliente">ID contenedor</label>
+        <select name="id_contenedor_agregar_contenedor_cliente" id="id_contenedor_agregar_contenedor_cliente" required>
+            <?php
+                while($fila = $contenedor->fetch_assoc()){
+                    echo "<option value='{$fila['id_contenedor']}'>{$fila['id_contenedor']}</option>";
+                }
+            ?>
+        </select>
+        <br>
+
         <!-- boton enviar -->
         <input type="submit">
     </form>
-    <form action="../php/contenedor_cliente/editar_contenedor_cliente.php" method="POST">
-        
-    </form>
     <form action="../php/contenedor_cliente/eliminar_contenedor_cliente.php" method="POST">
-        
+        <h2>Eliminar contenedor_cliente</h2>
+
+        <!-- id cliente -->
+        <label for="id_cliente_eliminar_contenedor_cliente">ID cliente</label>
+        <select name="id_cliente_eliminar_contenedor_cliente" id="id_cliente_eliminar_contenedor_cliente" required>
+            <?php
+                $cliente->data_seek(0);
+                while($fila = $cliente->fetch_assoc()){
+                    echo "<option value='{$fila['id_cliente']}'>{$fila['id_cliente']}</option>";
+                }
+            ?>
+        </select>
+        <br>
+
+        <!-- id contenedor -->
+        <label for="id_contenedor_eliminar_contenedor_cliente">ID contenedor</label>
+        <select name="id_contenedor_eliminar_contenedor_cliente" id="id_contenedor_eliminar_contenedor_cliente" required>
+            <?php
+            $contenedor->data_seek(0);
+                while($fila = $contenedor->fetch_assoc()){
+                    echo "<option value='{$fila['id_contenedor']}'>{$fila['id_contenedor']}</option>";
+                }
+            ?>
+        </select>
+        <br>
+
+        <!-- boton enviar -->
+        <input type="submit">
     </form>
     <form action="../php/contenedor_cliente/buscar_contenedor_cliente.php" method="POST">
         <!-- Buscar contenedor -->
@@ -80,7 +105,7 @@ $cliente = $con->query($sql2)
                     while($fila = $contenedor->fetch_assoc()){
                         echo "
                             <tr>
-                                <td>{$fila["id_contenedor"]}</td>
+                                <td><a href='contenedor.php?id={$fila["id_contenedor"]}'>{$fila["id_contenedor"]}</a></td>
                                 <td>{$fila["tipo_contenedor"]}</td>
                                 <td>{$fila["tamano_contenedor"]}</td>
                                 <td>{$fila["capacidad_contenedor"]}</td>
