@@ -8,7 +8,7 @@ session_start();
 $con = connection();
 $sql1 = "SELECT * FROM barco";
 
-$barco = mysqli_query($con, $sql1);
+$barco = $con->query($sql1);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -41,7 +41,23 @@ $barco = mysqli_query($con, $sql1);
 
         <!-- Nacionalidad -->
         <label for="nacionalidad_agregar_barco">Nacionalidad</label>
-        <input id="nacionalidad_agregar_barco" name="nacionalidad_agregar_barco" type="text" placeholder="Nacionalidad del barco" required>
+        <input id="nacionalidad_agregar_barco" name="nacionalidad_agregar_barco" list="nacionalidad_agregar" placeholder="Nacionalidad" required>
+        <datalist id="nacionalidad_agregar">
+            <option value="México">
+            <option value="Estados Unidos">
+            <option value="China">
+            <option value="Japón">
+            <option value="Corea del Sur">
+            <option value="Panamá">
+            <option value="Singapur">
+            <option value="Hong Kong">
+            <option value="Bahamas">
+            <option value="Islas Marshall">
+            <option value="Liberia">
+            <option value="Malta">
+            <option value="República Dominicana">
+            <option value="Italia">
+        </datalist>
         <br>
 
         <!-- Boton de enviar -->
@@ -54,7 +70,7 @@ $barco = mysqli_query($con, $sql1);
         <label for="id_editar_barco">ID barco</label>
         <select name="id_editar_barco" id="id_editar_barco" required>
             <?php
-                while ($fila = mysqli_fetch_assoc($barco)) {
+                while ($fila = $barco->fetch_assoc()) {
                     echo "<option value='{$fila['id_barco']}'>{$fila['id_barco']}</option>";
                 }
             ?>
@@ -79,7 +95,23 @@ $barco = mysqli_query($con, $sql1);
 
         <!-- Nacionalidad -->
         <label for="nacionalidad_editar_barco">Nacionalidad</label>
-        <input id="nacionalidad_editar_barco" name="nacionalidad_editar_barco" type="text" placeholder="Nacionalidad del barco" required>
+        <input id="nacionalidad_editar_barco" name="nacionalidad_editar_barco" list="nacionalidad_editar" placeholder="Nacionalidad" required>
+        <datalist id="nacionalidad_editar">
+            <option value="México">
+            <option value="Estados Unidos">
+            <option value="China">
+            <option value="Japón">
+            <option value="Corea del Sur">
+            <option value="Panamá">
+            <option value="Singapur">
+            <option value="Hong Kong">
+            <option value="Bahamas">
+            <option value="Islas Marshall">
+            <option value="Liberia">
+            <option value="Malta">
+            <option value="República Dominicana">
+            <option value="Italia">
+        </datalist>
         <br>
 
         <!-- Boton de enviar -->
@@ -94,8 +126,8 @@ $barco = mysqli_query($con, $sql1);
         </thead>
         <tbody>
             <?php
-                mysqli_data_seek($barco, 0);
-                while ($fila = mysqli_fetch_assoc($barco)) {
+                $barco->data_seek(0);
+                while ($fila = $barco->fetch_assoc()) {
                     echo "
                     <tr>
                         <td>{$fila["id_barco"]}</td>

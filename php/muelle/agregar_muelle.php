@@ -2,8 +2,8 @@
 include "../connection.php";
 $con = connection();
 
-$nombre = $_POST["nombre_agregar_muelle"] ?? null;
-$ubicacion = $_POST["ubicacion_agregar_muelle"] ?? null;
+$nombre = verify_input($_POST["nombre_agregar_muelle"]);
+$ubicacion = verify_input($_POST["ubicacion_agregar_muelle"]);
 
 $sql = "INSERT INTO muelle VALUES (NULL,?,?)";
 

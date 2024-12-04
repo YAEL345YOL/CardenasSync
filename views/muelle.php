@@ -8,7 +8,7 @@ session_start();
 $con = connection();
 $sql1 = "SELECT * FROM muelle";
 
-$muelle = mysqli_query($con,$sql1);
+$muelle = $con->query($sql1);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -41,8 +41,8 @@ $muelle = mysqli_query($con,$sql1);
         <label for="id_editar_muelle">ID muelle</label>        
         <select name="id_editar_muelle" id="id_editar_muelle" required>
             <?php
-                mysqli_data_seek($muelle,0);
-                while($fila = mysqli_fetch_assoc($muelle)){
+                $muelle->data_seek(0);
+                while($fila = $muelle->fetch_assoc()){
                     echo "<option value='{$fila['id_muelle']}'>{$fila['id_muelle']}</option>";
                 }
             ?>
@@ -70,8 +70,8 @@ $muelle = mysqli_query($con,$sql1);
         </thead>
         <tbody>
         <?php
-            mysqli_data_seek($muelle, 0);
-            while($fila = mysqli_fetch_assoc($muelle)){
+            $muelle->data_seek(0);
+            while($fila = $muelle->fetch_assoc($muelle)){
                 echo "
                 <tr>
                     <td>{$fila["id_muelle"]}</td>

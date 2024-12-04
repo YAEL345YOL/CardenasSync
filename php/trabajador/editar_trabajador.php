@@ -2,14 +2,14 @@
 include "../connection.php";
 $con = connection();
 
-$id = $_POST["id_editar_trabajador"] ?? null;
-$nombre = $_POST["nombre_editar_trabajador"] ?? null;
-$apellido = $_POST["apellido_editar_trabajador"] ?? null;
-$puesto = $_POST["puesto_editar_trabajador"] ?? null;
-$fecha_nacimiento = $_POST["fecha_nacimiento_editar_trabajador"] ?? null;
-$telefono = $_POST["telefono_editar_trabajador"] ?? null;
-$correo = $_POST["correo_editar_trabajador"] ?? null;
-$contrasena = $_POST["contrasena_editar_trabajador"] ?? null;
+$id = verify_input($_POST["id_editar_trabajador"]);
+$nombre = verify_input($_POST["nombre_editar_trabajador"]);
+$apellido = verify_input($_POST["apellido_editar_trabajador"]);
+$puesto = verify_input($_POST["puesto_editar_trabajador"]);
+$fecha_nacimiento = verify_input($_POST["fecha_nacimiento_editar_trabajador"]);
+$telefono = verify_input($_POST["telefono_editar_trabajador"]);
+$correo = verify_input($_POST["correo_editar_trabajador"]);
+$contrasena = verify_input($_POST["contrasena_editar_trabajador"]);
 
 $sql = "UPDATE trabajador SET 
         nombre_trabajador=?,

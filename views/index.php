@@ -14,21 +14,21 @@ session_start();
     <header>
         <nav>
             <?php if($_SESSION["tipo"]=="cliente"): ?>
-            <a href="contenedor.php">mis contenedores</a>
+                <a href="contenedor.php">mis contenedores</a>
             <?php elseif($_SESSION["tipo"]=="trabajador"): ?>
-            <a href="contenedor.php">contenedores</a>
-            <a href="barco.php">barcos</a>
-            <a href="viaje.php">viajes</a>
-            <a href="trabajador.php">trabajador</a>
-            <a href="muelle.php">muelle</a>
+                <a href="contenedor.php">contenedores</a>
+                <a href="barco.php">barcos</a>
+                <a href="viaje.php">viajes</a>
+                <a href="trabajador.php">trabajador</a>
+                <a href="muelle.php">muelle</a>
             <?php else: ?>
-            <ul>
-                <li><a href="login_cliente.php">Cliente</a></li>
-                <li><a href="login_trabajador.php">Trabajador</a></li>
-            </ul>
+                <ul>
+                    <li><a href="login_cliente.php">Cliente</a></li>
+                    <li><a href="login_trabajador.php">Trabajador</a></li>
+                </ul>
             <?php endif; ?>
             <?php if(isset($_SESSION["tipo"])): ?>
-            <a href="../php/cerrar_sesion.php">cerrar sesion</a>
+                <a href="../php/cerrar_sesion.php">cerrar sesion</a>
             <?php endif; ?>
         </nav>
     </header>

@@ -2,8 +2,8 @@
 include "../connection.php";
 $con = connection();
 
-$id = $_POST["id_login_trabajador"] ?? null;
-$contrasena = $_POST["contrasena_login_trabajador"] ?? null;
+$id = verify_input($_POST["id_login_trabajador"]);
+$contrasena = verify_input($_POST["contrasena_login_trabajador"]);
 
 $sql = "SELECT * FROM trabajador 
         WHERE id_trabajador = ? 

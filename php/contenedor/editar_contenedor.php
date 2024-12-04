@@ -2,20 +2,23 @@
 include "../connection.php";
 $con = connection();
 
-$id = $_POST["id_editar_contenedor"];
-$id_viaje = $_POST["id_viaje_editar_contenedor"];
-$tipo = $_POST["tipo_editar_contenedor"];
-$tamano = $_POST["tamano_editar_contenedor"];
-$capacidad = $_POST["capacidad_editar_contenedor"];
+$id = verify_input($_POST["id_editar_contenedor"]);
+$id_viaje = verify_input($_POST["id_viaje_editar_contenedor"]);
+$tipo = verify_input($_POST["tipo_editar_contenedor"]);
+$tamano = verify_input($_POST["tamano_editar_contenedor"]);
+$capacidad = verify_input($_POST["capacidad_editar_contenedor"]);
 
 $sql = "UPDATE contenedor SET
-        tipo_contenedor='$tipo',
-        tamano_contenedor='$tamano',
-        capacidad_contenedor='$capacidad',
-        id_viaje='$id_viaje' 
-        WHERE id_contenedor='$id'";
+        tipo_contenedor=?,
+        tamano_contenedor=?,
+        capacidad_contenedor=?,
+        id_viaje=?
+        WHERE id_contenedor=?";
 
-mysqli_query($con,$sql);
+$consulta = $con->prepare($sql);
+$consulta->bind_param("ssiii",$tipo,$tamano,$tamano,$capacidad,$id_viaje,$id);
+$consulta->execute();
+$consulta->close();
 
 header("Location: ../../views/contenedor.php");
 ?>

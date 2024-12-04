@@ -2,18 +2,21 @@
 include "../connection.php";
 $con = connection();
 
-$id = $_POST["id_editar_barco"];
-$nombre = $_POST["nombre_editar_barco"];
-$tipo = $_POST["tipo_editar_barco"];
-$nacionalidad = $_POST["nacionalidad_editar_barco"];
+$id = verify_input($_POST["id_editar_barco"]);
+$nombre = verify_input($_POST["nombre_editar_barco"]);
+$tipo = verify_input($_POST["tipo_editar_barco"]);
+$nacionalidad = verify_input($_POST["nacionalidad_editar_barco"]);
 
 $sql = "UPDATE barco SET
-        nombre_barco='$nombre',
-        tipo_barco='$tipo',
-        nacionalidad_barco='$nacionalidad'
-        WHERE id_barco = '$id'";
+        nombre_barco=?,
+        tipo_barco=?,
+        nacionalidad_barco=?
+        WHERE id_barco = ?";
 
-mysqli_query($con, $sql);
+$consulta = $con->prepare($sql);
+$consulta->bind_param("sssi",$nombre,$tipo,$nacionalidad,$id);
+$consulta->execute();
+$consulta->close();
 
 header("Location: ../../views/barco.php");
 ?>

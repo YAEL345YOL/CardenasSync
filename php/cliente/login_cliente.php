@@ -2,14 +2,17 @@
 include "../connection.php";
 $con = connection();
 
-$correo = $_POST["correo_login_cliente"];
-$contrasena = $_POST["contrasena_login_cliente"];
+$correo = verify_input($_POST["correo_login_cliente"]);
+$contrasena = verify_input($_POST["contrasena_login_cliente"]);
 
 $sql = "SELECT * FROM cliente
-        WHERE correo_cliente = '$correo'
-        AND contrasena_cliente = '$contrasena'";
+        WHERE correo_cliente = ?
+        AND contrasena_cliente = ?";
 
-$resultado = mysqli_query($con,$sql);
+$consulta = $con->prepare($sql);
+$consulta->bind_param("ss",$correo,$contrasena);
+$consulta->execute();
+$consulta->close();
 
 if(mysqli_num_rows($resultado)>0){
     $fila = mysqli_fetch_assoc($resultado);

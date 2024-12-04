@@ -8,7 +8,7 @@ session_start();
 $con = connection();
 $sql1 = "SELECT * FROM trabajador";
 
-$trabajador = mysqli_query($con,$sql1);
+$trabajador = $con->query($sql1);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -68,7 +68,7 @@ $trabajador = mysqli_query($con,$sql1);
         <label for="id_editar_trabajador">ID trabajador</label>
         <select id="id_editar_trabajador" name="id_editar_trabajador" required>
             <?php
-                while($fila = mysqli_fetch_assoc($trabajador)){
+                while($fila = $trabajador->fetch_assoc()){
                     echo "<option value='{$fila['id_trabajador']}'>{$fila['id_trabajador']}</option>";
                 }
             ?>
@@ -130,8 +130,8 @@ $trabajador = mysqli_query($con,$sql1);
         </thead>
         <tbody>
         <?php
-            mysqli_data_seek($trabajador, 0);
-            while($fila = mysqli_fetch_assoc($trabajador)){
+            $trabajador->data_seek(0);
+            while($fila = $trabajador->fetch_assoc()){
                 echo "
                 <tr>
                     <td>{$fila["id_trabajador"]}</td>

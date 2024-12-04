@@ -10,9 +10,9 @@ $sql1 = "SELECT * FROM barco";
 $sql2 = "SELECT * FROM muelle";
 $sql3 = "SELECT * FROM viaje";
 
-$barco = mysqli_query($con,$sql1);
-$muelle = mysqli_query($con,$sql2);
-$viaje = mysqli_query($con,$sql3);
+$barco = $con->query($sql1);
+$muelle = $con->query($sql2);
+$viaje = $con->query($sql3);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -30,7 +30,7 @@ $viaje = mysqli_query($con,$sql3);
         <label for="id_barco_agregar_viaje">ID barco</label>
         <select name="id_barco_agregar_viaje" id="id_barco_agregar_viaje" required>
             <?php
-                while($fila = mysqli_fetch_assoc($barco)){
+                while($fila = $barco->fetch_assoc()){
                     echo "<option value='{$fila['id_barco']}'>{$fila['id_barco']}</option>";
                 }
             ?>
@@ -41,7 +41,7 @@ $viaje = mysqli_query($con,$sql3);
         <label for="id_muelle_agregar_viaje">ID muelle</label>        
         <select name="id_muelle_agregar_viaje" id="id_muelle_agregar_viaje" required>
             <?php
-                while($fila = mysqli_fetch_assoc($muelle)){
+                while($fila = $muelle->fetch_assoc()){
                     echo "<option value='{$fila['id_muelle']}'>{$fila['id_muelle']}</option>";
                 }
             ?>
@@ -78,7 +78,7 @@ $viaje = mysqli_query($con,$sql3);
         <label for="id_editar_viaje">ID viaje</label>
         <select name="id_editar_viaje" id="id_editar_viaje" required>
             <?php
-                while($fila = mysqli_fetch_assoc($viaje)){
+                while($fila = $viaje->fetch_assoc()){
                     echo "<option value='{$fila['id_viaje']}'>{$fila['id_viaje']}</option>";
                 }
             ?>
@@ -89,8 +89,8 @@ $viaje = mysqli_query($con,$sql3);
         <label for="id_barco_editar_viaje">ID barco</label>
         <select name="id_barco_editar_viaje" id="id_barco_editar_viaje" required>
             <?php
-                mysqli_data_seek($barco,0);
-                while($fila = mysqli_fetch_assoc($barco)){
+                $barco->data_seek(0);
+                while($fila = $barco->fetch_assoc()){
                     echo "<option value='{$fila['id_barco']}'>{$fila['id_barco']}</option>";
                 }
             ?>
@@ -101,8 +101,8 @@ $viaje = mysqli_query($con,$sql3);
         <label for="id_muelle_editar_viaje">ID muelle</label>        
         <select name="id_muelle_editar_viaje" id="id_muelle_editar_viaje" required>
             <?php
-                mysqli_data_seek($muelle,0);
-                while($fila = mysqli_fetch_assoc($muelle)){
+                $muelle->data_seek(0);
+                while($fila = $muelle->fetch_assoc()){
                     echo "<option value='{$fila['id_muelle']}'>{$fila['id_muelle']}</option>";
                 }
             ?>
@@ -117,6 +117,11 @@ $viaje = mysqli_query($con,$sql3);
             <option value="Finalizado">Finalizado</option>
             <option value="Cancelado">Cancelado</option>
         </select>
+        <br>
+
+        <!-- tiempo estimado -->
+        <label for="tiempo_estimado_editar_viaje">Tiempo estimado</label>        
+            <input id="tiempo_estimado_editar_viaje" name="tiempo_estimado_editar_viaje" type="number" placeholder="Tiempo estimado (hrs)">
         <br>
 
         <!-- Fecha llegada -->
@@ -154,8 +159,8 @@ $viaje = mysqli_query($con,$sql3);
         </thead>
         <tbody>
         <?php
-            mysqli_data_seek($viaje, 0);
-            while($fila = mysqli_fetch_assoc($viaje)){
+            $viaje->data_seek(0);
+            while($fila = $viaje->fetch_assoc()){
                 echo "
                 <tr>
                     <td>{$fila["id_viaje"]}</td>

@@ -7,7 +7,7 @@
     <title>Registrarse cliente</title>
 </head>
 <body>
-    <form action="../php/agregar_cliente.php" method="POST">
+    <form action="../php/cliente/agregar_cliente.php" method="POST">
         <h2>Registrarse</h2>
 
         <label for="nombre_agregar_cliente">Nombre</label>

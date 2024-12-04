@@ -2,9 +2,9 @@
 include "../connection.php";
 $con = connection();
 
-$id = $_POST["id_editar_muelle"] ?? null;
-$nombre = $_POST["nombre_editar_muelle"] ?? null;
-$ubicacion = $_POST["ubicacion_editar_muelle"] ?? null;
+$id = verify_input($_POST["id_editar_muelle"]);
+$nombre = verify_input($_POST["nombre_editar_muelle"]);
+$ubicacion = verify_input($_POST["ubicacion_editar_muelle"]);
 
 $sql = "UPDATE FROM muelle SET
         nombre_muelle = ?,
