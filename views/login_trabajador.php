@@ -13,7 +13,7 @@
             echo "<div class='notification notification__error'><p>Error, datos incorrectos</p></div>";
         }
     ?>
-    <form class="notification__error" action="../php/trabajador/login_trabajador.php" method="POST">
+    <form action="../php/trabajador/login_trabajador.php" method="POST">
         <h2>Iniciar sesion</h2>
 
         <label for="id_login_trabajador">ID trabajador</label>

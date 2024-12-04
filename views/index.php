@@ -22,6 +22,7 @@ session_start();
                 <a href="viaje.php">viajes</a>
                 <a href="trabajador.php">trabajador</a>
                 <a href="muelle.php">muelle</a>
+                <a href="contenedor_cliente.php">contenedor_cliente</a>
             <?php else: ?>
                 <ul>
                     <li><a href="login_cliente.php">Cliente</a></li>
