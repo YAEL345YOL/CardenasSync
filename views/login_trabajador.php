@@ -10,7 +10,7 @@
     <title>Iniciar sesión trabajador</title>
 </head>
 <body class="body--form body--main">
-    <div class="overlay overlay--color"></div>
+    <div></div>
     <?php 
         if(isset($_GET["error"])){
             echo "<div class='notification notification--error'>
@@ -18,18 +18,14 @@
             <p>Error, datos incorrectos</p></div>";
         }
     ?>
-    <form class="form" action="../php/trabajador/login_trabajador.php" method="POST">
-        <div class="form__header">
-            <h2>Iniciar sesión</h2>
-        </div>
-        <div class="form__body">
-            <input id="id_login_trabajador" name="id_login_trabajador" type="number" placeholder="ID trabajador" required>
-    
-            <input id="contrasena_login_trabajador" name="contrasena_login_trabajador" type="password" placeholder="Contraseña" required>
-        </div>
-        <div class="form__footer">
-            <input type="submit" value="Enviar">
-        </div>
+    <form class="form form--size1" action="../php/trabajador/login_trabajador.php" method="POST">
+        <h2>Iniciar sesión</h2>
+
+        <input id="id_login_trabajador" name="id_login_trabajador" type="number" placeholder="ID trabajador" required>
+
+        <input id="contrasena_login_trabajador" name="contrasena_login_trabajador" type="password" placeholder="Contraseña" required>
+
+        <input type="submit" value="Enviar">
     </form>
 </body>
 </html>

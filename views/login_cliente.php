@@ -11,7 +11,7 @@
     <title>Iniciar sesión cliente</title>
 </head>
 <body class="body--form body--main">
-    <div class="overlay overlay--color"></div>
+    <div></div>
     <?php 
         if(isset($_GET["error"])){
             echo "<div class='notification notification--error'>
@@ -19,19 +19,16 @@
             <p>Error, datos incorrectos</p></div>";
         }
     ?>
-    <form class="form" action="../php/cliente/login_cliente.php" method="POST">
-        <div class="form__header">
-            <h2>Iniciar sesión</h2>
-        </div>
-        <div class="form__body">
-            <input id="correo_login_cliente" name="correo_login_cliente" type="email" placeholder="Correo electronico" required>
-    
-            <input id="contrasena_login_cliente" name="contrasena_login_cliente" type="password" placeholder="Contraseña" required>
-        </div>
-        <div class="form__footer">
-            <input type="submit" value="Enviar">
-            <a href="agregar_cliente.php">Registrarse</a>
-        </div>
+    <form class="form form--size1" action="../php/cliente/login_cliente.php" method="POST">
+        <h2>Iniciar sesión</h2>
+
+        <input id="correo_login_cliente" name="correo_login_cliente" type="email" placeholder="Correo electronico" required>
+
+        <input id="contrasena_login_cliente" name="contrasena_login_cliente" type="password" placeholder="Contraseña" required>
+
+        <input type="submit" value="Enviar">
+
+        <a href="agregar_cliente.php">Registrarse</a>
     </form>
 </body>
 </html>

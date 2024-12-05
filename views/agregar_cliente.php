@@ -11,24 +11,18 @@
 </head>
 <body class="body--form body--main">
     <div class="overlay overlay--color"></div>
-    <form class="form form--size2" action="../php/cliente/agregar_cliente.php" method="POST">
-        <div class="form__header">
-            <h2 class="form__title">Registrarse</h2>
-        </div>
-        <div class="form__body">
-            <input class="form__input" id="nombre_agregar_cliente" name="nombre_agregar_cliente" type="text" placeholder="Ingrese su nombre" required>
-    
-            <input class="form__input" id="apellido_agregar_cliente" name="apellido_agregar_cliente" type="text" placeholder="Ingrese su apellido" required>
-    
-            <input class="form__input" id="fecha_nacimiento_agregar_cliente" name="fecha_nacimiento_agregar_cliente" type="date" required>
-    
-            <input class="form__input" id="correo_agregar_cliente" name="correo_agregar_cliente" type="email" placeholder="Ingrese su correo" required>
-    
-            <input class="form__input" id="contrasena_agregar_cliente" name="contrasena_agregar_cliente" type="password" placeholder="Crear su contraseña" required>
-        </div>
-        <div class="form__footer">
-            <input class="form__button" type="submit" value="Enviar">
-        </div>
+    <form class="form form--size1" action="../php/cliente/agregar_cliente.php" method="POST">
+        <h2 class="form__title">Registrarse</h2>
+        <input id="nombre_agregar_cliente" name="nombre_agregar_cliente" type="text" placeholder="Ingrese su nombre" required>
+
+        <input id="apellido_agregar_cliente" name="apellido_agregar_cliente" type="text" placeholder="Ingrese su apellido" required>
+
+        <input id="fecha_nacimiento_agregar_cliente" name="fecha_nacimiento_agregar_cliente" type="date" required>
+
+        <input id="correo_agregar_cliente" name="correo_agregar_cliente" type="email" placeholder="Ingrese su correo" required>
+
+        <input id="contrasena_agregar_cliente" name="contrasena_agregar_cliente" type="password" placeholder="Crear su contraseña" required>
+        <input class="form__button" type="submit" value="Enviar">
     </form>
 </body>
 </html>
