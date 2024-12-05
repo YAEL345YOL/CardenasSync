@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styles.css">
-    <title>Iniciar sesion trabajador</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a7358fff6e.js" crossorigin="anonymous"></script>
+    <title>Iniciar sesión trabajador</title>
 </head>
-<body>
+<body class="body--form body--main">
+    <div class="overlay overlay--color"></div>
     <?php 
         if(isset($_GET["error"])){
-            echo "<div class='notification notification__error'><p>Error, datos incorrectos</p></div>";
+            echo "<div class='notification notification--error'>
+            <i class='fa-solid fa-triangle-exclamation'></i>
+            <p>Error, datos incorrectos</p></div>";
         }
     ?>
-    <form action="../php/trabajador/login_trabajador.php" method="POST">
-        <h2>Iniciar sesion</h2>
-
-        <label for="id_login_trabajador">ID trabajador</label>
-        <input id="id_login_trabajador" name="id_login_trabajador" type="number" placeholder="Ingrese su id" required>
-        <br>
-
-        <label for="contrasena_login_trabajador">Contraseña</label>
-        <input id="contrasena_login_trabajador" name="contrasena_login_trabajador" type="password" placeholder="Ingrese su contraseña" required>
-        <br>
-
-        <input type="submit">
+    <form class="form" action="../php/trabajador/login_trabajador.php" method="POST">
+        <div class="form__header">
+            <h2>Iniciar sesión</h2>
+        </div>
+        <div class="form__body">
+            <input id="id_login_trabajador" name="id_login_trabajador" type="number" placeholder="ID trabajador" required>
+    
+            <input id="contrasena_login_trabajador" name="contrasena_login_trabajador" type="password" placeholder="Contraseña" required>
+        </div>
+        <div class="form__footer">
+            <input type="submit" value="Enviar">
+        </div>
     </form>
 </body>
 </html>

@@ -22,143 +22,148 @@ else if($_SESSION["tipo"]=="cliente"){
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a7358fff6e.js" crossorigin="anonymous"></script>
     <title>contenedor</title>
 </head>
-<body>
+<body class="body--layout">
     <?php if($_SESSION["tipo"]=="trabajador"): ?>
-        <form action="../php/contenedor/agregar_contenedor.php" method="POST">
-            <h2>Agregar contenedor</h2>
-        
-            <!-- Id viaje -->
-            <label for="id_viaje_agregar_contenedor">ID viaje</label>
-            <select id="id_viaje_agregar_contenedor" name="id_viaje_agregar_contenedor" required>
-                <?php
-                    while($fila = $viaje->fetch_assoc()){
-                        echo "<option value='{$fila['id_viaje']}'>{$fila['id_viaje']}</option>";
-                    }
-                ?>
-            </select>
-            <br>
-                
-            <!-- Tipo de contenedor -->
-            <label for="tipo_agregar_contenedor">Tipo de contenedor</label>
-            <select id="tipo_agregar_contenedor" name="tipo_agregar_contenedor" required>
-                <option value="Seco">Seco</option>
-                <option value="Refrigerado">Refrigerado</option>
-                <option value="Techo Abierto">Techo Abierto</option>
-                <option value="Plataforma">Plataforma</option>
-                <option value="Lado abierto">Lado abierto</option>
-                <option value="Gran altura">Gran altura</option>
-                <option value="Tanque">Tanque</option>
-                <option value="Ventilacion">Ventilación</option>
-                <option value="Carga a granel">Carga a granel</option>
-                <option value="Aislante">Aislante</option>
-                <option value="Carga no paletizada">Carga no paletizada</option>
-            </select>
-            <br>
-                
-            <!-- tamaño estandarizado -->
-            <label for="tamano_agregar_contenedor">Tamaño</label>
-            <select name="tamano_agregar_contenedor" id="tamano_agregar_contenedor" required>
-                <option value="10ft">10 pies (10')</option>
-                <option value="20ft">20 pies (20')</option>
-                <option value="40ft">40 pies (40')</option>
-                <option value="40ft HC">40 pies (40 HC')</option>
-                <option value="45ft">45 pies (45')</option>
-                <option value="53ft">53 pies (53')</option>
-            </select>
-            <br>
-                
-            <!-- Capacidad -->
-            <label for="capacidad_agregar_contenedor">Capacidad</label>
-            <input id="capacidad_agregar_contenedor" name="capacidad_agregar_contenedor" type="number" placeholder="Capacidad (kg)" required>
-            <br>
-                
-            <!-- Boton de enviar -->
-            <input type="submit">
+        <form class="form form--s1" action="../php/contenedor/agregar_contenedor.php" method="POST">
+            <div class="form__header">
+                <h2>Agregar contenedor</h2>
+            </div>
+            <div class="form__body">
+                <label for="id_viaje_agregar_contenedor">ID viaje</label>
+                <select class="form__input"  id="id_viaje_agregar_contenedor" name="id_viaje_agregar_contenedor" required>
+                    <?php
+                        while($fila = $viaje->fetch_assoc()){
+                            echo "<option value='{$fila['id_viaje']}'>{$fila['id_viaje']}</option>";
+                        }
+                    ?>
+                </select>
+                    
+                <label for="tipo_agregar_contenedor">Tipo de contenedor</label>
+                <select class="form__input"  id="tipo_agregar_contenedor" name="tipo_agregar_contenedor" required>
+                    <option value="Seco">Seco</option>
+                    <option value="Refrigerado">Refrigerado</option>
+                    <option value="Techo Abierto">Techo Abierto</option>
+                    <option value="Plataforma">Plataforma</option>
+                    <option value="Lado abierto">Lado abierto</option>
+                    <option value="Gran altura">Gran altura</option>
+                    <option value="Tanque">Tanque</option>
+                    <option value="Ventilacion">Ventilación</option>
+                    <option value="Carga a granel">Carga a granel</option>
+                    <option value="Aislante">Aislante</option>
+                    <option value="Carga no paletizada">Carga no paletizada</option>
+                </select>
+                    
+                <label for="tamano_agregar_contenedor">Tamaño</label>
+                <select class="form__input" name="tamano_agregar_contenedor" id="tamano_agregar_contenedor" required>
+                    <option value="10ft">10 pies (10')</option>
+                    <option value="20ft">20 pies (20')</option>
+                    <option value="40ft">40 pies (40')</option>
+                    <option value="40ft HC">40 pies (40 HC')</option>
+                    <option value="45ft">45 pies (45')</option>
+                    <option value="53ft">53 pies (53')</option>
+                </select>
+                    
+                <label for="capacidad_agregar_contenedor">Capacidad</label>
+                <input class="form__input" id="capacidad_agregar_contenedor" name="capacidad_agregar_contenedor" type="number" placeholder="Capacidad (kg)" required>
+            </div>
+            <div class="form__footer">
+                <input class="form__button" type="submit">
+            </div>
         </form>
-        <form action="../php/contenedor/editar_contenedor.php" method="POST">
-            <h2>Editar contenedor</h2>
-                
-            <!-- Id contenedor -->
-            <label for="id_editar_contenedor">ID contenedor</label>
-            <select id="id_editar_contenedor" name="id_editar_contenedor" required>
-                <?php
-                    while($fila = $contenedor->fetch_assoc()){
-                        echo "<option value='{$fila['id_contenedor']}'>{$fila['id_contenedor']}</option>";
-                    }
-                ?>
-            </select>
-            <br>
-                
-            <!-- Id viaje -->
-            <label for="id_viaje_editar_contenedor">ID viaje</label>
-            <select id="id_viaje_editar_contenedor" name="id_viaje_editar_contenedor" required>
-                <?php
-                    $viaje->data_seek(0);
-                    while($fila = $viaje->fetch_assoc()){
-                        echo "<option value='{$fila['id_viaje']}'>{$fila['id_viaje']}</option>";
-                    }
-                ?>
-            </select>
-            <br>
-                
-            <!-- Tipo de contenedor -->
-            <label for="tipo_editar_contenedor">Tipo de contenedor</label>
-            <select id="tipo_editar_contenedor" name="tipo_editar_contenedor" required>
-                <option value="Seco">Seco</option>
-                <option value="Refrigerado">Refrigerado</option>
-                <option value="Techo Abierto">Techo Abierto</option>
-                <option value="Plataforma">Plataforma</option>
-                <option value="Lado abierto">Lado abierto</option>
-                <option value="Gran altura">Gran altura</option>
-                <option value="Tanque">Tanque</option>
-                <option value="Ventilacion">Ventilación</option>
-                <option value="Carga a granel">Carga a granel</option>
-                <option value="Aislante">Aislante</option>
-                <option value="Carga no paletizada">Carga no paletizada</option>
-            </select>
-            <br>
-                
-            <!-- tamaño estandarizado -->
-            <label for="tamano_editar_contenedor">Tamaño</label>
-            <select name="tamano_editar_contenedor" id="tamano_editar_contenedor" required>
-                <option value="10ft">10 pies (10')</option>
-                <option value="20ft">20 pies (20')</option>
-                <option value="40ft">40 pies (40')</option>
-                <option value="40ft HC">40 pies (40 HC')</option>
-                <option value="45ft">45 pies (45')</option>
-                <option value="53ft">53 pies (53')</option>
-            </select>
-            <br>
-                
-            <!-- Capacidad -->
-            <label for="capacidad_editar_contenedor">Capacidad</label>
-            <input id="capacidad_editar_contenedor" name="capacidad_editar_contenedor" type="number" placeholder="Capacidad (kg)" required>
-            <br>
-                
-            <!-- Boton de enviar -->
-            <input type="submit">
+        <form class="form" action="../php/contenedor/editar_contenedor.php" method="POST">
+            <div class="form__header">
+                <h2>Editar contenedor</h2>
+            </div>
+            <div class="form__body">
+                <!-- Id contenedor -->
+                <label for="id_editar_contenedor">ID contenedor</label>
+                <select id="id_editar_contenedor" name="id_editar_contenedor" required>
+                    <?php
+                        while($fila = $contenedor->fetch_assoc()){
+                            echo "<option value='{$fila['id_contenedor']}'>{$fila['id_contenedor']}</option>";
+                        }
+                    ?>
+                </select>
+
+                    
+                <!-- Id viaje -->
+                <label for="id_viaje_editar_contenedor">ID viaje</label>
+                <select id="id_viaje_editar_contenedor" name="id_viaje_editar_contenedor" required>
+                    <?php
+                        $viaje->data_seek(0);
+                        while($fila = $viaje->fetch_assoc()){
+                            echo "<option value='{$fila['id_viaje']}'>{$fila['id_viaje']}</option>";
+                        }
+                    ?>
+                </select>
+
+                    
+                <!-- Tipo de contenedor -->
+                <label for="tipo_editar_contenedor">Tipo de contenedor</label>
+                <select id="tipo_editar_contenedor" name="tipo_editar_contenedor" required>
+                    <option value="Seco">Seco</option>
+                    <option value="Refrigerado">Refrigerado</option>
+                    <option value="Techo Abierto">Techo Abierto</option>
+                    <option value="Plataforma">Plataforma</option>
+                    <option value="Lado abierto">Lado abierto</option>
+                    <option value="Gran altura">Gran altura</option>
+                    <option value="Tanque">Tanque</option>
+                    <option value="Ventilacion">Ventilación</option>
+                    <option value="Carga a granel">Carga a granel</option>
+                    <option value="Aislante">Aislante</option>
+                    <option value="Carga no paletizada">Carga no paletizada</option>
+                </select>
+
+                    
+                <!-- tamaño estandarizado -->
+                <label for="tamano_editar_contenedor">Tamaño</label>
+                <select name="tamano_editar_contenedor" id="tamano_editar_contenedor" required>
+                    <option value="10ft">10 pies (10')</option>
+                    <option value="20ft">20 pies (20')</option>
+                    <option value="40ft">40 pies (40')</option>
+                    <option value="40ft HC">40 pies (40 HC')</option>
+                    <option value="45ft">45 pies (45')</option>
+                    <option value="53ft">53 pies (53')</option>
+                </select>
+
+                    
+                <!-- Capacidad -->
+                <label for="capacidad_editar_contenedor">Capacidad</label>
+                <input id="capacidad_editar_contenedor" name="capacidad_editar_contenedor" type="number" placeholder="Capacidad (kg)" required>
+
+            </div>
+            <div class="form__button">
+                <!-- Boton de enviar -->
+                <input class="form__button" type="submit">
+            </div>                
         </form>
-        <form action="../php/contenedor/eliminar_contenedor.php" method="POST">
-            <h2>Eliminar contenedor</h2>
-
-            <!-- Id contenedor -->
-            <label for="id_eliminar_contenedor">ID contenedor</label>
-            <select id="id_eliminar_contenedor" name="id_eliminar_contenedor" required>
-                <?php
-                    $contenedor->data_seek(0);
-                    while($fila = $contenedor->fetch_assoc()){
-                        echo "<option value='{$fila['id_contenedor']}'>{$fila['id_contenedor']}</option>";
-                    }
-                ?>
-            </select>
-            <br>
-
-            <!-- Boton de enviar -->
-            <input type="submit">
+        <form class="form form--sz1" action="../php/contenedor/eliminar_contenedor.php" method="POST">
+            <div class="form__header">
+                <h2>Eliminar contenedor</h2>
+            </div>
+            <div class="form__body">
+                <label for="id_eliminar_contenedor">ID contenedor</label>
+                <select id="id_eliminar_contenedor" name="id_eliminar_contenedor" required>
+                    <?php
+                        $contenedor->data_seek(0);
+                        while($fila = $contenedor->fetch_assoc()){
+                            echo "<option value='{$fila['id_contenedor']}'>{$fila['id_contenedor']}</option>";
+                        }
+                    ?>
+                </select>
+            </div>
+            <div class="form__footer">
+                <!-- Boton de enviar -->
+                <input type="submit">
+            </div>
         </form>
     <?php endif; ?>
     <form action="../php/contenedor/buscar_contenedor.php" method="POST">

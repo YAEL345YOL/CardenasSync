@@ -21,7 +21,6 @@ $cliente = $con->query($sql2)
     <form action="../php/contenedor_cliente/agregar_contenedor_cliente.php" method="POST">
         <h2>Agregar contenedor_cliente</h2>
 
-
         <!-- id cliente -->
         <label for="id_cliente_agregar_contenedor_cliente">ID cliente</label>
         <select name="id_cliente_agregar_contenedor_cliente" id="id_cliente_agregar_contenedor_cliente" required>
