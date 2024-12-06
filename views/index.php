@@ -40,7 +40,13 @@ session_start();
         <nav>
             <ul>
             <?php if(isset($_SESSION["tipo"])): ?>
-                <li><a href="editar_cliente.php" title="Cambiar mis datos"><i class="fa-solid fa-user"></i></a></li>
+                <li>
+                    <?php if($_SESSION["tipo"]=="cliente"): ?>
+                        <a href="editar_cliente.php?id=<?php echo $_SESSION['id']; ?>" title="Cambiar mis datos"><i class="fa-solid fa-user"></i></a>
+                    <?php elseif($_SESSION["tipo"]=="trabajador"): ?>
+                        <a href="editar_trabajador.php?id=<?php echo $_SESSION['id']; ?>" title="Cambiar mis datos"><i class="fa-solid fa-user"></i></a>
+                    <?php endif; ?>
+                </li>
                 <li><a href="../php/cerrar_sesion.php" title="Cerrar sesión" ><i class="fa-solid fa-right-from-bracket"></i></a></li>
             <?php else: ?>
                 <li><a href="login_cliente.php">Cliente</a></li>

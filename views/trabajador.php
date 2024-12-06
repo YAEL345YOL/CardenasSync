@@ -38,6 +38,7 @@ $trabajador = $con->query($sql1);
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Fecha de nacimiento</th>
+            <th>Puesto</th>
             <th>Correo</th>
         </thead>
         <tbody>
@@ -49,6 +50,7 @@ $trabajador = $con->query($sql1);
                     <td>{$fila["nombre_trabajador"]}</td>
                     <td>{$fila["apellido_trabajador"]}</td>
                     <td>{$fila["fecha_nacimiento_trabajador"]}</td>
+                    <td>{$fila["puesto_trabajador"]}</td>
                     <td>{$fila["correo_trabajador"]}</td>
                     <td><a href='eliminar_trabajador.php?id={$fila["id_trabajador"]}'><i class='fa-solid fa-trash'></i></a></td>
                 </tr>
