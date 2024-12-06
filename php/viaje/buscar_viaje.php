@@ -10,5 +10,4 @@ if($id!=null){
 else{
     header("Location: ../../views/viaje.php");
 }
-
 ?>

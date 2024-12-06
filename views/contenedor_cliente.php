@@ -25,7 +25,7 @@ $cliente = $con->query($sql2)
         <a href="index.php"><i class="fa-solid fa-house"></i></a>
 
         <h2>Contenedor/Cliente</h2>
-        
+
         <form action="../php/contenedor_cliente/buscar_contenedor_cliente.php" method="POST">
             <input id="id_cliente_buscar_contenedor_cliente" name="id_cliente_buscar_contenedor_cliente" type="number" placeholder="ID cliente">
 
@@ -35,7 +35,10 @@ $cliente = $con->query($sql2)
     <main class="layout--grid">
         <?php
             while($fila = $cliente->fetch_assoc()){
-                $sql1 = "SELECT * FROM contenedor JOIN contenedor_cliente ON contenedor.id_contenedor = contenedor_cliente.id_contenedor WHERE contenedor_cliente.id_cliente = {$fila["id_cliente"]}";
+                $sql1 = "SELECT * FROM contenedor
+                        JOIN contenedor_cliente
+                        ON contenedor.id_contenedor = contenedor_cliente.id_contenedor
+                        WHERE contenedor_cliente.id_cliente = {$fila["id_cliente"]}";
                 $contenedor = $con->query($sql1);
                 echo 
                 "
@@ -57,7 +60,6 @@ $cliente = $con->query($sql2)
                         </thead>
                         <tbody>
                 ";
-                $contenedor->data_seek(0);
                     while($fila = $contenedor->fetch_assoc()){
                         echo 
                         "
