@@ -28,6 +28,7 @@ session_start();
                 <li><a href="barco.php">Barcos</a></li>
                 <li><a href="viaje.php">Viajes</a></li>
                 <li><a href="trabajador.php">Trabajadores</a></li>
+                <li><a href="cliente.php">Clientes</a></li>
                 <li><a href="muelle.php">Muelles</a></li>
                 <li><a href="contenedor_cliente.php">Contenedor/Cliente</a></li>
                 <li><a href="viaje_trabajador.php">Viaje/Trabajador</a></li>
@@ -39,7 +40,7 @@ session_start();
         <nav>
             <ul>
             <?php if(isset($_SESSION["tipo"])): ?>
-                <li><a href="" title="Cambiar mis datos"><i class="fa-solid fa-user"></i></a></li>
+                <li><a href="editar_cliente.php" title="Cambiar mis datos"><i class="fa-solid fa-user"></i></a></li>
                 <li><a href="../php/cerrar_sesion.php" title="Cerrar sesión" ><i class="fa-solid fa-right-from-bracket"></i></a></li>
             <?php else: ?>
                 <li><a href="login_cliente.php">Cliente</a></li>
