@@ -24,8 +24,6 @@ $barco = $con->query($sql1);
         <h2>Barcos</h2>
         <ul>
             <li><a href="agregar_barco.php">Agregar</a></li>
-            <li><a href="editar_barco.php">Editar</a></li>
-            <li><a href="eliminar_barco.php">Eliminar</a></li>
         </ul>
         <form action="../php/barco/buscar_barco.php" method="POST">
             <input id="id_buscar_barco" name="id_buscar_barco" type="number" placeholder="Ingrese id barco">

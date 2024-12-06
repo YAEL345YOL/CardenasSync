@@ -44,7 +44,7 @@ $cliente = $con->query($sql2)
                 "
                 <section class='client-box'>
                     <div class='client-box__header'>
-                        <i class='fa-solid fa-id-card-clip'></i>
+                        <a href='cliente.php?id={$fila['id_cliente']}'><i class='fa-solid fa-id-card-clip'></i></a>
                         <h3>{$fila["id_cliente"]}</h3>
                         <h3>{$fila["nombre_cliente"]} {$fila["apellido_cliente"]}</h3>
                         <a href='eliminar_contenedor_cliente.php?id={$fila["id_cliente"]}'><i class='fa-solid fa-trash'></i></a>

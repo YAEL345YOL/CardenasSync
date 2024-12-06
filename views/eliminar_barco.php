@@ -2,9 +2,10 @@
 include "../php/connection.php";
 $con = connection();
 
-$sql1 = "SELECT * FROM barco".(isset($_GET["id"]) ? " WHERE id_barco = {$_GET["id"]}":"");
+$sql1 = "SELECT * FROM barco WHERE id_barco = {$_GET["id"]}";
 
 $barco = $con->query($sql1);
+$barco_fila = $barco->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -25,9 +26,7 @@ $barco = $con->query($sql1);
         <label for="id_eliminar_barco">ID barco</label>
         <select name="id_eliminar_barco" id="id_eliminar_barco" required>
             <?php
-                while ($fila = $barco->fetch_assoc()) {
-                    echo "<option value='{$fila['id_barco']}'>{$fila['id_barco']}</option>";
-                }
+                echo "<option value='{$barco_fila['id_barco']}'>{$barco_fila['id_barco']}</option>";
             ?>
         </select>
 

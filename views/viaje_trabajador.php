@@ -43,7 +43,7 @@ $viaje = $con->query($sql1);
                 "
                 <section class='client-box'>
                     <div class='client-box__header'>
-                        <i class='fa-solid fa-id-card-clip'></i>
+                        <a href='viaje.php?id={$fila['id_viaje']}'><i class='fa-solid fa-id-card-clip'></i></a>
                         <h3>{$fila["id_viaje"]}</h3>
                         <h3>Viaje</h3>
                         <a href='eliminar_viaje_trabajador.php?id={$fila["id_viaje"]}'><i class='fa-solid fa-trash'></i></a>

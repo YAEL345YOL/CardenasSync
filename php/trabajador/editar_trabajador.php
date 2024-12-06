@@ -22,7 +22,7 @@ $sql = "UPDATE trabajador SET
         WHERE id_trabajador = ?";
 
 $consulta = $con->prepare($sql);
-$consulta->bind_param("ssssssss",$nombre,$apellido,$puesto_trabajo,$fecha_nacimiento,$telefono,$correo,$contrasena,$id);
+$consulta->bind_param("ssssssss",$nombre,$apellido,$puesto,$fecha_nacimiento,$telefono,$correo,$contrasena,$id);
 $consulta->execute();
 $consulta->close();
 
