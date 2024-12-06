@@ -30,6 +30,7 @@ session_start();
                 <li><a href="trabajador.php">Trabajadores</a></li>
                 <li><a href="muelle.php">Muelles</a></li>
                 <li><a href="contenedor_cliente.php">Contenedor/Cliente</a></li>
+                <li><a href="viaje_trabajador.php">Viaje/Trabajador</a></li>
             <?php else: ?>
                 <h2>CardenasSync</h2>
             <?php endif; ?>
