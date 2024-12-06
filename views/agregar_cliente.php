@@ -11,8 +11,8 @@
 </head>
 <body class="body--form body--main">
     <div class="overlay overlay--color"></div>
-    <form class="form form--size1" action="../php/cliente/agregar_cliente.php" method="POST">
-        <h2 class="form__title">Registrarse</h2>
+    <form class="form form--size2" action="../php/cliente/agregar_cliente.php" method="POST">
+        <h2>Registrarse</h2>
         <input id="nombre_agregar_cliente" name="nombre_agregar_cliente" type="text" placeholder="Ingrese su nombre" required>
 
         <input id="apellido_agregar_cliente" name="apellido_agregar_cliente" type="text" placeholder="Ingrese su apellido" required>

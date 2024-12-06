@@ -11,7 +11,7 @@
     <title>Iniciar sesión cliente</title>
 </head>
 <body class="body--form body--main">
-    <div></div>
+    <div class="overlay overlay--color"></div>
     <?php 
         if(isset($_GET["error"])){
             echo "<div class='notification notification--error'>

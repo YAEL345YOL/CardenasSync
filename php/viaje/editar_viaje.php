@@ -8,7 +8,6 @@ $id_muelle = verify_input($_POST["id_muelle_editar_viaje"]);
 $estado = verify_input($_POST["estado_editar_viaje"]);
 $fecha_fin = verify_input($_POST["fecha_fin_editar_viaje"]);
 $hora_fin = verify_input($_POST["hora_fin_editar_viaje"]);
-$actualizacion = verify_input($_POST["actualizaciones_editar_viaje"]);
 $tiempo_estimado = verify_input($_POST["tiempo_estimado_editar_viaje"]);
 
 $sql = "UPDATE viaje SET
@@ -16,13 +15,12 @@ $sql = "UPDATE viaje SET
         hora_fin_viaje = ?,
         estado_viaje = ?,
         tiempo_estimado_viaje = ?,
-        actualizacion_viaje = ?,
         id_barco = ?,
         id_muelle = ?
         WHERE id_viaje = ?";
 
 $consulta = $con->prepare($sql);
-$consulta->bind_param("sssssiii",$fecha_fin,$hora_fin,$estado,$tiempo_estimado,$actualizacion,$id_barco,$id_muelle,$id);
+$consulta->bind_param("ssssiii",$fecha_fin,$hora_fin,$estado,$tiempo_estimado,$id_barco,$id_muelle,$id);
 $consulta->execute();
 $consulta->close();
 

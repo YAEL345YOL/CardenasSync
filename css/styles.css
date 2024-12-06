@@ -1,9 +1,13 @@
+/* formatos css default */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Montserrat;
 }
+
+/* Encabezado */
 
 .header {
     display: flex;
@@ -13,22 +17,44 @@
     padding: 30px;
 }
 
-.header__title {
+.header h2 {
     font-style: italic;
-    color: #9994b9;
 }
 
-.header__list {
+.header ul {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     list-style: none;
 }
 
-.header__link {
+.header a {
     text-decoration: none;
+}
+
+.header input {
+    all: unset;
+}
+
+/* Modificadores de encabezado */
+
+.header--text-white * {
     color: #ddd;
 }
+
+.header--text-black * {
+    color: #111;
+}
+
+.header--color-blue {
+    background-color: #172026;
+}
+
+.header--title-blue h2 {
+    color: #04BFAD
+}
+
+/* Overlay */
 
 .overlay {
     width: 100vw; 
@@ -45,17 +71,7 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.body--main{
-    background-image: url("../assets/puerto1.jpg");
-    background-size: cover;
-}
-
-.body--form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+/* formularios */
 
 .form {
     display: flex;
@@ -66,17 +82,12 @@
     border-radius: 8px;
     background-color: #172026ee;
     box-shadow: 0 4px 10px black;
-    color: #bbb;
+    color: #ddd;
 }
 
-.form--size1 {
-    height: 50vh;
-    width: 50vh;
-}
-
-.form input,select {
+.form input, select {
     all: unset;
-    border-bottom: 1px solid #bbb;
+    border-bottom: 1px solid #ddd;
 }
 
 .form input[type="submit"] {
@@ -92,21 +103,73 @@
     all: unset;
 }
 
+/* modificadores formularios */
+
+.form--size1 {
+    height: 50vh;
+    width: 25vw;
+}
+
+.form--size2 {
+    height: 70vh;
+    width: 25vw;
+}
+
+.form--size3 {
+    height: 85vh;
+    width: 25vw;
+}
+
+/* notificacion */
+
 .notification {
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px #111;
     gap: 15px;
     top: 20px;
     height: 10%;
     width: 50%;
-    border-radius: 8px;
-    background-color: rgb(235, 233, 233,0.9);
-    box-shadow: 0 4px 10px #111;
 }
+
+/* modificadores notificacion */
 
 .notification--error {
     background-color: rgba(194, 4, 4, 0.9);
     color: #ddd;
+}
+
+/* modificadores body */
+
+.body--main{
+    background-image: url("../assets/puerto1.jpg");
+    background-size: cover;
+}
+
+.body--form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* tablas */
+
+.table {
+    text-align: center;
+    table-layout: fixed;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.table * {
+    margin: 10px;
+}
+
+.table a {
+    color: #111;
+    text-decoration: none;
 }

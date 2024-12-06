@@ -17,40 +17,35 @@ session_start();
 </head>
 <body class="body--main">
     <div class="overlay overlay--main"></div>
-    <header class="header">
-        <nav class="header__nav">
-            <ul class="header__list">
+    <header class="header header--text-white header--title-blue">
+        <nav>
+            <ul>
             <?php if($_SESSION["tipo"]=="cliente"): ?>
-                <li class="header__list-element"><a class="header__link" href="contenedor.php">Mis contenedores</a></li>
+                <li><a href="contenedor.php">Mis contenedores</a></li>
+                <li><a href="viaje.php">Mis viajes</a></li>
             <?php elseif($_SESSION["tipo"]=="trabajador"): ?>
-                <li class="header__list-element"><a class="header__link" href="contenedor.php">Contenedores</a></li>
-                <li class="header__list-element"><a class="header__link" href="barco.php">Barcos</a></li>
-                <li class="header__list-element"><a class="header__link" href="viaje.php">Viajes</a></li>
-                <li class="header__list-element"><a class="header__link" href="trabajador.php">Trabajadores</a></li>
-                <li class="header__list-element"><a class="header__link" href="muelle.php">Muelles</a></li>
-                <li class="header__list-element"><a class="header__link" href="contenedor_cliente.php">Contenedor/Cliente</a></li>
+                <li><a href="contenedor.php">Contenedores</a></li>
+                <li><a href="barco.php">Barcos</a></li>
+                <li><a href="viaje.php">Viajes</a></li>
+                <li><a href="trabajador.php">Trabajadores</a></li>
+                <li><a href="muelle.php">Muelles</a></li>
+                <li><a href="contenedor_cliente.php">Contenedor/Cliente</a></li>
             <?php else: ?>
-                <h2 class="header__title">CardenasSync</h2>
+                <h2>CardenasSync</h2>
             <?php endif; ?>
             </ul>
         </nav>
-        <nav class="header__nav">
-            <ul class="header__list">
+        <nav>
+            <ul>
             <?php if(isset($_SESSION["tipo"])): ?>
-                <li class="header__list-element"><a class="header__link" href="" title="Cambiar mis datos" ><i class="fa-solid fa-user"></i></a></li>
-                <li class="header__list-element"><a class="header__link" href="../php/cerrar_sesion.php" title="Cerrar sesión" ><i class="fa-solid fa-right-from-bracket"></i></a></li>
+                <li><a href="" title="Cambiar mis datos"><i class="fa-solid fa-user"></i></a></li>
+                <li><a href="../php/cerrar_sesion.php" title="Cerrar sesión" ><i class="fa-solid fa-right-from-bracket"></i></a></li>
             <?php else: ?>
-                <li class="header__list-element"><a class="header__link" href="login_cliente.php">Cliente</a></li>
-                <li class="header__list-element"><a class="header__link" href="login_trabajador.php">Trabajador</a></li>
+                <li><a href="login_cliente.php">Cliente</a></li>
+                <li><a href="login_trabajador.php">Trabajador</a></li>
             <?php endif; ?>
             </ul>
         </nav>
     </header>
-    <main class="main">
-
-    </main>
-    <footer class="footer">
-
-    </footer>
 </body>
 </html>

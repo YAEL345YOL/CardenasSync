@@ -16,7 +16,7 @@ $sql = "UPDATE contenedor SET
         WHERE id_contenedor=?";
 
 $consulta = $con->prepare($sql);
-$consulta->bind_param("ssiii",$tipo,$tamano,$tamano,$capacidad,$id_viaje,$id);
+$consulta->bind_param("ssiii",$tipo,$tamano,$capacidad,$id_viaje,$id);
 $consulta->execute();
 $consulta->close();
 
