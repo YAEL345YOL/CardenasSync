@@ -29,7 +29,7 @@ $barco = $con->query($sql1);
         <form action="../php/barco/buscar_barco.php" method="POST">
             <input id="id_buscar_barco" name="id_buscar_barco" type="number" placeholder="Ingrese id barco">
     
-            <input type="submit">
+            <input value="Buscar" type="submit">
         </form>
     </header>
     <table class="table">

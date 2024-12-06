@@ -70,7 +70,7 @@ $muelle = $con->query($sql3);
         <label for="hora_fin_editar_viaje">Hora llegada</label>        
         <input id="hora_fin_editar_viaje" name="hora_fin_editar_viaje" type="time">
 
-        <input class="Editar" type="submit">
+        <input value="Editar" type="submit">
     </form>
 </body>
 </html>

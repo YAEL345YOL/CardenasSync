@@ -32,7 +32,7 @@ $muelle = $con->query($sql1);
         </select>
         <br>
 
-        <input type="submit">
+        <input value="Eliminar" type="submit">
     </form>
 </body>
 </html>

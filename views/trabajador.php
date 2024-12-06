@@ -1,11 +1,7 @@
 <?php
 include "../php/connection.php";
-
-verify_worker();
-
-session_start();
-
 $con = connection();
+
 $sql1 = "SELECT * FROM trabajador".(isset($_GET["id"]) ? " WHERE id_trabajador={$_GET["id"]}":"");
 
 $trabajador = $con->query($sql1);
@@ -14,149 +10,37 @@ $trabajador = $con->query($sql1);
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>trabajador</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a7358fff6e.js" crossorigin="anonymous"></script>
+    <title>Trabajador</title>
 </head>
 <body>
-    <form action="../php/trabajador/agregar_trabajador.php" method="POST">
-        <h2>Agregar trabajador</h2>
-
-        <!-- Nombre(s) -->
-        <label for="nombre_agregar_trabajador">Nombre</label>
-        <input id="nombre_agregar_trabajador" name="nombre_agregar_trabajador" type="text" placeholder="Nombre(s) del trabajador" required>
-        <br>
-
-        <!-- Apellido(s) -->
-        <label for="apellido_agregar_trabajador">Apellido</label>
-        <input id="apellido_agregar_trabajador" name="apellido_agregar_trabajador" type="text" placeholder="Apellidos del trabajador" required>
-        <br>
-
-        <!-- Puesto de trabajo -->
-        <label for="puesto_agregar_trabajador">Puesto de trabajo</label>
-        <select id="puesto_agregar_trabajador" name="puesto_agregar_trabajador" required>
-            <option value="Capitan">Capitan</option>
-            <option value="Oficial de carga">Oficial de carga</option>
-            <option value="Contramaestre">Contramaestre</option>
-            <option value="Inspector de carga">Inspector de carga</option>
-            <option value="Supervisor de logistica">Supervisor de logistica</option>
-        </select>
-        <br>
-
-        <!-- Fecha de nacimiento -->
-        <label for="fecha_nacimiento_agregar_trabajador" >Fecha de nacimiento</label>
-        <input id="fecha_nacimiento_agregar_trabajador" name="fecha_nacimiento_agregar_trabajador" type="date" required>
-        <br>
-
-        <!-- Telefono -->
-        <label for="telefono_agregar_trabajador" >Teléfono</label>
-        <input id="telefono_agregar_trabajador" name="telefono_agregar_trabajador" type="tel" placeholder="Numero de teléfono" required>
-        <br>
-
-        <!-- Correo eletronico -->
-        <label for="correo_agregar_trabajador" >Correo Eletrónico</label>
-        <input id="correo_agregar_trabajador" name="correo_agregar_trabajador" type="email" placeholder="Correo electrónico" required>
-        <br>
-
-        <!-- Boton de enviar -->
-        <input type="submit">
-    </form>
-    <form action="../php/trabajador/editar_trabajador.php" method="POST">
-        <h2>Editar trabajador</h2>
-
-        <!-- id trabajador -->
-        <label for="id_editar_trabajador">ID trabajador</label>
-        <select id="id_editar_trabajador" name="id_editar_trabajador" required>
-            <?php
-                while($fila = $trabajador->fetch_assoc()){
-                    echo "<option value='{$fila['id_trabajador']}'>{$fila['id_trabajador']}</option>";
-                }
-            ?>
-        </select>
-        <br>
-
-        <!-- Nombre(s) -->
-        <label for="nombre_editar_trabajador">Nombre</label>
-        <input id="nombre_editar_trabajador" name="nombre_editar_trabajador" type="text" placeholder="Nombre(s) del trabajador" required>
-        <br>
-
-        <!-- Apellido(s) -->
-        <label for="apellido_editar_trabajador">Apellido</label>
-        <input id="apellido_editar_trabajador" name="apellido_editar_trabajador" type="text" placeholder="Apellidos del trabajador" required>
-        <br>
-
-        <!-- Puesto de trabajo -->
-        <label for="puesto_editar_trabajador">Puesto de trabajo</label>
-        <select id="puesto_editar_trabajador" name="puesto_editar_trabajador" required>
-            <option value="Capitan">Capitan</option>
-            <option value="Oficial de carga">Oficial de carga</option>
-            <option value="Contramaestre">Contramaestre</option>
-            <option value="Inspector de carga">Inspector de carga</option>
-            <option value="Supervisor de logistica">Supervisor de logistica</option>
-        </select>
-        <br>
-
-        <!-- Fecha de nacimiento -->
-        <label for="fecha_nacimiento_editar_trabajador">Fecha de nacimiento</label>
-        <input id="fecha_nacimiento_editar_trabajador" name="fecha_nacimiento_editar_trabajador" type="date" required>
-        <br>
-
-        <!-- Telefono -->
-        <label for="telefono_editar_trabajador">Teléfono</label>
-        <input id="telefono_editar_trabajador" name="telefono_editar_trabajador" type="tel" placeholder="Numero de teléfono" required>
-        <br>
-
-        <!-- Correo eletronico -->
-        <label for="correo_editar_trabajador">Correo Eletrónico</label>
-        <input id="correo_editar_trabajador" name="correo_editar_trabajador" type="email" placeholder="Correo electrónico" required>
-        <br>
-
-        <!-- Contrasena -->
-        <label for="contrasena_editar_trabajador">Contraseña</label>
-        <input id="contrasena_editar_trabajador" name="contrasena_editar_trabajador" type="password" placeholder="contraseña" required>
-        <br>
-
-        <!-- Boton de enviar -->
-        <input type="submit">
-    </form>
-    <form action="../php/trabajador/eliminar_trabajador.php" method="POST">
-        <h2>Eliminar trabajador</h2>
-
-        <!-- id trabajador -->
-        <label for="id_eliminar_trabajador">ID trabajador</label>
-        <select id="id_eliminar_trabajador" name="id_eliminar_trabajador">
-            <?php
-                $trabajador->data_seek(0);
-                while($fila = $trabajador->fetch_assoc()){
-                    echo "<option value='{$fila['id_trabajador']}'>{$fila['id_trabajador']}</option>";
-                }
-            ?>
-        </select>
-        <br>
-
-        <!-- Boton de enviar -->
-        <input type="submit">
-    </form>
-    <form action="../php/trabajador/buscar_trabajador.php" method="POST">
-
-        <!-- id trabajador -->
-        <input id="id_buscar_trabajador" name="id_buscar_trabajador" type="number" placeholder="Ingrese ID trabajador">
-
-        <!-- Boton de enviar -->
-        <input type="submit">
-    </form>
-    <table>
+    <header class="header header--text-white header--color-blue header--title-blue">
+        <h2>Trabajadores</h2>
+        <ul>
+            <li><a href="agregar_trabajador.php">Agregar</a></li>
+            <li><a href="eliminar_trabajador.php">Eliminar</a></li>
+        </ul>
+        <form action="../php/trabajador/buscar_trabajador.php" method="POST">
+            <input id="id_buscar_trabajador" name="id_buscar_trabajador" type="number" placeholder="Ingrese ID trabajador">
+    
+            <input value="Buscar" type="submit">
+        </form>
+    </header>
+    <table class="table">
         <thead>
-            <th>id</th>
-            <th>nombre</th>
-            <th>apellido</th>
-            <th>fecha de nacimiento</th>
-            <th>correo</th>
-            <th>contrasena</th>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Fecha de nacimiento</th>
+            <th>Correo</th>
         </thead>
         <tbody>
         <?php
-            $trabajador->data_seek(0);
             while($fila = $trabajador->fetch_assoc()){
                 echo "
                 <tr>
@@ -165,7 +49,7 @@ $trabajador = $con->query($sql1);
                     <td>{$fila["apellido_trabajador"]}</td>
                     <td>{$fila["fecha_nacimiento_trabajador"]}</td>
                     <td>{$fila["correo_trabajador"]}</td>
-                    <td>{$fila["contrasena_trabajador"]}</td>
+                    <td><a href='eliminar_trabajador.php?id={$fila["id_trabajador"]}'><i class='fa-solid fa-trash'></i></a></td>
                 </tr>
                 ";
             }

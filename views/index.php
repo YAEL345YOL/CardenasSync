@@ -1,6 +1,6 @@
 <?php
 include "../php/connection.php";
-
+$con = connection();
 session_start();
 ?>
 <!DOCTYPE html>

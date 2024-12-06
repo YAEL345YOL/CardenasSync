@@ -22,7 +22,7 @@
         <input id="correo_agregar_cliente" name="correo_agregar_cliente" type="email" placeholder="Ingrese su correo" required>
 
         <input id="contrasena_agregar_cliente" name="contrasena_agregar_cliente" type="password" placeholder="Crear su contraseña" required>
-        <input class="form__button" type="submit" value="Enviar">
+        <input value="Enviar" type="submit">
     </form>
 </body>
 </html>

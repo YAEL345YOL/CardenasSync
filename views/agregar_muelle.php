@@ -20,7 +20,7 @@
         <label for="ubicacion_agregar_muelle">Ubicación</label>
         <input id="ubicacion_agregar_muelle" name="ubicacion_agregar_muelle" type="text" placeholder="Ubicación del muelle" required>
 
-        <input type="submit">
+        <input value="Agregar" type="submit">
     </form>
 </body>
 </html>

@@ -25,7 +25,7 @@
 
         <input id="contrasena_login_trabajador" name="contrasena_login_trabajador" type="password" placeholder="Contraseña" required>
 
-        <input type="submit" value="Enviar">
+        <input value="Enviar" type="submit">
     </form>
 </body>
 </html>

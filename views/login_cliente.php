@@ -26,7 +26,7 @@
 
         <input id="contrasena_login_cliente" name="contrasena_login_cliente" type="password" placeholder="Contraseña" required>
 
-        <input type="submit" value="Enviar">
+        <input value="Enviar" type="submit">
 
         <a href="agregar_cliente.php">Registrarse</a>
     </form>

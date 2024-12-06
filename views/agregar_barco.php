@@ -45,7 +45,7 @@
             <option value="Italia">
         </datalist>
 
-        <input type="submit">
+        <input value="Agregar" type="submit">
     </form>
 </body>
 </html>

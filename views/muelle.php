@@ -29,7 +29,7 @@ $muelle = $con->query($sql1);
         <form action="../php/muelle/buscar_muelle.php" method="POST">
             <input id="id_buscar_muelle" name="id_buscar_muelle" type="text" placeholder="Ingrese ID muelle">
     
-            <input type="submit">
+            <input value="Buscar" type="submit">
         </form>
     </header>
     <table class="table">

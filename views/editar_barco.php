@@ -62,7 +62,7 @@ $barco = $con->query($sql1);
             <option value="Italia">
         </datalist>
 
-        <input type="submit">
+        <input value="Editar" type="submit">
     </form>
 </body>
 </html>

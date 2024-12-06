@@ -37,7 +37,7 @@ $muelle = $con->query($sql1);
         <label for="ubicacion_editar_muelle">Ubicación</label>
         <input id="ubicacion_editar_muelle" name="ubicacion_editar_muelle" type="text" placeholder="Ubicación del muelle" required>
 
-        <input type="submit">
+        <input value="Editar" type="submit">
     </form>
 </body>
 </html>
