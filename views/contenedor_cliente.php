@@ -2,8 +2,6 @@
 include "../php/connection.php";
 $con = connection();
 
-verify_worker();
-
 $sql1 = "SELECT * FROM contenedor";
 $sql2 = "SELECT * FROM cliente".(isset($_GET["id"]) ? " WHERE id_cliente = {$_GET["id"]}":"");
 
@@ -15,106 +13,71 @@ $cliente = $con->query($sql2)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>contenedor & cliente</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a7358fff6e.js" crossorigin="anonymous"></script>
+    <title>Contenedor/Cliente</title>
 </head>
 <body>
-    <form action="../php/contenedor_cliente/agregar_contenedor_cliente.php" method="POST">
-        <h2>Agregar contenedor_cliente</h2>
+    <header class="header header--text-white header--color-blue header--title-blue">
+        <a href="index.php"><i class="fa-solid fa-house"></i></a>
 
-        <!-- id cliente -->
-        <label for="id_cliente_agregar_contenedor_cliente">ID cliente</label>
-        <select name="id_cliente_agregar_contenedor_cliente" id="id_cliente_agregar_contenedor_cliente" required>
-            <?php
-                while($fila = $cliente->fetch_assoc()){
-                    echo "<option value='{$fila['id_cliente']}'>{$fila['id_cliente']}</option>";
-                }
-            ?>
-        </select>
-        <br>
+        <h2>Contenedor/Cliente</h2>
+        
+        <form action="../php/contenedor_cliente/buscar_contenedor_cliente.php" method="POST">
+            <input id="id_cliente_buscar_contenedor_cliente" name="id_cliente_buscar_contenedor_cliente" type="number" placeholder="ID cliente">
 
-        <!-- id contenedor -->
-        <label for="id_contenedor_agregar_contenedor_cliente">ID contenedor</label>
-        <select name="id_contenedor_agregar_contenedor_cliente" id="id_contenedor_agregar_contenedor_cliente" required>
-            <?php
-                while($fila = $contenedor->fetch_assoc()){
-                    echo "<option value='{$fila['id_contenedor']}'>{$fila['id_contenedor']}</option>";
-                }
-            ?>
-        </select>
-        <br>
-
-        <!-- boton enviar -->
-        <input type="submit">
-    </form>
-    <form action="../php/contenedor_cliente/eliminar_contenedor_cliente.php" method="POST">
-        <h2>Eliminar contenedor_cliente</h2>
-
-        <!-- id cliente -->
-        <label for="id_cliente_eliminar_contenedor_cliente">ID cliente</label>
-        <select name="id_cliente_eliminar_contenedor_cliente" id="id_cliente_eliminar_contenedor_cliente" required>
-            <?php
-                $cliente->data_seek(0);
-                while($fila = $cliente->fetch_assoc()){
-                    echo "<option value='{$fila['id_cliente']}'>{$fila['id_cliente']}</option>";
-                }
-            ?>
-        </select>
-        <br>
-
-        <!-- id contenedor -->
-        <label for="id_contenedor_eliminar_contenedor_cliente">ID contenedor</label>
-        <select name="id_contenedor_eliminar_contenedor_cliente" id="id_contenedor_eliminar_contenedor_cliente" required>
-            <?php
-            $contenedor->data_seek(0);
-                while($fila = $contenedor->fetch_assoc()){
-                    echo "<option value='{$fila['id_contenedor']}'>{$fila['id_contenedor']}</option>";
-                }
-            ?>
-        </select>
-        <br>
-
-        <!-- boton enviar -->
-        <input type="submit">
-    </form>
-    <form action="../php/contenedor_cliente/buscar_contenedor_cliente.php" method="POST">
-        <!-- Buscar contenedor -->
-        <input id="id_cliente_buscar_contenedor_cliente" name="id_cliente_buscar_contenedor_cliente" type="number" placeholder="Ingrese id del cliente">
-
-        <!-- Boton enviar -->
-        <input type="submit">
-    </form>
-    <?php
-    $cliente->data_seek(0);
-        while($fila = $cliente->fetch_assoc()){
-            $sql1 = "SELECT * FROM contenedor JOIN contenedor_cliente ON contenedor.id_contenedor = contenedor_cliente.id_contenedor WHERE contenedor_cliente.id_cliente = {$fila["id_cliente"]}";
-            $contenedor = $con->query($sql1);
-            echo "
-            <div>
-                <h3>{$fila["nombre_cliente"]} ID:{$fila["id_cliente"]}</h3>
-                <table>
-                    <thead>
-                        <th>id</th>
-                        <th>tipo</th>
-                        <th>tamano</th>
-                        <th>capacidad</th>
-                        <th>id_viaje</th>
-                    </thead>
-                    <tbody>";
-                    $contenedor->data_seek(0);
+            <input value="Buscar" type="submit">
+        </form>
+    </header>
+    <main class="layout--grid">
+        <?php
+            while($fila = $cliente->fetch_assoc()){
+                $sql1 = "SELECT * FROM contenedor JOIN contenedor_cliente ON contenedor.id_contenedor = contenedor_cliente.id_contenedor WHERE contenedor_cliente.id_cliente = {$fila["id_cliente"]}";
+                $contenedor = $con->query($sql1);
+                echo 
+                "
+                <section class='client-box'>
+                    <div class='client-box__header'>
+                        <i class='fa-solid fa-id-card-clip'></i>
+                        <h3>{$fila["id_cliente"]}</h3>
+                        <h3>{$fila["nombre_cliente"]} {$fila["apellido_cliente"]}</h3>
+                        <a href='eliminar_contenedor_cliente.php?id={$fila["id_cliente"]}'><i class='fa-solid fa-trash'></i></a>
+                        <a href='agregar_contenedor_cliente.php?id={$fila["id_cliente"]}'><i class='fa-solid fa-plus'></i></a>
+                    </div>
+                    <table class='table'>
+                        <thead>
+                            <th>ID</th>
+                            <th>Tipo</th>
+                            <th>Tamaño</th>
+                            <th>Capacidad</th>
+                            <th>ID_viaje</th>
+                        </thead>
+                        <tbody>
+                ";
+                $contenedor->data_seek(0);
                     while($fila = $contenedor->fetch_assoc()){
-                        echo "
-                            <tr>
-                                <td><a href='contenedor.php?id={$fila["id_contenedor"]}'>{$fila["id_contenedor"]}</a></td>
-                                <td>{$fila["tipo_contenedor"]}</td>
-                                <td>{$fila["tamano_contenedor"]}</td>
-                                <td>{$fila["capacidad_contenedor"]}</td>
-                                <td><a href='viaje.php?id={$fila["id_viaje"]}'>{$fila["id_viaje"]}</a></td>
-                            </tr>";
+                        echo 
+                        "
+                        <tr>
+                            <td><a href='contenedor.php?id={$fila["id_contenedor"]}'>{$fila["id_contenedor"]}</a></td>
+                            <td>{$fila["tipo_contenedor"]}</td>
+                            <td>{$fila["tamano_contenedor"]}</td>
+                            <td>{$fila["capacidad_contenedor"]}</td>
+                            <td><a href='viaje.php?id={$fila["id_viaje"]}'>{$fila["id_viaje"]}</a></td>
+                        </tr>
+                        ";
                     }
-            echo "</tbody>
-                </table>
-            </div>";
-        }
-    ?>     
+                echo 
+                "   
+                        </tbody>
+                    </table>
+                </section>
+                ";
+            }
+        ?>   
+    </main>  
 </body>
 </html>

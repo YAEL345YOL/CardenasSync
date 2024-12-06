@@ -31,6 +31,7 @@ $contenedor = $con->query($sql1);
 <body>
     <header class="header header--text-white header--color-blue header--title-blue">
         <?php if($_SESSION["tipo"]=="trabajador"): ?>
+            <a href="index.php"><i class="fa-solid fa-house"></i></a>
             <h2>Contenedores</h2>
             <ul>
                 <li><a href="agregar_contenedor.php">Agregar</a></li>

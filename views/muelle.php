@@ -20,6 +20,7 @@ $muelle = $con->query($sql1);
 </head>
 <body>
     <header class="header header--text-white header--color-blue header--title-blue">
+        <a href="index.php"><i class="fa-solid fa-house"></i></a>
         <h2>Muelles</h2>
         <ul>
             <li><a href="agregar_muelle.php">Agregar</a></li>
@@ -36,7 +37,7 @@ $muelle = $con->query($sql1);
         <thead>
             <th>ID</th>
             <th>Nombre</th>
-            <th>Ubicacion</th>
+            <th>Ubicación</th>
         </thead>
         <tbody>
         <?php

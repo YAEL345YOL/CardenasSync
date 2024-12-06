@@ -20,6 +20,7 @@ $barco = $con->query($sql1);
 </head>
 <body>
     <header class="header header--text-white header--color-blue header--title-blue">
+        <a href="index.php"><i class="fa-solid fa-house"></i></a>
         <h2>Barcos</h2>
         <ul>
             <li><a href="agregar_barco.php">Agregar</a></li>
