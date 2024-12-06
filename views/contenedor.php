@@ -13,7 +13,6 @@ else if($_SESSION["tipo"]=="cliente"){
             ON contenedor_cliente.id_contenedor = contenedor.id_contenedor
             WHERE id_cliente = {$_SESSION["id"]}".(isset($_GET["id"]) ? " AND contenedor.id_contenedor = {$_GET["id"]}":"");
 }
-    
 
 $contenedor = $con->query($sql1);
 ?>
