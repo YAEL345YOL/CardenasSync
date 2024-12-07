@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 06, 2024 at 03:54 PM
+-- Generation Time: Dec 07, 2024 at 03:16 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -39,7 +39,13 @@ CREATE TABLE `barco` (
 --
 
 INSERT INTO `barco` (`id_barco`, `nombre_barco`, `tipo_barco`, `nacionalidad_barco`) VALUES
-(12, 'Barco Sync', 'Quimiquero', 'JapÃ³n');
+(12, 'Barco Sync', 'Quimiquero', 'JapÃ³n'),
+(15, 'La nina', 'Petrolero', 'MÃ©xico'),
+(16, 'La pinta', 'Granelero', 'Brazil'),
+(17, 'El sunny', 'Gasero', 'Rusia'),
+(18, 'Galeon', 'Portacontenedores', 'Argentina'),
+(19, 'Elizabeth II', 'Portacontenedores', 'MÃ©xico'),
+(20, 'mk1', 'Petrolero', 'Islas Marshall');
 
 -- --------------------------------------------------------
 
@@ -61,7 +67,14 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`id_cliente`, `nombre_cliente`, `apellido_cliente`, `fecha_nacimiento_cliente`, `correo_cliente`, `contrasena_cliente`) VALUES
-(9, 'Lenin Yael', 'Gomez Vega', '2007-10-25', 'lenin346yael@gmail.com', '123');
+(9, 'Lenin Yael', 'Gomez Vega', '2007-10-25', 'lenin346yael@gmail.com', '123'),
+(11, 'Abraham', 'Garcia', '2007-06-29', 'lenin346yael@gmail.com', '123'),
+(12, 'Ivan', 'Jimenez Perez', '2001-08-29', 'abcdefg@gail.com', '12345'),
+(13, 'Juan Carlos', 'Diaz Alvarado', '1998-02-11', 'jcdaaa@gmail.com', '09878'),
+(14, 'Leonardo', 'Bucio Luna', '1987-12-12', 'leonardobucioluna@gmail.com', 'leo123'),
+(15, 'Nadia Itzel', 'Cardenas', '1980-02-19', 'correo@gmail.com', '123456'),
+(16, 'ANDREA YAMILETH', 'CARRILLO BOLAÃ‘OS', '2024-12-11', 'ejemplo@gmail.com', '123'),
+(17, 'Maria Elizabeth', 'Gonzalez', '2024-12-11', 'ely@gmail.com', 'ely123');
 
 -- --------------------------------------------------------
 
@@ -87,7 +100,13 @@ INSERT INTO `contenedor` (`id_contenedor`, `tipo_contenedor`, `tamano_contenedor
 (15, 'Seco', '10ft', '1', 15),
 (16, 'Seco', '10ft', '10', 15),
 (17, 'Seco', '10ft', '10', 15),
-(18, 'Plataforma', '40ft HC', '20', 15);
+(18, 'Aislante', '10ft', '20', 15),
+(19, 'Lado abierto', '40ft', '35', 15),
+(20, 'Carga a granel', '20ft', '25', 15),
+(21, 'Carga no paletizada', '40ft', '50', 15),
+(22, 'Tanque', '10ft', '20', 18),
+(23, 'Tanque', '10ft', '15', 15),
+(24, 'Plataforma', '40ft', '32', 15);
 
 -- --------------------------------------------------------
 
@@ -108,11 +127,26 @@ CREATE TABLE `contenedor_cliente` (
 INSERT INTO `contenedor_cliente` (`id_cc`, `id_cliente`, `id_contenedor`) VALUES
 (4, NULL, 13),
 (3, NULL, 14),
-(2, 9, 14),
 (8, 9, 15),
 (11, 9, 16),
-(9, 9, 17),
-(10, 9, 18);
+(10, 9, 18),
+(32, 9, 20),
+(17, 11, 13),
+(15, 11, 14),
+(14, 11, 16),
+(16, 11, 17),
+(13, 11, 18),
+(21, 12, 13),
+(23, 12, 14),
+(24, 12, 18),
+(25, 13, 15),
+(29, 13, 17),
+(26, 13, 18),
+(34, 13, 20),
+(27, 14, 14),
+(28, 14, 16),
+(33, 15, 19),
+(30, 15, 23);
 
 -- --------------------------------------------------------
 
@@ -132,7 +166,12 @@ CREATE TABLE `muelle` (
 
 INSERT INTO `muelle` (`id_muelle`, `nombre_muelle`, `ubicacion_muelle`) VALUES
 (6, 'Santa Maria Cruz', 'Sector 2'),
-(7, 'Loredo', 'Sector 1');
+(7, 'Loredo', 'Sector 1'),
+(9, 'San Blas', 'Sector 2'),
+(10, 'Canario', 'Sector 3'),
+(11, 'San Lucas', 'Sector 1'),
+(12, 'San Blas', 'Sector 1'),
+(13, 'San Loredo', 'Sector 2');
 
 -- --------------------------------------------------------
 
@@ -156,7 +195,12 @@ CREATE TABLE `trabajador` (
 --
 
 INSERT INTO `trabajador` (`id_trabajador`, `nombre_trabajador`, `apellido_trabajador`, `puesto_trabajador`, `fecha_nacimiento_trabajador`, `telefono_trabajador`, `correo_trabajador`, `contrasena_trabajador`) VALUES
-(11, 'Lenin', 'Gomez', 'Contramaestre', '2007-10-25', '4433903868', 'e@gmail.com', 'changeme');
+(12, 'Juan', 'Perez Lopez', 'Capitan', '1999-10-12', '1122334455', 'juan@gmail.com', 'changeme'),
+(13, 'Marco', 'Solis Perez', 'Capitan', '2000-09-06', '5566774488', 'Marco@gmail.com', 'changeme'),
+(14, 'Lucas', 'Lopez Mateos', 'Contramaestre', '1991-09-06', '2233445566', 'lucas22@gmail.com', '123'),
+(15, 'Andres', 'Garza Cruz', 'Inspector de carga', '1998-08-06', '4499220011', 'Andres34@gmail.com', 'changeme'),
+(16, 'Carlos', 'Albarado Soto', 'Supervisor de logistica', '1998-07-06', '7466339922', 'Carlos678@gmail.com', 'changeme'),
+(17, 'Lenin', 'Yael', 'Contramaestre', '2024-12-25', '4433903868', 'ferg@gmail.com', 'changeme');
 
 -- --------------------------------------------------------
 
@@ -182,8 +226,13 @@ CREATE TABLE `viaje` (
 --
 
 INSERT INTO `viaje` (`id_viaje`, `fecha_inicio_viaje`, `fecha_fin_viaje`, `hora_inicio_viaje`, `hora_fin_viaje`, `origen_viaje`, `estado_viaje`, `tiempo_estimado_viaje`, `id_barco`, `id_muelle`) VALUES
-(15, '2024-12-03', '2024-12-25', '23:01:00.000000', '19:43:00.000000', 'China', 'En proceso', '5', 12, 7),
-(18, '2024-12-10', NULL, '19:46:00.000000', NULL, 'China', NULL, '2', 12, 6);
+(15, '2024-12-03', '2024-12-20', '23:01:00.000000', '19:58:00.000000', 'China', 'Finalizado', '54', 12, 6),
+(18, '2024-12-10', NULL, '19:46:00.000000', NULL, 'China', 'En proceso', '2', 15, 9),
+(19, '2023-11-23', NULL, '10:00:00.000000', NULL, 'Brazil', 'En proceso', '22', 15, 10),
+(20, '2024-12-01', NULL, '08:00:00.000000', NULL, 'Ecuador', 'En espera', '10', 12, 6),
+(21, '2024-02-29', '2024-04-25', '05:30:00.000000', '17:30:00.000000', 'Argentina', 'Finalizado', NULL, 17, 6),
+(22, '2024-12-05', NULL, '14:00:00.000000', NULL, 'Mexico', 'En espera', '5', 18, 11),
+(23, '2024-12-10', NULL, '19:56:00.000000', NULL, 'China', NULL, '5', 12, 6);
 
 -- --------------------------------------------------------
 
@@ -202,7 +251,13 @@ CREATE TABLE `viaje_trabajador` (
 --
 
 INSERT INTO `viaje_trabajador` (`id_vt`, `id_viaje`, `id_trabajador`) VALUES
-(2, 15, 11);
+(2, 15, NULL),
+(5, 15, 13),
+(10, 18, 15),
+(8, 19, 16),
+(13, 20, 12),
+(11, 20, 14),
+(12, 21, 12);
 
 --
 -- Indexes for dumped tables
@@ -271,49 +326,49 @@ ALTER TABLE `viaje_trabajador`
 -- AUTO_INCREMENT for table `barco`
 --
 ALTER TABLE `barco`
-  MODIFY `id_barco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_barco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `contenedor`
 --
 ALTER TABLE `contenedor`
-  MODIFY `id_contenedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_contenedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `contenedor_cliente`
 --
 ALTER TABLE `contenedor_cliente`
-  MODIFY `id_cc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_cc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `muelle`
 --
 ALTER TABLE `muelle`
-  MODIFY `id_muelle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_muelle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `trabajador`
 --
 ALTER TABLE `trabajador`
-  MODIFY `id_trabajador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_trabajador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `viaje`
 --
 ALTER TABLE `viaje`
-  MODIFY `id_viaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_viaje` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `viaje_trabajador`
 --
 ALTER TABLE `viaje_trabajador`
-  MODIFY `id_vt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_vt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
