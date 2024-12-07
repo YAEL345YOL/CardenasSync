@@ -2,9 +2,10 @@
 include "../php/connection.php";
 $con = connection();
 
-$sql1 = "SELECT * FROM muelle".(isset($_GET["id"]) ? " WHERE id_muelle = {$_GET["id"]}":"");
+$sql1 = "SELECT * FROM muelle WHERE id_muelle = {$_GET["id"]}";
 
 $muelle = $con->query($sql1);
+$muelle_fila = $muelle->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -25,17 +26,15 @@ $muelle = $con->query($sql1);
         <label for="id_editar_muelle">ID muelle</label>        
         <select name="id_editar_muelle" id="id_editar_muelle" required>
             <?php
-                while($fila = $muelle->fetch_assoc()){
-                    echo "<option value='{$fila['id_muelle']}'>{$fila['id_muelle']}</option>";
-                }
+                echo "<option value='{$muelle_fila['id_muelle']}'>{$muelle_fila['id_muelle']}</option>";
             ?>
         </select>
 
         <label for="nombre_editar_muelle">Nombre</label>
-        <input id="nombre_editar_muelle" name="nombre_editar_muelle" type="text" placeholder="Nombre del muelle" required>
+        <input id="nombre_editar_muelle" value="<?php echo $muelle_fila["nombre_muelle"] ?>" name="nombre_editar_muelle" type="text" placeholder="Nombre del muelle" required>
 
         <label for="ubicacion_editar_muelle">Ubicación</label>
-        <input id="ubicacion_editar_muelle" name="ubicacion_editar_muelle" type="text" placeholder="Ubicación del muelle" required>
+        <input id="ubicacion_editar_muelle" value="<?php echo $muelle_fila["ubicacion_muelle"] ?>" name="ubicacion_editar_muelle" type="text" placeholder="Ubicación del muelle" required>
 
         <input value="Editar" type="submit">
     </form>

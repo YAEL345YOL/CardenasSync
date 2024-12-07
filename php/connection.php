@@ -54,4 +54,43 @@ $paises = [
     'Italia'
 ];
 
+$tipos_contenedor = [
+    "Seco",
+    "Refrigerado",
+    "Techo Abierto",
+    "Plataforma",
+    "Lado abierto",
+    "Gran altura",
+    "Tanque",
+    "Ventilación",
+    "Carga a granel",
+    "Aislante",
+    "Carga no paletizada"
+];
+
+$tamanos_contenedor = [
+    "10ft",
+    "20ft",
+    "40ft",
+    "40ft HC",
+    "45ft",
+    "53ft"
+];
+
+$puestos_trabajo = [
+    "Capitan",
+    "Oficial de carga",
+    "Contramaestre",
+    "Inspector de carga",
+    "Supervisor de logistica"
+];
+
+$estados_viaje = [
+    "En espera",
+    "En proceso",
+    "Finalizado",
+    "Cancelado"
+];
+
+
 ?>

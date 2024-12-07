@@ -2,9 +2,10 @@
 include "../php/connection.php";
 $con = connection();
 
-$sql1 = "SELECT * FROM cliente".(isset($_GET["id"]) ? " WHERE id_cliente = {$_GET["id"]}":"");;
+$sql1 = "SELECT * FROM cliente WHERE id_cliente = {$_GET["id"]}";
 
 $cliente = $con->query($sql1);
+$cliente_fila = $cliente->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -25,26 +26,24 @@ $cliente = $con->query($sql1);
         <label for="id_editar_cliente">ID cliente</label>
         <select id="id_editar_cliente" name="id_editar_cliente" required>
             <?php
-                while($fila = $cliente->fetch_assoc()){
-                    echo "<option value='{$fila['id_cliente']}'>{$fila['id_cliente']}</option>";
-                }
+                echo "<option value='{$cliente_fila['id_cliente']}'>{$cliente_fila['id_cliente']}</option>";
             ?>
         </select>
 
         <label for="nombre_editar_cliente">Nombre</label>
-        <input id="nombre_editar_cliente" name="nombre_editar_cliente" type="text" placeholder="Nombre" required>
+        <input id="nombre_editar_cliente" value="<?php echo $cliente_fila["nombre_cliente"] ?>" name="nombre_editar_cliente" type="text" placeholder="Nombre" required>
 
         <label for="apellido_editar_cliente">Apellido</label>
-        <input id="apellido_editar_cliente" name="apellido_editar_cliente" type="text" placeholder="Apellido" required>
+        <input id="apellido_editar_cliente" value="<?php echo $cliente_fila["apellido_cliente"] ?>" name="apellido_editar_cliente" type="text" placeholder="Apellido" required>
 
         <label for="fecha_nacimiento_editar_cliente">Fecha nacimiento</label>
-        <input id="fecha_nacimiento_editar_cliente" name="fecha_nacimiento_editar_cliente" type="date" required>
+        <input id="fecha_nacimiento_editar_cliente" value="<?php echo $cliente_fila["fecha_nacimiento_cliente"] ?>" name="fecha_nacimiento_editar_cliente" type="date" required>
 
         <label for="correo_editar_cliente">Correo</label>
-        <input id="correo_editar_cliente" name="correo_editar_cliente" type="email" placeholder="Correo" required>
+        <input id="correo_editar_cliente" value="<?php echo $cliente_fila["correo_cliente"] ?>" name="correo_editar_cliente" type="email" placeholder="Correo" required>
 
         <label for="contrasena_editar_cliente">Contraseña</label>
-        <input id="contrasena_editar_cliente" name="contrasena_editar_cliente" type="password" placeholder="Contraseña" required>
+        <input id="contrasena_editar_cliente" value="<?php echo $cliente_fila["contrasena_cliente"] ?>" name="contrasena_editar_cliente" type="password" placeholder="Contraseña" required>
 
         <input value="Editar" type="submit">
     </form>

@@ -35,8 +35,6 @@ $contenedor = $con->query($sql1);
             <h2>Contenedores</h2>
             <ul>
                 <li><a href="agregar_contenedor.php">Agregar</a></li>
-                <li><a href="editar_contenedor.php">Editar</a></li>
-                <li><a href="eliminar_contenedor.php">Eliminar</a></li>
             </ul>
         <?php else: ?>
             <h2>Mis contenedores</h2>

@@ -7,6 +7,7 @@ $sql2 = "SELECT * FROM viaje";
 
 $contenedor = $con->query($sql1); 
 $viaje = $con->query($sql2);
+$contenedor_fila = $contenedor->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -27,9 +28,7 @@ $viaje = $con->query($sql2);
         <label for="id_editar_contenedor">ID contenedor</label>
         <select id="id_editar_contenedor" name="id_editar_contenedor" required>
             <?php
-                while($fila = $contenedor->fetch_assoc()){
-                    echo "<option value='{$fila['id_contenedor']}'>{$fila['id_contenedor']}</option>";
-                }
+                echo "<option value='{$contenedor_fila['id_contenedor']}'>{$contenedor_fila['id_contenedor']}</option>";
             ?>
         </select>
             
@@ -37,38 +36,24 @@ $viaje = $con->query($sql2);
         <select id="id_viaje_editar_contenedor" name="id_viaje_editar_contenedor" required>
             <?php
                 while($fila = $viaje->fetch_assoc()){
-                    echo "<option value='{$fila['id_viaje']}'>{$fila['id_viaje']}</option>";
+                    $selected = ($fila["id_viaje"]==$contenedor_fila["id_viaje"] ? "selected":"");
+                    echo "<option value='{$fila['id_viaje']}' {$selected} >{$fila['id_viaje']}</option>";
                 }
             ?>
         </select>
             
         <label for="tipo_editar_contenedor">Tipo de contenedor</label>
         <select id="tipo_editar_contenedor" name="tipo_editar_contenedor" required>
-            <option value="Seco">Seco</option>
-            <option value="Refrigerado">Refrigerado</option>
-            <option value="Techo Abierto">Techo Abierto</option>
-            <option value="Plataforma">Plataforma</option>
-            <option value="Lado abierto">Lado abierto</option>
-            <option value="Gran altura">Gran altura</option>
-            <option value="Tanque">Tanque</option>
-            <option value="Ventilacion">Ventilación</option>
-            <option value="Carga a granel">Carga a granel</option>
-            <option value="Aislante">Aislante</option>
-            <option value="Carga no paletizada">Carga no paletizada</option>
+            <?php iterate_select($tipos_contenedor,$contenedor_fila["tipo_contenedor"]) ?>
         </select>
             
         <label for="tamano_editar_contenedor">Tamaño</label>
         <select name="tamano_editar_contenedor" id="tamano_editar_contenedor" required>
-            <option value="10ft">10 pies (10')</option>
-            <option value="20ft">20 pies (20')</option>
-            <option value="40ft">40 pies (40')</option>
-            <option value="40ft HC">40 pies (40 HC')</option>
-            <option value="45ft">45 pies (45')</option>
-            <option value="53ft">53 pies (53')</option>
+            <?php iterate_select($tamanos_contenedor,$contenedor_fila["tamano_contenedor"]) ?>
         </select>
             
         <label for="capacidad_editar_contenedor">Capacidad</label>
-        <input id="capacidad_editar_contenedor" name="capacidad_editar_contenedor" type="number" placeholder="Capacidad (t)" min="10" required>
+        <input id="capacidad_editar_contenedor" value="<?php echo $contenedor_fila["capacidad_contenedor"] ?>" name="capacidad_editar_contenedor" type="number" placeholder="Capacidad (t)" min="10" required>
 
         <input value="Editar" type="submit">
     </form>

@@ -2,7 +2,7 @@
 include "../php/connection.php";
 $con = connection();
 
-$sql1 = "SELECT * FROM contenedor".(isset($_GET["id"]) ? " WHERE id_contenedor = {$_GET["id"]}":"");
+$sql1 = "SELECT * FROM contenedor WHERE id_contenedor = {$_GET["id"]}";
 
 $contenedor = $con->query($sql1); 
 ?>

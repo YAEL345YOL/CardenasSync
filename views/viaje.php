@@ -47,8 +47,6 @@ $viaje = $con->query($sql1);
             <h2>Viajes</h2>
             <ul>
                 <li><a href="agregar_viaje.php">Agregar</a></li>
-                <li><a href="editar_viaje.php">Editar</a></li>
-                <li><a href="eliminar_viaje.php">Eliminar</a></li>
             </ul>
         <?php else: ?>
             <h2>Mis viajes</h2>

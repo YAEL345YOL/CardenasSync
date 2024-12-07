@@ -32,31 +32,27 @@ $trabajador = $con->query($sql1);
         </select>
 
         <label for="nombre_editar_trabajador">Nombre</label>
-        <input id="nombre_editar_trabajador" name="nombre_editar_trabajador" type="text" placeholder="Nombre(s)" required>
+        <input id="nombre_editar_trabajador" value="<?php echo $trabajador_fila["nombre_trabajador"] ?>" name="nombre_editar_trabajador" type="text" placeholder="Nombre(s)" required>
 
         <label for="apellido_editar_trabajador">Apellido</label>
-        <input id="apellido_editar_trabajador" name="apellido_editar_trabajador" type="text" placeholder="Apellidos" required>
+        <input id="apellido_editar_trabajador" value="<?php echo $trabajador_fila["apellido_trabajador"] ?>" name="apellido_editar_trabajador" type="text" placeholder="Apellidos" required>
 
         <label for="puesto_editar_trabajador">Puesto de trabajo</label>
         <select id="puesto_editar_trabajador" name="puesto_editar_trabajador" required>
-            <option value="Capitan">Capitan</option>
-            <option value="Oficial de carga">Oficial de carga</option>
-            <option value="Contramaestre">Contramaestre</option>
-            <option value="Inspector de carga">Inspector de carga</option>
-            <option value="Supervisor de logistica">Supervisor de logistica</option>
+            <?php iterate_select($puestos_trabajo,$trabajador_fila["puesto_trabajador"]) ?>
         </select>
 
         <label for="fecha_nacimiento_editar_trabajador" >Fecha de nacimiento</label>
-        <input id="fecha_nacimiento_editar_trabajador" name="fecha_nacimiento_editar_trabajador" type="date" required>
+        <input id="fecha_nacimiento_editar_trabajador" value="<?php echo $trabajador_fila["fecha_nacimiento_trabajador"] ?>" name="fecha_nacimiento_editar_trabajador" type="date" required>
 
         <label for="telefono_editar_trabajador" >Teléfono</label>
-        <input id="telefono_editar_trabajador" name="telefono_editar_trabajador" type="tel" placeholder="Numero de teléfono" required>
+        <input id="telefono_editar_trabajador" value="<?php echo $trabajador_fila["telefono_trabajador"] ?>" name="telefono_editar_trabajador" type="tel" placeholder="Numero de teléfono" required>
 
         <label for="correo_editar_trabajador" >Correo Eletrónico</label>
-        <input id="correo_editar_trabajador" name="correo_editar_trabajador" type="email" placeholder="Correo electrónico" required>
+        <input id="correo_editar_trabajador" value="<?php echo $trabajador_fila["correo_trabajador"] ?>" name="correo_editar_trabajador" type="email" placeholder="Correo electrónico" required>
 
         <label for="contrasena_editar_trabajador" >Contraseña</label>
-        <input id="contrasena_editar_trabajador" name="contrasena_editar_trabajador" type="password" placeholder="Contraseña" required>
+        <input id="contrasena_editar_trabajador" value="<?php echo $trabajador_fila["contrasena_trabajador"] ?>" name="contrasena_editar_trabajador" type="password" placeholder="Contraseña" required>
 
         <input value="Editar" type="submit">
     </form>

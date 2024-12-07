@@ -24,8 +24,6 @@ $muelle = $con->query($sql1);
         <h2>Muelles</h2>
         <ul>
             <li><a href="agregar_muelle.php">Agregar</a></li>
-            <li><a href="editar_muelle.php">Editar</a></li>
-            <li><a href="eliminar_muelle.php">Eliminar</a></li>
         </ul>
         <form action="../php/muelle/buscar_muelle.php" method="POST">
             <input id="id_buscar_muelle" name="id_buscar_muelle" type="text" placeholder="Ingrese ID muelle">

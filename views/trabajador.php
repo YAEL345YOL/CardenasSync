@@ -24,7 +24,6 @@ $trabajador = $con->query($sql1);
         <h2>Trabajadores</h2>
         <ul>
             <li><a href="agregar_trabajador.php">Agregar</a></li>
-            <li><a href="eliminar_trabajador.php">Eliminar</a></li>
         </ul>
         <form action="../php/trabajador/buscar_trabajador.php" method="POST">
             <input id="id_buscar_trabajador" name="id_buscar_trabajador" type="number" placeholder="Ingrese ID trabajador">
