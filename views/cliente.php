@@ -23,10 +23,6 @@ $cliente = $con->query($sql1);
         <a href="index.php"><i class="fa-solid fa-house"></i></a>
         <h2>Clientes</h2>
 
-        <ul>
-            <li><a href="eliminar_cliente.php">Eliminar</a></li>
-        </ul>
-
         <form action="../php/cliente/buscar_cliente.php" method="POST">
             <input id="id_buscar_cliente" name="id_buscar_cliente" type="number" placeholder="ID cliente">
     

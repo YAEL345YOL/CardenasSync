@@ -26,5 +26,5 @@ $consulta->bind_param("ssssssss",$nombre,$apellido,$puesto,$fecha_nacimiento,$te
 $consulta->execute();
 $consulta->close();
 
-header("Location: ../../views/trabajador.php");
+header("Location: ../../views/index.php");
 ?>

@@ -2,9 +2,10 @@
 include "../php/connection.php";
 $con = connection();
 
-$sql1 = "SELECT * FROM trabajador".(isset($_GET["id"]) ? " WHERE id_trabajador = {$_GET["id"]}":"");;
+$sql1 = "SELECT * FROM trabajador WHERE id_trabajador = {$_GET["id"]}";
 
 $trabajador = $con->query($sql1);
+$trabajador_fila = $trabajador->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -25,9 +26,7 @@ $trabajador = $con->query($sql1);
         <label for="id_editar_trabajador">ID trabajador</label>
         <select id="id_editar_trabajador" name="id_editar_trabajador" required>
             <?php
-                while($fila = $trabajador->fetch_assoc()){
-                    echo "<option value='{$fila['id_trabajador']}'>{$fila['id_trabajador']}</option>";
-                }
+                echo "<option value='{$trabajador_fila['id_trabajador']}'>{$trabajador_fila['id_trabajador']}</option>";
             ?>
         </select>
 
